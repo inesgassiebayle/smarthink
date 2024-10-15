@@ -5,7 +5,7 @@ import Button from "./common/Button/Button";
 function App() {
   return (
     <div className="App">
-        <Button callback={()=>{}} text="Hello" disabled={false}>World</Button>
+        <Button variant={"filled"} size={"medium"}>Hello World</Button>
     </div>
   );
 }
