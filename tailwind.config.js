@@ -3,6 +3,19 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+        fontSize: {
+            xs: ['10px', '120%'],
+            sm: ['12px', '120%'],
+            base: ['16px', '120%'],
+            h5: ['20px', '120%'],
+            h4: ['24px', '120%'],
+            h2: ['28px', '120%'],
+            h1: ['32px', '120%'],
+        },
+        fontWeight: {
+            regular: 400,
+            bold: 700,
+        },
         colors: {
             primary: {
                 100: '#a9e0e1',
@@ -43,7 +56,17 @@ module.exports = {
                 warning: '#FFC75F',
                 error: '#F04E42'
             }
-        }
+        },
+        width: {
+            'icon-small': '16px',
+            'icon-medium': '24px',
+            'icon-large': '32px',
+        },
+        height: {
+            'icon-small': '16px',
+            'icon-medium': '24px',
+            'icon-large': '32px',
+        },
     },
   },
   plugins: [],
