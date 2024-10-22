@@ -15,16 +15,19 @@ const inputVariant = cva(
                     "border-grayscale-500",
                     "focus:border-primary-500",
                     "hover:border-primary-500",
+                    "placeholder:text-grayscale-500",
                 ],
                 error: [
                     "border-state-error",
                     "focus:border-state-error",
                     "hover:border-state-error",
+                    "placeholder:text-state-error",
                 ],
                 disabled: [
                     "border-primary-100",
                     "text-primary-100",
                     "cursor-not-allowed",
+                    "placeholder:text-disabled",
                 ],
             },
         },
@@ -34,11 +37,12 @@ const inputVariant = cva(
     }
 );
 
-export default function InputField({ state, icon: Icon, ...props }: InputProps) {
+export default function InputField({ state, icon: Icon, disabled, ...props }: InputProps) {
     return (
         <div className="relative inline-flex items-center w-full">
             <input
                 className={inputVariant({ state })}
+                disabled={state === "disabled" || disabled}
                 {...props}
             />
             {Icon && (

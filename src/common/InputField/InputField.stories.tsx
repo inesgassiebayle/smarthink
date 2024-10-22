@@ -29,12 +29,7 @@ const meta: Meta<typeof InputField> = {
         value: {
             control: { type: "text" },
             defaultValue: "",
-        },
-        disabled: {
-            control: { type: "boolean" },
-            description: "Disable the input field",
-            defaultValue: false,
-        },
+        }
     },
 };
 

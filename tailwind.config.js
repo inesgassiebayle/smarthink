@@ -41,6 +41,7 @@ module.exports = {
                 black: '#000000',
                 white: '#FFFFFF',
                 primary: '#29b1b5',
+                disabled: '#a9e0e1',
             },
             bg: {
                 white: '#FFFFFF'
