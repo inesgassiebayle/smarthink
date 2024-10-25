@@ -6,9 +6,10 @@ interface AnswerIconProps {
     shape: 'circle' | 'square';
     state: 'incorrect' | "correct" | "default";
     filled: boolean;
+    color?: string;
 }
 
-const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled }) => {
+const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, color }) => {
 
 
     const getIconVariant = () => {
@@ -30,7 +31,7 @@ const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled }) => {
 
 
     return (
-            <Icon variant={getIconVariant()} fill={filled} />
+            <Icon variant={getIconVariant()} fill={filled} style={{ color: color || 'currentColor' }}/>
     );
 };
 

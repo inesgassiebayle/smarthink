@@ -54,6 +54,7 @@ import { cva, VariantProps } from "class-variance-authority";
 
 export interface IconProps extends VariantProps<typeof iconVariant> {
     fill?: boolean;
+    style?: React.CSSProperties;
     variant:
         | "explore"
         | "bookmark"
@@ -109,7 +110,7 @@ const iconVariant = cva("text-primary-500", {
 });
 
 
-export default function Icon({ size, variant = "empty", fill = false }: IconProps) {
+export default function Icon({ size, variant = "empty", fill = false, style }: IconProps) {
     const iconClasses = iconVariant({ size });
 
     const icons = {
@@ -155,8 +156,8 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
     const SelectedIcon = icons[variant] || null;
 
     return SelectedIcon ? (
-        <SelectedIcon className={iconClasses} />
+        <SelectedIcon className={iconClasses} style={style}/>
     ) : (
-        <div className={iconClasses} />
+        <div className={iconClasses} style={style} />
     );
 }
