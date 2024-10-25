@@ -41,7 +41,15 @@ import {
     ForumOutlined,
     ChatBubbleOutlineOutlined,
     FileDownloadOutlined,
+    CheckBoxOutlined,
+    CancelOutlined,
+    Cancel,
+    DisabledByDefaultOutlined,
+    DisabledByDefault,
+    Square, SquareOutlined, Circle, CircleOutlined,
+
 } from "@mui/icons-material";
+
 import { cva, VariantProps } from "class-variance-authority";
 
 export interface IconProps extends VariantProps<typeof iconVariant> {
@@ -114,9 +122,9 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
         tick: DoneOutlined,
         clock: AccessTimeOutlined,
         correct_circle: fill ? CheckCircle : CheckCircleOutlineOutlined,
-        correct_square: CheckBoxOutlineBlank, // not correct
-        incorrect_circle: CloseOutlined, // not correct
-        incorrect_square: CloseOutlined, // not correct
+        correct_square: fill ? CheckBox: CheckBoxOutlined,
+        incorrect_circle: fill ? Cancel: CancelOutlined,
+        incorrect_square: fill ? DisabledByDefault: DisabledByDefaultOutlined,
         star: fill ? Star : StarBorderOutlined,
         close: CloseOutlined,
         add: AddOutlined,
@@ -131,8 +139,8 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
         bell: NotificationsOutlined,
         prize: StarBorderOutlined, // not correct
         export: FileUploadOutlined,
-        circle: fill ? RadioButtonChecked : RadioButtonUnchecked,
-        square: fill ? CheckBox : CheckBoxOutlineBlank,
+        circle: fill ? Circle : CircleOutlined,
+        square: fill ? Square : SquareOutlined,
         profile: AccountCircleOutlined,
         pin: RoomOutlined,
         video: VideoLibraryOutlined,
