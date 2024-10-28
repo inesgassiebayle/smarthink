@@ -32,7 +32,7 @@ module.exports = {
                 900: '#15595b',
             },
             grayscale: {
-                black: '#000000',
+                black: '#313E3F',
                 100: '#c9dcdc',
                 200: '#a5c4c5',
                 300: '#9FABAE',
@@ -41,7 +41,7 @@ module.exports = {
                 white: '#FFFFFF'
             },
             text: {
-                black: '#000000',
+                black: '#313E3F',
                 white: '#FFFFFF',
                 primary: '#29b1b5',
                 disabled: '#a9e0e1',

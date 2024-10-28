@@ -7,9 +7,9 @@ const navBarVariant = cva(["bg-white", "flex", "justify-between", "items-center"
 export default function NavBar() {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
-    const items: { variant: "explore" | "bookmark" | "heart"; active: boolean }[] = [
-        { variant: "explore", active: activeIndex === 0 },
-        { variant: "bookmark", active: activeIndex === 1 },
+    const items: { variant: "home" | "bookmark" | "heart"; active: boolean }[] = [
+        { variant: "bookmark", active: activeIndex === 0 },
+        { variant: "home", active: activeIndex === 1 },
         { variant: "heart", active: activeIndex === 2 },
     ];
 

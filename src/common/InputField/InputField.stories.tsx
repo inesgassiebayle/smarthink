@@ -1,6 +1,6 @@
 import InputField from "./InputField";
 import { Meta, StoryFn } from "@storybook/react";
-import AddIcon from "@mui/icons-material/Add";
+import { useState } from "react";
 
 const meta: Meta<typeof InputField> = {
     title: "Design System/Atoms/InputField",
@@ -13,29 +13,79 @@ const meta: Meta<typeof InputField> = {
             defaultValue: "default",
         },
         icon: {
+            options: [
+                null,
+                "explore",
+                "bookmark",
+                "heart",
+                "people",
+                "switch_left",
+                "switch_right",
+                "tick",
+                "clock",
+                "correct_circle",
+                "correct_square",
+                "incorrect_circle",
+                "incorrect_square",
+                "star",
+                "close",
+                "add",
+                "paper_clip",
+                "download",
+                "chat",
+                "chat_multiple",
+                "calendar",
+                "search",
+                "pencil",
+                "folder",
+                "bell",
+                "prize",
+                "export",
+                "circle",
+                "square",
+                "profile",
+                "pin",
+                "video",
+                "image",
+                "pause",
+                "play",
+                "back",
+                "menu",
+                "home",
+                "text",
+                "mic",
+                "smily",
+                "confetti",
+                "unlocked",
+                "empty",
+            ],
             control: { type: "select" },
-            options: ["None", "AddIcon"],
-            mapping: {
-                None: null,
-                AddIcon: AddIcon,
-            },
             description: "Optional icon to display on the right",
-            defaultValue: "None",
         },
         placeholder: {
             control: { type: "text" },
             defaultValue: "Input name",
         },
-        value: {
-            control: { type: "text" },
-            defaultValue: "",
-        }
     },
 };
 
 export default meta;
 
-const Template: StoryFn<typeof InputField> = (args) => <InputField {...args} />;
+const Template: StoryFn<typeof InputField> = (args) => {
+    const [value, setValue] = useState("");
+
+    const iconProps = args.icon ? { variant: args.icon, size: "medium" } : undefined;
+
+    return (
+        <InputField
+            {...args}
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+            icon={args.icon}
+            iconProps={iconProps}
+        />
+    );
+};
 
 export const InputFieldStory = Template.bind({});
 InputFieldStory.args = {
@@ -43,4 +93,5 @@ InputFieldStory.args = {
     placeholder: "Input name",
     value: "",
     disabled: false,
+    icon: null,
 };

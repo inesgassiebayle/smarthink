@@ -1,5 +1,7 @@
 import SearchBar from "./SearchBar";
 import { Meta, StoryFn } from "@storybook/react";
+import InputField from "../InputField/InputField";
+import {useState} from "react";
 
 const meta: Meta<typeof SearchBar> = {
     title: "Design System/Atoms/SearchBar",
@@ -31,7 +33,17 @@ const meta: Meta<typeof SearchBar> = {
 
 export default meta;
 
-const Template: StoryFn<typeof SearchBar> = (args) => <SearchBar {...args} />;
+
+const Template: StoryFn<typeof SearchBar> = (args) => {
+    const [value, setValue] = useState("");
+
+    return (
+        <div>
+            <SearchBar {...args} />
+        </div>
+
+    );
+};
 
 export const SearchBarStory = Template.bind({});
 SearchBarStory.args = {

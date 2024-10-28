@@ -8,9 +8,6 @@ import {
     CheckCircleOutlineOutlined,
     StarBorderOutlined,
     AddOutlined,
-    MessageOutlined,
-    InfoOutlined,
-    HomeOutlined,
     FmdGood,
     Bookmark,
     Favorite,
@@ -41,11 +38,29 @@ import {
     ForumOutlined,
     ChatBubbleOutlineOutlined,
     FileDownloadOutlined,
+    CheckBoxOutlined,
+    CancelOutlined,
+    Cancel,
+    DisabledByDefaultOutlined,
+    DisabledByDefault,
+    PauseOutlined,
+    PlayArrowOutlined,
+    HomeOutlined,
+    Home,
+    TextFields,
+    Mic,
+    SentimentSatisfiedAlt,
+    CelebrationOutlined,
+    Celebration,
+    LockOpenOutlined,
+    LockOpen,
 } from "@mui/icons-material";
 import { cva, VariantProps } from "class-variance-authority";
 
 export interface IconProps extends VariantProps<typeof iconVariant> {
     fill?: boolean;
+    size?: "small" | "medium" | "large";
+    colorClass?: string;
     variant:
         | "explore"
         | "bookmark"
@@ -80,31 +95,29 @@ export interface IconProps extends VariantProps<typeof iconVariant> {
         | "video"
         | "image"
         | "pause"
+        | "play"
         | "back"
         | "menu"
-        | "lock"
+        | "home"
+        | "text"
+        | "mic"
+        | "smily"
+        | "confetti"
+        | "unlocked"
         | "empty";
 }
 
+const iconVariant = cva();
 
-const iconVariant = cva("text-primary-500", {
-    variants: {
-        size: {
-            small: ["w-6", "h-6"],
-            medium: ["w-8", "h-8"],
-            large: ["w-12", "h-12"],
-        },
-    },
-    defaultVariants: {
-        size: "medium",
-    },
-});
+export default function Icon({ size = "medium", variant = "empty", fill = false, colorClass = "text-primary-500" }: IconProps) {
 
+    const sizeMap = {
+        small: 16,
+        medium: 24,
+        large: 32,
+    };
 
-export default function Icon({ size, variant = "empty", fill = false }: IconProps) {
-    const iconClasses = iconVariant({ size });
-
-    const icons = {
+    const icons: Record<string, React.ElementType | null> = {
         explore: fill ? FmdGood : FmdGoodOutlined,
         bookmark: fill ? Bookmark : BookmarkBorderOutlined,
         heart: fill ? Favorite : FavoriteBorderOutlined,
@@ -114,9 +127,9 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
         tick: DoneOutlined,
         clock: AccessTimeOutlined,
         correct_circle: fill ? CheckCircle : CheckCircleOutlineOutlined,
-        correct_square: CheckBoxOutlineBlank, // not correct
-        incorrect_circle: CloseOutlined, // not correct
-        incorrect_square: CloseOutlined, // not correct
+        correct_square: fill ? CheckBox : CheckBoxOutlined,
+        incorrect_circle: fill ? Cancel : CancelOutlined,
+        incorrect_square: fill ? DisabledByDefault : DisabledByDefaultOutlined,
         star: fill ? Star : StarBorderOutlined,
         close: CloseOutlined,
         add: AddOutlined,
@@ -129,7 +142,7 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
         pencil: EditOutlined,
         folder: FolderOutlined,
         bell: NotificationsOutlined,
-        prize: StarBorderOutlined, // not correct
+        prize: StarBorderOutlined,
         export: FileUploadOutlined,
         circle: fill ? RadioButtonChecked : RadioButtonUnchecked,
         square: fill ? CheckBox : CheckBoxOutlineBlank,
@@ -137,18 +150,27 @@ export default function Icon({ size, variant = "empty", fill = false }: IconProp
         pin: RoomOutlined,
         video: VideoLibraryOutlined,
         image: ImageOutlined,
-        pause: PauseCircleOutlineOutlined,
+        pause: PauseOutlined,
+        play: PlayArrowOutlined,
         back: KeyboardArrowLeftOutlined,
         menu: MenuOutlined,
-        lock: LockOutlined,
+        home: fill ? Home : HomeOutlined,
+        text: TextFields,
+        mic: Mic,
+        smily: SentimentSatisfiedAlt,
+        confetti: fill ? Celebration : CelebrationOutlined,
+        unlocked: fill ? LockOpen : LockOpenOutlined,
         empty: null,
     };
 
-    const SelectedIcon = icons[variant] || null;
+    const SelectedIcon = icons[variant] ?? null;
 
     return SelectedIcon ? (
-        <SelectedIcon className={iconClasses} />
+        <SelectedIcon
+            className={colorClass}
+            sx={{ width: sizeMap[size], height: sizeMap[size] }}
+        />
     ) : (
-        <div className={iconClasses} />
+        <div className={colorClass} style={{ width: sizeMap[size], height: sizeMap[size] }} />
     );
 }

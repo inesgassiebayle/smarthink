@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { Avatar, Box, Typography } from "@mui/material";
 
 interface TeacherTagProps {
     name: string;
@@ -14,40 +13,35 @@ const TeacherTag: FunctionComponent<TeacherTagProps> = ({
                                                         }) => {
     const sizes = {
         small: {
-            avatarSize: 8,
-            fontSize: "10px",
-            lineHeight: "120%",
+            avatarSize: "w-icon-small h-icon-small",
+            fontSize: "text-xs",
+            lineHeight: "leading-[120%]",
         },
         medium: {
-            avatarSize: 24,
-            fontSize: "10px",
-            lineHeight: "120%",
+            avatarSize: "w-icon-medium h-icon-medium",
+            fontSize: "text-xs",
+            lineHeight: "leading-[120%]",
         },
         large: {
-            avatarSize: 32,
-            fontSize: "12px",
-            lineHeight: "120%",
+            avatarSize: "w-icon-large h-icon-large",
+            fontSize: "text-sm",
+            lineHeight: "leading-[120%]",
         },
     };
 
     return (
-        <Box sx={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            <Avatar src={avatarSrc} sx={{ width: sizes[size].avatarSize, height: sizes[size].avatarSize }} />
-            <Typography
-                variant="body2"
-                sx={{
-                    fontSize: sizes[size].fontSize,
-                    lineHeight: sizes[size].lineHeight,
-                    color: "#000",
-                    maxWidth: "180px",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden",
-                    whiteSpace: "nowrap",
-                }}
+        <div className="flex items-center gap-[var(--Space-200,8px)] w-full">
+            <img
+                src={avatarSrc}
+                alt="Teacher Avatar"
+                className={`rounded-full ${sizes[size].avatarSize}`}
+            />
+            <span
+                className={`flex-1 truncate overflow-hidden whitespace-nowrap font-inter ${sizes[size].fontSize} ${sizes[size].lineHeight} text-text-black`}
             >
                 {name}
-            </Typography>
-        </Box>
+            </span>
+        </div>
     );
 };
 

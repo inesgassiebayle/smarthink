@@ -1,18 +1,12 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
-import {
-    FavoriteBorderOutlined,
-    FmdGoodOutlined,
-    BookmarkBorderOutlined,
-    Bookmark,
-    Favorite,
-    FmdGood,
-} from "@mui/icons-material";
+import Icon from "../Icon/Icon";
 
 export interface NavItemProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement>,
         VariantProps<typeof navItemVariant> {
     active: boolean;
+    variant: "home" | "heart" | "bookmark";
 }
 
 const navItemVariant = cva(
@@ -20,7 +14,7 @@ const navItemVariant = cva(
     {
         variants: {
             variant: {
-                explore: [],
+                home: [],
                 heart: [],
                 bookmark: [],
             },
@@ -38,26 +32,11 @@ export default function NavItem({
             className={`${navItemVariant({ variant })} w-8 h-8`}
             {...props}
         >
-            {variant === "explore" && !active && (
-                <FmdGoodOutlined className="w-6 h-6 text-primary-500" />
-            )}
-            {variant === "explore" && active && (
-                <FmdGood className="w-6 h-6 text-primary-500" />
-            )}
-
-            {variant === "heart" && !active && (
-                <FavoriteBorderOutlined className="w-6 h-6 text-primary-500" />
-            )}
-            {variant === "heart" && active && (
-                <Favorite className="w-6 h-6 text-primary-500" />
-            )}
-
-            {variant === "bookmark" && !active && (
-                <BookmarkBorderOutlined className="w-6 h-6 text-primary-500" />
-            )}
-            {variant === "bookmark" && active && (
-                <Bookmark className="w-6 h-6 text-primary-500" />
-            )}
+            <Icon
+                variant={variant}
+                size="medium"
+                fill={active}
+            />
         </button>
     );
 }
