@@ -1,5 +1,5 @@
 import React from 'react';
-import {Meta, StoryFn} from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import ProgressMapIcon, { ProgressMapIconProps } from './ProgressMapIcon';
 
 export default {
@@ -12,6 +12,12 @@ export default {
                 options: ['default', 'in-progress', 'completed'],
             },
         },
+        state: {
+            control: {
+                type: 'select',
+                options: ['end', 'middle'],
+            },
+        },
     },
 } as Meta<ProgressMapIconProps>;
 
@@ -20,4 +26,5 @@ const Template: StoryFn<ProgressMapIconProps> = (args) => <ProgressMapIcon {...a
 export const ProgressMapIconStory = Template.bind({});
 ProgressMapIconStory.args = {
     variant: 'default',
+    state: 'end',
 };
