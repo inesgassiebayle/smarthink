@@ -4,12 +4,14 @@ import PersonTag from "../TeacherTag/PersonTag";
 import SubjectTag from "../SubjectTag/SubjectTag";
 
 export interface CourseCardProps extends VariantProps<typeof courseCardVariant> {
+    id: string;
     variant: "horizontal" | "vertical";
     teacher: string;
     title: string;
     subject: string;
     avatarSource: string;
     courseSource: string;
+    onClick?: () => void;
 }
 
 const courseCardVariant = cva(
@@ -21,7 +23,7 @@ const courseCardVariant = cva(
         variants: {
             variant: {
                 horizontal: ["w-full h-[80px] flex-shrink-0"],
-                vertical: ["w-[142px] h-[142px] flex-col pb-2"],
+                vertical: ["w-[150px] h-[150px] flex-col pb-2"],
             },
         },
     }
@@ -34,10 +36,11 @@ export default function CourseCard({
                                        subject,
                                        avatarSource,
                                        courseSource,
+                                       onClick,
                                        ...props
                                    }: CourseCardProps) {
     return (
-        <div className={courseCardVariant({ variant })} {...props}>
+        <div className={courseCardVariant({ variant })} onClick={onClick} {...props}>
             {variant === "horizontal" ? (
                 <>
                     <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch">
@@ -45,8 +48,8 @@ export default function CourseCard({
                             <div className="flex flex-col items-start gap-1 self-stretch">
                                 <SubjectTag subject={subject} />
                                 <span className="text-text-black font-inter text-base font-regular leading-[120%] self-stretch">
-                  {title}
-                </span>
+                                    {title}
+                                </span>
                             </div>
                             <PersonTag name={teacher} avatarSrc={avatarSource} size={"medium"} />
                         </div>
@@ -75,7 +78,6 @@ export default function CourseCard({
                         </span>
                         <PersonTag name={teacher} avatarSrc={avatarSource} size={"small"} />
                     </div>
-                    {/* TODO ADD THE PADDING BOTTOM 8PX */}
                 </>
             )}
         </div>

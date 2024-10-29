@@ -1,10 +1,12 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import Icon, { IconProps } from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariant> {
     icon?: IconProps['variant'] | null;
     iconProps?: Omit<IconProps, "size">;
+    onClick?: () => void;
 }
 
 const inputVariant = cva(
@@ -41,19 +43,20 @@ const inputVariant = cva(
     }
 );
 
-export default function InputField({ state, icon, disabled, iconProps, ...props }: InputProps) {
+export default function InputField({ state, icon, disabled, iconProps, onClick = () => {}, ...props }: InputProps) {
     return (
         <div className="inline-flex items-center w-full">
             <input
                 className={inputVariant({ state })}
                 disabled={state === "disabled" || disabled}
                 {...props}
-            />
-            // TODO FIX THE ICON
-            {icon && (
-                <div className="cursor-pointer">
-                    <Icon
 
+
+            />
+            {icon && (
+                <div className="cursor-pointer relative">
+                    <ButtonIcon
+                        onClick={onClick}
                         variant={icon}
                         size="medium"
                         {...iconProps}

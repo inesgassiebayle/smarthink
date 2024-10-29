@@ -10,7 +10,6 @@ import man1 from "../../assets/avatar-boy1.jpg";
 import man2 from "../../assets/man2.jpg";
 import statistics from "../../assets/statistics.jpg";
 
-
 export default {
     title: "Design System/Molecules/CategoryCourses",
     component: CategoryCourses,
@@ -18,17 +17,17 @@ export default {
         title: {
             control: { type: "text" },
             description: "Title of the category",
-            defaultValue: "Featured Courses",
         },
         onClick: {
             action: "clicked",
             description: "Handler for the 'View All' button click",
         },
     },
-} as Meta<typeof CategoryCourses>;
+} as Meta<CategoryCoursesProps>;
 
 const coursesData: Omit<CourseCardProps, 'variant'>[] = [
     {
+        id: "1",
         teacher: "Jane Doe",
         title: "William Shakespeare",
         subject: "Literature",
@@ -36,6 +35,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: literature,
     },
     {
+        id: "2",
         teacher: "John Smith Richardson",
         title: "Physics Basics",
         subject: "Physics",
@@ -43,6 +43,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: physics,
     },
     {
+        id: "3",
         teacher: "Tom Doe",
         title: "Derivatives",
         subject: "Math",
@@ -50,6 +51,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: math,
     },
     {
+        id: "4",
         teacher: "Jane Doe",
         title: "Poisson Distribution",
         subject: "Statistics",
@@ -64,5 +66,4 @@ export const Default = Template.bind({});
 Default.args = {
     title: "Featured Courses",
     courses: coursesData,
-    onClick: () => console.log("View All button clicked"),
 };

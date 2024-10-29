@@ -15,8 +15,12 @@ const navBarVariant = cva([
     "px-8",
 ]);
 
-export default function NavBar() {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+export interface NavBarProps {
+    index?: number | null;
+}
+
+export default function NavBar({ index = null }: NavBarProps) {
+    const [activeIndex, setActiveIndex] = useState<number | null>(index);
 
     const items: { variant: "home" | "bookmark" | "heart"; active: boolean }[] = [
         { variant: "bookmark", active: activeIndex === 0 },
@@ -24,22 +28,22 @@ export default function NavBar() {
         { variant: "heart", active: activeIndex === 2 },
     ];
 
-    const handleNavItemClick = (index: number) => {
-        if (index === activeIndex) {
+    const handleNavItemClick = (clickedIndex: number) => {
+        if (clickedIndex === activeIndex) {
             setActiveIndex(null);
         } else {
-            setActiveIndex(index);
+            setActiveIndex(clickedIndex);
         }
     };
 
     return (
         <nav className={navBarVariant()}>
-            {items.map((item, index) => (
+            {items.map((item, itemIndex) => (
                 <NavItem
-                    key={index}
+                    key={itemIndex}
                     variant={item.variant}
                     active={item.active}
-                    onClick={() => handleNavItemClick(index)}
+                    onClick={() => handleNavItemClick(itemIndex)}
                 />
             ))}
         </nav>
