@@ -20,7 +20,6 @@ const ProgressMap: FunctionComponent<ProgressMapProps> = ({ modules, moduleState
                 } else {
                     variant = "default";
                 }
-                {/* TODO hide the scrollbar for mobile */}
 
                 return (
                     <ProgressMapModule
