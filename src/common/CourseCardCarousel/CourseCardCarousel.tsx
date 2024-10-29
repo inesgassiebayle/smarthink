@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FunctionComponent} from "react";
 import CourseCard, { CourseCardProps } from "../CourseCard/CourseCard";
 
 interface CourseCardCarouselProps {
@@ -6,7 +6,7 @@ interface CourseCardCarouselProps {
     courses: Omit<CourseCardProps, 'variant'>[];
 }
 
-const CourseCardCarousel: React.FC<CourseCardCarouselProps> = ({ courses, variant }) => {
+const CourseCardCarousel: FunctionComponent<CourseCardCarouselProps> = ({ courses, variant }) => {
     return (
         <div className="course-card-carousel">
             {variant === "horizontal" ? (

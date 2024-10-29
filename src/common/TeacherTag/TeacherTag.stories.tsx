@@ -1,19 +1,19 @@
 import { Meta, StoryFn } from "@storybook/react";
-import TeacherTag from './TeacherTag';
-import avatarImage from '../../stories/assets/avatar.png';
+import PersonTag from './PersonTag';
+import avatarImage from '../../assets/avatar-boy1.jpg';
 
 export default {
     title: "Design System/Atoms/TeacherTag",
-    component: TeacherTag,
+    component: PersonTag,
     argTypes: {
         size: {
             control: { type: "select" },
             options: ["small", "medium", "large"],
         },
     },
-} as Meta<typeof TeacherTag>;
+} as Meta<typeof PersonTag>;
 
-const Template: StoryFn<typeof TeacherTag> = (args) => <TeacherTag {...args} />;
+const Template: StoryFn<typeof PersonTag> = (args) => <PersonTag {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

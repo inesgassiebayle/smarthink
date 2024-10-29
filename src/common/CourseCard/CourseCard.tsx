@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import TeacherTag from "../TeacherTag/TeacherTag";
+import PersonTag from "../TeacherTag/PersonTag";
 import SubjectTag from "../SubjectTag/SubjectTag";
 
 export interface CourseCardProps extends VariantProps<typeof courseCardVariant> {
@@ -20,7 +20,7 @@ const courseCardVariant = cva(
     {
         variants: {
             variant: {
-                horizontal: ["w-[344px] h-[80px] flex-shrink-0"],
+                horizontal: ["w-full h-[80px] flex-shrink-0"],
                 vertical: ["w-[142px] h-[142px] flex-col pb-2"],
             },
         },
@@ -48,7 +48,7 @@ export default function CourseCard({
                   {title}
                 </span>
                             </div>
-                            <TeacherTag name={teacher} avatarSrc={avatarSource} size={"medium"} />
+                            <PersonTag name={teacher} avatarSrc={avatarSource} size={"medium"} />
                         </div>
                     </div>
                     <img
@@ -73,7 +73,7 @@ export default function CourseCard({
                         <span className="overflow-hidden text-text-black text-ellipsis font-inter text-base font-regular leading-[120%] self-stretch line-clamp-2">
                             {title}
                         </span>
-                        <TeacherTag name={teacher} avatarSrc={avatarSource} size={"small"} />
+                        <PersonTag name={teacher} avatarSrc={avatarSource} size={"small"} />
                     </div>
                     {/* TODO ADD THE PADDING BOTTOM 8PX */}
                 </>

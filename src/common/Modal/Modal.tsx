@@ -2,7 +2,7 @@ import { FunctionComponent, ReactNode } from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Box , Typography} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import Button from "../Button/Button";
-import TeacherTag from "../TeacherTag/TeacherTag";
+import PersonTag from "../TeacherTag/PersonTag";
 import Icon from "../Icon/Icon";
 import { useState } from "react";
 
@@ -115,7 +115,7 @@ const Modal: FunctionComponent<ModalProps> = ({
 
                     {teacherTag && (
                         <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: '16px' }}>
-                            <TeacherTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
+                            <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
                         </Box>
                     )}
                 </DialogContent>

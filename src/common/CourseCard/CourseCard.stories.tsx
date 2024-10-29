@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import CourseCard, { CourseCardProps } from "./CourseCard";
@@ -38,7 +37,17 @@ export default {
     },
 } as Meta<CourseCardProps>;
 
-const Template: StoryFn<CourseCardProps> = (args) => <CourseCard {...args} />;
+const Template: StoryFn<CourseCardProps> = (args) => (
+    <div
+        className={
+            args.variant === "horizontal"
+                ? "w-[344px]"
+                : "w-[142px] h-[142px]"
+        }
+    >
+        <CourseCard {...args} />
+    </div>
+);
 
 export const CourseCardStory = Template.bind({});
 CourseCardStory.args = {
@@ -49,4 +58,3 @@ CourseCardStory.args = {
     avatarSource: avatarImage,
     courseSource: courseImage,
 };
-
