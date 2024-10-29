@@ -84,7 +84,7 @@ export const Modal_Image_Button = Template.bind({});
 Modal_Image_Button.args = {
     isOpen: true,
     title: "Title",
-    content: "Content of the modal goes here...",
+    content: "Content of the modal goes here.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.",
     showCloseIcon: false,
     imageSrc: courseImage,
     teacherTag: undefined,
@@ -98,7 +98,7 @@ export const Modal_Teacher_Image = Template.bind({});
 Modal_Teacher_Image.args = {
     isOpen: true,
     title: "Title",
-    content: "Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. ",
+    content: "Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text.Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. Content of the modal goes here taking into consideration the length of the text. ",
     showCloseIcon: true,
     imageSrc: courseImage,
     teacherTag: { name: "Iván Rodríguez Vuillermoz", avatarSrc: avatarImage },

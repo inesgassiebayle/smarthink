@@ -58,7 +58,7 @@ const Modal: FunctionComponent<ModalProps> = ({
                     boxSizing: 'border-box',
                 }}
             >
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", borderBottom: "1px solid #6C6F6F",}}>
+                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", borderBottom: "1px solid #6C6F6F"}}>
                     <DialogTitle
                         sx={{
                             color: 'var(--Grayscale-black, #000)',
@@ -67,6 +67,8 @@ const Modal: FunctionComponent<ModalProps> = ({
                             fontWeight: 700,
                             lineHeight: '120%',
                             padding: "20px 24px",
+                            paddingLeft: '0',
+                            marginLeft: 0,
                         }}
                     >
                         {icon && <Box sx={{ marginRight: 2 }}>{icon}</Box>}
@@ -92,7 +94,7 @@ const Modal: FunctionComponent<ModalProps> = ({
                     }}
                 >
                     {content && (
-                        <Box sx={{ padding: '16px', width: '100%', boxSizing: 'border-box', overflowY: 'auto', maxHeight: '400px' }}>
+                        <Box sx={{ paddingY: '16px', width: '100%', boxSizing: 'border-box', overflowY: 'auto', maxHeight: '400px' }}>
                             <Typography
                                 variant="body1"
                                 sx={{
@@ -108,21 +110,22 @@ const Modal: FunctionComponent<ModalProps> = ({
                     )}
 
                     {imageSrc && (
-                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
                             <img src={imageSrc} alt={imageAlt || "Image"} style={{ maxWidth: '100%', height: 'auto' }} />
                         </Box>
                     )}
 
                     {teacherTag && (
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: '16px' }}>
+                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: '16px', paddingBottom: '16px' , gap: '8px'}}>
                             <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
                         </Box>
                     )}
                 </DialogContent>
+            </Box>
 
                 {buttons && buttons.length > 0 && (
                     <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', p: '8px' ,
-                        borderTop: "1px solid #6C6F6F"}}>
+                        borderTop: "1px solid #6C6F6F", width: '100%'}}>
 
                         {buttons.length === 1 && (
                             <IconButton onClick={handleIconClick}>
@@ -142,8 +145,6 @@ const Modal: FunctionComponent<ModalProps> = ({
                         ))}
                     </Box>
                 )}
-
-            </Box>
         </Dialog>
     );
 };
