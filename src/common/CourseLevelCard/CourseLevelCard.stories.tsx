@@ -1,11 +1,11 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import CourseCard, { CourseLevelCardProps } from "./CourseLevelCard";
 import sampleImage from "../../assets/statistics.jpg";
+import CourseLevelCard from "./CourseLevelCard";
 
 export default {
     title: "Design System/Molecules/CourseCard",
-    component: CourseCard,
+    component: CourseLevelCard,
     argTypes: {
         variant: {
             control: 'radio',
@@ -29,12 +29,12 @@ export default {
             description: 'The title of the course (for standard variant).',
         },
     },
-} as Meta<typeof CourseCard>;
+} as Meta<typeof CourseLevelCard>;
 
-const Template: StoryFn<typeof CourseCard> = (args) => {
+const Template: StoryFn<typeof CourseLevelCard> = (args) => {
     return (
         <div className="w-[344px]">
-            <CourseCard {...args} />
+            <CourseLevelCard {...args} />
         </div>
     )
 }

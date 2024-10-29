@@ -9,7 +9,7 @@ const meta: Meta<typeof NavBar> = {
 
 export default meta;
 
-const Template: StoryFn<typeof NavBar> = () => <NavBar />;
+const Template: StoryFn<typeof NavBar> = (args) => <NavBar {...(args as {})} />;
 
 export const DefaultNavBar = Template.bind({});
 DefaultNavBar.args = {};

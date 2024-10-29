@@ -1,5 +1,4 @@
-import {FunctionComponent} from "react";
-import {IconProps} from "../Icon/Icon";
+import { FunctionComponent } from "react";
 import HeaderIcon from "../HeaderIcon/HeaderIcon";
 
 export interface HeaderProps {
@@ -14,19 +13,28 @@ export interface HeaderProps {
     onIconClick4?: () => void;
 }
 
-const Header:FunctionComponent<HeaderProps> = ({title, icon1 = "empty", icon2 = "empty", icon3 = "empty", icon4 = "empty", onIconClick1 = ()=>{}, onIconClick2 = ()=>{}, onIconClick3 = ()=>{}, onIconClick4 = ()=>{}}) => {
+const Header: FunctionComponent<HeaderProps> = ({
+                                                    title,
+                                                    icon1 = "empty",
+                                                    icon2 = "empty",
+                                                    icon3 = "empty",
+                                                    icon4 = "empty",
+                                                    onIconClick1 = () => {},
+                                                    onIconClick2 = () => {},
+                                                    onIconClick3 = () => {},
+                                                    onIconClick4 = () => {},
+                                                }) => {
     return (
-        <div className="flex w-[360px] h-[88px] p-[var(--Icon-Small,24px)] justify-center items-center gap-[var(--Space-400,16px)]">
-            <HeaderIcon variant={icon1} onClick={onIconClick1}/>
-            <HeaderIcon variant={icon2} onClick={onIconClick2}/>
-            <span className="text-primary-500 text-text-titles text-center font-inter text-h5 font-regular leading-[120%] max-w-[264px] flex-[1_0_0]">
-                {title}
-            </span>
-            <HeaderIcon variant={icon3} onClick={onIconClick3}/>
-            <HeaderIcon variant={icon4} onClick={onIconClick4}/>
+        <div className="flex w-full h-[88px] p-6 justify-center items-center gap-4 bg-white border-b-2 border-primary-500">
+            <HeaderIcon variant={icon1} onClick={onIconClick1} />
+            <HeaderIcon variant={icon2} onClick={onIconClick2} />
+            <span className="text-primary-500 text-center font-inter text-xl font-regular leading-[120%] flex-1">
+        {title}
+      </span>
+            <HeaderIcon variant={icon3} onClick={onIconClick3} />
+            <HeaderIcon variant={icon4} onClick={onIconClick4} />
         </div>
-
-
     );
 };
+
 export default Header;
