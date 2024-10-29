@@ -1,8 +1,5 @@
-// Icon.stories.tsx
-
 import { Meta, StoryFn } from "@storybook/react";
 import Icon from "./Icon";
-import NavItem from "../NavItem/NavItem"; // Assuming Icon component is in the same directory
 
 const meta: Meta<typeof Icon> = {
     title: "Design System/Atoms/Icon",
@@ -43,9 +40,15 @@ const meta: Meta<typeof Icon> = {
                 "video",
                 "image",
                 "pause",
+                "play",
                 "back",
                 "menu",
-                "lock",
+                "home",
+                "text",
+                "mic",
+                "smily",
+                "confetti",
+                "unlocked",
                 "empty",
             ],
             control: { type: "select" },
@@ -74,6 +77,7 @@ const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />;
 
 export const IconStory = Template.bind({});
 IconStory.args = {
-    variant: 'menu',
+    variant: 'bookmark',
     size: 'medium',
+    fill: false,
 };

@@ -6,7 +6,7 @@ const meta: Meta<typeof NavItem> = {
     component: NavItem,
     argTypes: {
         variant: {
-            options: ["bookmark", "heart", "explore"],
+            options: ["bookmark", "heart", "home"],
             control: {type: "select"},
             description: 'Nav Item Variant',
         },

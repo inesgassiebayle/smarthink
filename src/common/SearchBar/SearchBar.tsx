@@ -2,11 +2,19 @@ import { useState, useEffect } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 import { ClearOutlined, SearchOutlined } from "@mui/icons-material";
+import Icon from "../Icon/Icon";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariant> {}
 
 const inputVariant = cva(
-    ["rounded-3xl", "px-4", "py-2", "h-10", "w-60", "border", "focus:outline-none"],
+    [
+        "flex",
+        "p-[var(--Space-200,8px)]",
+        "items-center",
+        "gap-[var(--Space-200,8px)]",
+        "rounded-[24px]",
+        "border-[0.8px]",
+    ],
     {
         variants: {
             state: {
@@ -22,7 +30,7 @@ const inputVariant = cva(
 );
 
 export default function SearchBar({ state: initialState, disabled, ...props }: InputProps) {
-    const [value, setValue] = useState<string>(props.value as string || "");
+    const [value, setValue] = useState("");
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
@@ -51,19 +59,29 @@ export default function SearchBar({ state: initialState, disabled, ...props }: I
     };
 
     return (
-        <div className="relative inline-flex items-center w-full">
+        <div className={`${inputVariant({ state })} flex items-center`}>
+            // TODO FIX THE WRITING
             <input
-                className={inputVariant({ state })}
                 value={value}
                 onChange={handleInputChange}
                 disabled={disabled}
+                className="flex-grow bg-transparent border-none focus:outline-none px-2"
                 {...props}
             />
-            <div className="absolute right-3 cursor-pointer">
+            <div className="cursor-pointer">
                 {disabled || state === "default" ? (
-                    <SearchOutlined className="text-grayscale-500" />
+                    <Icon
+                        variant={"search"}
+                        size="medium"
+                        fill={false}
+                        colorClass={"text-grayscale-500"}
+                    />
                 ) : (
-                    <ClearOutlined className="text-primary-500" onClick={handleClear} />
+                    <Icon
+                        variant={"close"}
+                        size="medium"
+                        fill={false}
+                    />
                 )}
             </div>
         </div>

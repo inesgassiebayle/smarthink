@@ -1,29 +1,33 @@
-import { FunctionComponent } from "react";
-import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
+import { cva, VariantProps } from "class-variance-authority";
+import Icon, { IconProps } from "../Icon/Icon";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariant> {
-    icon?: FunctionComponent<any>;
+    icon?: IconProps['variant'] | null;
+    iconProps?: Omit<IconProps, "size">;
 }
 
 const inputVariant = cva(
-    ["rounded-lg", "px-4", "py-2", "w-full", "border", "focus:outline-none", "h-16"],
+    ["flex w-[296px] p-4 items-center gap-2 rounded-md border bg-white focus:outline-none focus:ring-0 items-center"],
     {
         variants: {
             state: {
                 default: [
                     "border-grayscale-500",
-                    "focus:border-primary-500",
+                    "text-grayscale-500",
                     "hover:border-primary-500",
+                    "focus:border-primary-500",
                     "placeholder:text-grayscale-500",
                 ],
                 error: [
                     "border-state-error",
+                    "text-black",
                     "focus:border-state-error",
                     "hover:border-state-error",
                     "placeholder:text-state-error",
                 ],
                 disabled: [
+                    "bg-white",
                     "border-primary-100",
                     "text-primary-100",
                     "cursor-not-allowed",
@@ -37,18 +41,24 @@ const inputVariant = cva(
     }
 );
 
-export default function InputField({ state, icon: Icon, disabled, ...props }: InputProps) {
+export default function InputField({ state, icon, disabled, iconProps, ...props }: InputProps) {
     return (
-        <div className="relative inline-flex items-center w-full">
+        <div className="inline-flex items-center w-full">
             <input
                 className={inputVariant({ state })}
                 disabled={state === "disabled" || disabled}
                 {...props}
             />
-            {Icon && (
-                <Icon
-                    className={`absolute right-3 w-icon-medium h-icon-medium ${state === "error" ? "text-state-error" : state === "disabled" ? "text-primary-100" : "text-primary-500"}`}
-                />
+            // TODO FIX THE ICON
+            {icon && (
+                <div className="cursor-pointer">
+                    <Icon
+
+                        variant={icon}
+                        size="medium"
+                        {...iconProps}
+                    />
+                </div>
             )}
         </div>
     );
