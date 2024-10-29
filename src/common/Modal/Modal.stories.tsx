@@ -18,7 +18,7 @@ const meta: Meta<typeof Modal> = {
         buttons: {
             control: { type: "object" },
             defaultValue: [
-                { label: 'Cancel', onClick: () => alert('Cancel'), variant: 'outlined' },
+                { label: 'Cancel', onClick: () => alert('Cancel'), variant: 'outlined' , icon: <AddIcon />},
                 { label: 'Confirm', onClick: () => alert('Confirm'), variant: 'filled' },
             ],
         },
@@ -89,8 +89,16 @@ Modal_Image_Button.args = {
     imageSrc: courseImage,
     teacherTag: undefined,
     buttons: [
-        { label: 'Button', onClick: () => alert('Button'), variant: 'filled' },
-        { label: 'Button', onClick: () => alert('Button'), variant: 'outlined' },
+        {
+            label: 'Button',
+            onClick: () => alert('Button with icon'),
+            variant: 'filled',
+        },
+        {
+            label: 'Button',
+            onClick: () => alert('Button without icon'),
+            variant: 'outlined',
+        },
     ],
 };
 

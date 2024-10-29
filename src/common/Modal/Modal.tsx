@@ -1,10 +1,7 @@
-import { FunctionComponent, ReactNode } from "react";
-import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Box , Typography} from "@mui/material";
-import CloseIcon from '@mui/icons-material/Close';
+import { FunctionComponent, ReactNode, useState } from "react";
 import Button from "../Button/Button";
 import PersonTag from "../TeacherTag/PersonTag";
 import Icon from "../Icon/Icon";
-import { useState } from "react";
 
 export interface ModalProps {
     isOpen: boolean;
@@ -17,7 +14,7 @@ export interface ModalProps {
     buttons?: { label: string; onClick: () => void; variant?: 'filled' | 'outlined' }[];
     icon?: ReactNode;
     teacherTag?: { name: string; avatarSrc: string };
-    actionIconVariant?: 'heart' ;
+    actionIconVariant?: 'heart';
 }
 
 const Modal: FunctionComponent<ModalProps> = ({
@@ -39,100 +36,54 @@ const Modal: FunctionComponent<ModalProps> = ({
         setIsIconFilled(!isIconFilled);
     };
 
+    if (!isOpen) return null;
+
     return (
-        <Dialog open={isOpen} onClose={onClose} maxWidth="sm"  PaperProps={{
-            style: {
-                borderRadius: '24px',
-            }
-        }} >
-            <Box
-                sx={{
-                    display: "flex",
-                    padding: "16px",
-                    flexDirection: "column",
-                    gap: "8px",
-                    width: '100%',
-                    background: "#FFFFFF",
-                    borderRadius: "8px",
-                    overflow: 'hidden',
-                    boxSizing: 'border-box',
-                }}
-            >
-                <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", borderBottom: "1px solid #6C6F6F"}}>
-                    <DialogTitle
-                        sx={{
-                            color: 'var(--Grayscale-black, #000)',
-                            fontFamily: 'Inter, sans-serif',
-                            fontSize: '20px',
-                            fontWeight: 700,
-                            lineHeight: '120%',
-                            padding: "20px 24px",
-                            paddingLeft: '0',
-                            marginLeft: 0,
-                        }}
-                    >
-                        {icon && <Box sx={{ marginRight: 2 }}>{icon}</Box>}
-                        {title}
-                    </DialogTitle>
-
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30">
+            <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-4">
+                <div className="flex justify-between items-center border-b border-gray-400 pb-4">
+                    <div className="flex items-center gap-2">
+                        {icon && <div className="mr-2">{icon}</div>}
+                        <h2 className="text-xl font-bold text-black">{title}</h2>
+                    </div>
                     {showCloseIcon && (
-                        <IconButton aria-label="close" onClick={onClose} sx={{ padding: "8px" }}>
-                            <CloseIcon />
-                        </IconButton>
+                        <button
+                            aria-label="close"
+                            onClick={onClose}
+                            className="text-gray-600 hover:text-gray-800 focus:outline-none"
+                        >
+                            ✕
+                        </button>
                     )}
-                </Box>
+                </div>
 
-                <DialogContent
-                    sx={{
-                        padding: 0,
-                        width: '100%',
-                        boxSizing: 'border-box',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '8px',
-
-                    }}
-                >
+                <div className="flex flex-col gap-4 max-h-96 overflow-y-auto py-4">
                     {content && (
-                        <Box sx={{ paddingY: '16px', width: '100%', boxSizing: 'border-box', overflowY: 'auto', maxHeight: '400px' }}>
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    fontFamily: 'Inter, sans-serif',
-                                    fontSize: '16px',
-                                    fontWeight: 400,
-                                    lineHeight: '120%',
-                                }}
-                            >
-                                {content}
-                            </Typography>
-                        </Box>
+                        <p className="text-gray-800 text-sm font-normal leading-snug">
+                            {content}
+                        </p>
                     )}
 
                     {imageSrc && (
-                        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px' }}>
-                            <img src={imageSrc} alt={imageAlt || "Image"} style={{ maxWidth: '100%', height: 'auto' }} />
-                        </Box>
+                        <div className="flex justify-center items-center">
+                            <img src={imageSrc} alt={imageAlt || "Image"} className="max-w-full h-auto" />
+                        </div>
                     )}
 
                     {teacherTag && (
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: '16px', paddingBottom: '16px' , gap: '8px'}}>
+                        <div className="flex items-center gap-2 pl-4 pb-4">
                             <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
-                        </Box>
+                        </div>
                     )}
-                </DialogContent>
-            </Box>
+                </div>
 
                 {buttons && buttons.length > 0 && (
-                    <Box sx={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', p: '8px' ,
-                        borderTop: "1px solid #6C6F6F", width: '100%'}}>
-
+                    <div className="flex gap-2 justify-end border-t border-gray-400 pt-4">
                         {buttons.length === 1 && (
-                            <IconButton onClick={handleIconClick}>
+                            <button onClick={handleIconClick} className="focus:outline-none">
                                 <Icon variant={actionIconVariant} fill={isIconFilled} />
-                            </IconButton>
+                            </button>
                         )}
-
                         {buttons.map((button, index) => (
                             <Button
                                 key={index}
@@ -143,9 +94,10 @@ const Modal: FunctionComponent<ModalProps> = ({
                                 {button.label}
                             </Button>
                         ))}
-                    </Box>
+                    </div>
                 )}
-        </Dialog>
+            </div>
+        </div>
     );
 };
 
