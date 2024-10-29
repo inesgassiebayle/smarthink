@@ -45,24 +45,30 @@ const inputVariant = cva(
 
 export default function InputField({ state, icon, disabled, iconProps, onClick = () => {}, ...props }: InputProps) {
     return (
-        <div className="inline-flex items-center w-full">
+        <div className="relative w-[296px]">
             <input
-                className={inputVariant({ state })}
-                disabled={state === "disabled" || disabled}
+                className={`${inputVariant({ state: disabled ? "disabled" : state })} w-full pr-10`}
+                disabled={disabled}
                 {...props}
-
-
             />
             {icon && (
-                <div className="cursor-pointer relative">
+                <button
+                    type="button"
+                    onClick={onClick}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+                    disabled={disabled}
+                >
                     <ButtonIcon
                         onClick={onClick}
                         variant={icon}
                         size="medium"
+                        colorClass={disabled ? "text-primary-100" : "text-primary-500"}
                         {...iconProps}
                     />
-                </div>
+                </button>
             )}
         </div>
     );
 }
+
+

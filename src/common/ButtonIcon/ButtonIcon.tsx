@@ -5,6 +5,7 @@ export interface ButtonIconProps {
     onClick: () => void;
     size: "small" | "medium" | "large";
     colorClass?: string;
+    className?: string;
     variant:
         | "explore"
         | "bookmark"
