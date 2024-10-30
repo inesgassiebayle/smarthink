@@ -31,7 +31,7 @@ const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, color }) 
 
 
     return (
-            <Icon variant={getIconVariant()} fill={filled} style={{ color: color || 'currentColor' }}/>
+            <Icon variant={getIconVariant()} fill={filled} colorClass={color} />
     );
 };
 
