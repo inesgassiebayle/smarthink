@@ -7,7 +7,6 @@ export interface RankingTableProps {
 
 const RankingTable: React.FC<RankingTableProps> = ({ rankings }) => {
     const sortedRankings = [...rankings].sort((a, b) => Number(b.points) - Number(a.points));
-    {/* TODO hide scrollbar for mobile */}
     return (
         <div className="flex flex-col w-full h-full overflow-y-scroll scrollbar-hide">
             {sortedRankings.map((rank, index) => (

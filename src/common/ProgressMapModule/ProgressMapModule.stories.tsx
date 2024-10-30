@@ -41,9 +41,7 @@ export default meta;
 const Template: StoryFn<ProgressMapModuleProps> = (args) =>
 {
     return (
-        <div>
             <ProgressMapModule {...args} />
-        </div>
     )
 };
 

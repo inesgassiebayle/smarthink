@@ -8,11 +8,11 @@ export interface CourseLevelCardProps {
     progress: number;
     points: number;
     courseSource: string;
-    title: string;
+    title?: string;
     variant: "standard" | "leveled";
 }
 
-export default function CourseCard({
+export default function CourseLevelCard({
                                        level,
                                        progress,
                                        courseSource,

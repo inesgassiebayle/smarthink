@@ -18,13 +18,13 @@ export default {
             control: "radio",
             options: ["horizontal", "vertical"],
             description: "Controls the layout of the carousel",
-            defaultValue: "horizontal",
         },
     },
 } as Meta<typeof CourseCardCarousel>;
 
 const coursesData: Omit<CourseCardProps, 'variant'>[] = [
     {
+        id: "1",
         teacher: "Jane Doe",
         title: "William Shakespeare",
         subject: "Literature",
@@ -32,6 +32,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: literature,
     },
     {
+        id: "2",
         teacher: "John Smith Richardson",
         title: "Physics Basics",
         subject: "Physics",
@@ -39,6 +40,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: physics,
     },
     {
+        id: "3",
         teacher: "Tom Doe",
         title: "Derivatives",
         subject: "Math",
@@ -46,6 +48,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
         courseSource: math,
     },
     {
+        id: "4",
         teacher: "Jane Doe",
         title: "Poisson Distribution",
         subject: "Statistics",
@@ -56,7 +59,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
 
 const Template: StoryFn<typeof CourseCardCarousel> = (args) => {
     return (
-        <div className={args.variant === 'horizontal' ? "w-[400px]" : "h-[300px] overflow-y-auto"}>
+        <div className={args.variant === 'horizontal' ? "w-[400px] overflow-x-auto" : "h-[300px] overflow-y-auto"}>
             <CourseCardCarousel {...args} />
         </div>
     );

@@ -2,10 +2,25 @@ import React, { useState } from "react";
 import NavItem from "../NavItem/NavItem";
 import { cva } from "class-variance-authority";
 
-const navBarVariant = cva(["bg-white", "flex", "justify-between", "items-center", "w-[360px]", "h-[80px]", "border-t-2", "border-primary-500", "mx-auto", "px-8"]);
+const navBarVariant = cva([
+    "bg-white",
+    "flex",
+    "justify-between",
+    "items-center",
+    "w-[360px]",
+    "h-[80px]",
+    "border-t-2",
+    "border-primary-500",
+    "mx-auto",
+    "px-8",
+]);
 
-export default function NavBar() {
-    const [activeIndex, setActiveIndex] = useState<number>(0);
+export interface NavBarProps {
+    index?: number | null;
+}
+
+export default function NavBar({ index = null }: NavBarProps) {
+    const [activeIndex, setActiveIndex] = useState<number | null>(index);
 
     const items: { variant: "home" | "bookmark" | "heart"; active: boolean }[] = [
         { variant: "bookmark", active: activeIndex === 0 },
@@ -13,18 +28,22 @@ export default function NavBar() {
         { variant: "heart", active: activeIndex === 2 },
     ];
 
-    const handleNavItemClick = (index: number) => {
-        setActiveIndex(index);
+    const handleNavItemClick = (clickedIndex: number) => {
+        if (clickedIndex === activeIndex) {
+            setActiveIndex(null);
+        } else {
+            setActiveIndex(clickedIndex);
+        }
     };
 
     return (
         <nav className={navBarVariant()}>
-            {items.map((item, index) => (
+            {items.map((item, itemIndex) => (
                 <NavItem
-                    key={index}
+                    key={itemIndex}
                     variant={item.variant}
                     active={item.active}
-                    onClick={() => handleNavItemClick(index)}
+                    onClick={() => handleNavItemClick(itemIndex)}
                 />
             ))}
         </nav>

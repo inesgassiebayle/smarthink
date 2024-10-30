@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import React from "react";
-import { ClearOutlined, SearchOutlined } from "@mui/icons-material";
 import Icon from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariant> {}
 
@@ -14,13 +13,14 @@ const inputVariant = cva(
         "gap-[var(--Space-200,8px)]",
         "rounded-[24px]",
         "border-[0.8px]",
+        "w-full",
     ],
     {
         variants: {
             state: {
                 default: ["bg-grayscale-white", "border-grayscale-500", "placeholder:text-grayscale-500"],
                 active: ["bg-grayscale-white", "border-primary-500", "placeholder:text-primary-500"],
-                disabled: ["bg-grayscale-white", "border-primary-100", "placeholder:text-primary-100", "text-primary-100", "cursor-not-allowed"]
+                disabled: ["bg-grayscale-white", "border-primary-100", "placeholder:text-primary-100", "text-primary-100", "cursor-not-allowed"],
             },
         },
         defaultVariants: {
@@ -29,59 +29,45 @@ const inputVariant = cva(
     }
 );
 
-export default function SearchBar({ state: initialState, disabled, ...props }: InputProps) {
-    const [value, setValue] = useState("");
+export default function SearchBar({ state: initialState = "default", value = "", ...props }: InputProps) {
+    const [valueLocal, setValueLocal] = useState(value);
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
-        if (disabled) {
+        if (initialState === "disabled") {
             setState("disabled");
-        } else if (value.length > 0) {
+        } else if (valueLocal !== "") {
             setState("active");
         } else {
             setState("default");
         }
-    }, [disabled, value]);
+    }, [valueLocal, initialState]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newValue = e.target.value;
-        setValue(newValue);
-        if (!disabled) {
-            setState(newValue.length > 0 ? "active" : "default");
-        }
+        if (state === "disabled") return;
+        setValueLocal(e.target.value);
     };
 
     const handleClear = () => {
-        setValue("");
-        if (!disabled) {
-            setState("default");
-        }
+        setValueLocal("");
     };
 
     return (
         <div className={`${inputVariant({ state })} flex items-center`}>
-            // TODO FIX THE WRITING
             <input
-                value={value}
+                value={valueLocal}
                 onChange={handleInputChange}
-                disabled={disabled}
+                disabled={state === "disabled"}
                 className="flex-grow bg-transparent border-none focus:outline-none px-2"
                 {...props}
             />
             <div className="cursor-pointer">
-                {disabled || state === "default" ? (
-                    <Icon
-                        variant={"search"}
-                        size="medium"
-                        fill={false}
-                        colorClass={"text-grayscale-500"}
-                    />
+                {state === "disabled" ? (
+                    <Icon variant="search" size="medium" colorClass="text-primary-100" />
+                ) : state === "default" ? (
+                    <Icon variant="search" size="medium" colorClass="text-grayscale-500" />
                 ) : (
-                    <Icon
-                        variant={"close"}
-                        size="medium"
-                        fill={false}
-                    />
+                    <ButtonIcon onClick={handleClear} size="medium" variant="close" colorClass="text-primary-500" />
                 )}
             </div>
         </div>

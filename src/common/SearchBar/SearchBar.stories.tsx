@@ -35,11 +35,10 @@ export default meta;
 
 
 const Template: StoryFn<typeof SearchBar> = (args) => {
-    const [value, setValue] = useState("");
 
     return (
         <div>
-            <SearchBar {...args} />
+            <SearchBar {...args}  />
         </div>
 
     );

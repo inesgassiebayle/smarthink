@@ -16,8 +16,8 @@ const ProgressMapIcon: FunctionComponent<ProgressMapIconProps> = ({ variant, sta
     };
 
     return (
-        <div className="flex flex-col items-center w-[48px]">
-            <img src={variantMap[variant]} alt="map icon" style={{ width: '48px', height: '48px' }} />
+        <div className="flex flex-col items-center">
+            <img src={variantMap[variant]} alt="map icon" style={{ width: '48px', height: '48px', maxWidth: '48px'}} />
             {state === "middle" && (
                 variant === "completed" ? (
                     <div className="w-[8px] h-[42px] bg-state-succes"></div>

@@ -58,7 +58,13 @@ export default {
     },
 } as Meta<typeof Header>;
 
-const Template: StoryFn<typeof Header> = (args) => <Header {...args} />;
+const Template: StoryFn<typeof Header> = (args) =>{
+    return (
+        <div className={"w-[360px]"}>
+            <Header {...args} />
+        </div>
+    )
+}
 
 export const Default = Template.bind({});
 Default.args = {
