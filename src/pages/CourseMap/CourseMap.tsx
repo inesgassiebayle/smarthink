@@ -22,10 +22,12 @@ const openMenu = () => {
 
 const CourseMap: FunctionComponent<CourseMapProps> = ({modules, moduleState, moduleReached, progress, title, points, level, courseSrc}) => {
     return (
-        <div className="flex flex-col justify-between items-center w-[360px] h-[800px] space-y-2 mx-auto">
+        <div className="flex flex-col justify-between items-center w-full h-full mx-auto">
             <Header title={title} icon1={"menu"} onIconClick1={openMenu}/>
-            <CourseLevelCard variant={"leveled"} courseSource={courseSrc} level={level} points={points} progress={progress}/>
-            <ProgressMap modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
+            <div className={"my-[25%] space-y-2 pt-2 pb-2"}>
+                <CourseLevelCard variant={"leveled"} courseSource={courseSrc} level={level} points={points} progress={progress}/>
+                <ProgressMap modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
+            </div>
             <NavBar/>
         </div>
     );
