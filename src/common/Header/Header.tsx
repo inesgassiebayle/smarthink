@@ -25,7 +25,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                                                     onIconClick4 = () => {},
                                                 }) => {
     return (
-        <div className="flex w-full h-[88px] p-6 justify-center items-center gap-4 bg-white border-b-2 border-primary-500">
+        <div className="fixed z-10 top-0 flex w-full h-[88px] p-6 justify-center items-center gap-4 bg-white border-b-2 border-primary-500">
             <HeaderIcon variant={icon1} onClick={onIconClick1} />
             <HeaderIcon variant={icon2} onClick={onIconClick2} />
             <span className="text-primary-500 text-center font-inter text-xl font-regular leading-[120%] flex-1">

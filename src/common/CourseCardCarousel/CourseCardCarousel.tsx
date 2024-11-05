@@ -8,8 +8,9 @@ interface CourseCardCarouselProps {
 }
 
 const CourseCardCarousel: FunctionComponent<CourseCardCarouselProps> = ({ courses, variant, onCourseClick }) => {
+    const classesOrientation = variant === "horizontal" ? "over flex-row" : "flex-col";
     return (
-        <div className="course-card-carousel">
+        <div className="course-card-carousel w-full overflow-auto">
             {variant === "horizontal" ? (
                 <div
                     className={`flex flex-row overflow-x-auto w-screen gap-[var(--Space-200,8px)] self-stretch 

@@ -77,6 +77,7 @@ const meta: Meta<typeof Button> = {
             control: { type: "select" },
             description: "Icon variant to display",
         },
+        onClick: { action: "clicked" },
     },
 };
 
@@ -100,4 +101,7 @@ ButtonStory.args = {
     disabled: false,
     icon: null,
     fill: false,
+    onClick: () => {
+        console.log("Button clicked");
+    },
 };

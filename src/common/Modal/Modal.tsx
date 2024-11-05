@@ -39,7 +39,7 @@ const Modal: FunctionComponent<ModalProps> = ({
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30">
+        <div className="fixed inset-0 flex pl-2 pr-2 items-center justify-center z-50 bg-black bg-opacity-30">
             <div className="bg-white rounded-lg shadow-lg max-w-lg w-full p-4">
                 <div className="flex justify-between items-center border-b border-gray-400 pb-4">
                     <div className="flex items-center gap-2">

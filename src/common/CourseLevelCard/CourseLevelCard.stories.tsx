@@ -32,10 +32,7 @@ export default {
 } as Meta<typeof CourseLevelCard>;
 
 const Template: StoryFn<typeof CourseLevelCard> = (args) => {
-    return (
-        <div className="w-[344px]">
-            <CourseLevelCard {...args} />
-        </div>
+    return (<CourseLevelCard {...args} />
     )
 }
 

@@ -3,17 +3,19 @@ import NavItem from "../NavItem/NavItem";
 import { cva } from "class-variance-authority";
 
 const navBarVariant = cva([
+    "fixed bottom-0",
     "bg-white",
     "flex",
     "justify-between",
     "items-center",
-    "w-[360px]",
+    "w-full",
     "h-[80px]",
     "border-t-2",
     "border-primary-500",
     "mx-auto",
     "px-8",
 ]);
+
 
 export interface NavBarProps {
     index?: number | null;
