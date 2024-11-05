@@ -24,7 +24,7 @@ const answerVariant = cva(
     {
         variants: {
             state: {
-                default: "border-primary-100",
+                default: "border-primary-500",
                 success: "border-state-succes",
                 error: "border-state-error",
                 disabled: "border-primary-100",

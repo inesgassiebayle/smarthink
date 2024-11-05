@@ -32,6 +32,7 @@ const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, color }) 
 
     return (
             <Icon variant={getIconVariant()} fill={filled} colorClass={color} />
+        //cambiar a button icon
     );
 };
 

@@ -49,13 +49,7 @@ export default {
 } as Meta<CourseCardProps>;
 
 const Template: StoryFn<CourseCardProps> = (args) => (
-    <div
-        className={
-            args.variant === "horizontal"
-                ? "w-[344px]"
-                : "w-[142px] h-[142px]"
-        }
-    >
+    <div>
         <CourseCard {...args} />
     </div>
 );

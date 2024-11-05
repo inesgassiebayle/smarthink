@@ -16,6 +16,7 @@ const navBarVariant = cva([
     "px-8",
 ]);
 
+
 export interface NavBarProps {
     index?: number | null;
 }
