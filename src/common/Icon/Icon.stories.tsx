@@ -50,6 +50,7 @@ const meta: Meta<typeof Icon> = {
                 "confetti",
                 "unlocked",
                 "empty",
+                "switch",
             ],
             control: { type: "select" },
             description: "Icon variant to display",

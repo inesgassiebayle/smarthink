@@ -49,7 +49,8 @@ export interface ButtonIconProps {
         | "smily"
         | "confetti"
         | "unlocked"
-        | "empty";
+        | "empty"
+        | "switch";
 }
 
 const ButtonIcon: FunctionComponent<ButtonIconProps> = ({onClick, variant, size, colorClass}) => {

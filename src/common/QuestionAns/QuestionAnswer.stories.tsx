@@ -2,7 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import QuestionAnswer from './QuestionAnswer';
 
 const meta: Meta<typeof QuestionAnswer> = {
-    title: 'Design System/Atoms/QuestionAnswer',
+    title: 'Design System/Molecules/QuestionAnswer',
     component: QuestionAnswer,
     argTypes: {
         state: {

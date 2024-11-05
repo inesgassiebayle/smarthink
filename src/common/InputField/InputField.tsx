@@ -10,7 +10,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement>,
 }
 
 const inputVariant = cva(
-    ["flex w-[296px] p-4 items-center gap-2 rounded-md border bg-white focus:outline-none focus:ring-0 items-center"],
+    ["flex w-full p-4 items-center gap-2 rounded-md border bg-white focus:outline-none focus:ring-0 items-center"],
     {
         variants: {
             state: {
@@ -45,7 +45,7 @@ const inputVariant = cva(
 
 export default function InputField({ state, icon, disabled, iconProps, onClick = () => {}, ...props }: InputProps) {
     return (
-        <div className="relative w-[296px]">
+        <div className="relative w-full">
             <input
                 className={`${inputVariant({ state: disabled ? "disabled" : state })} w-full pr-10`}
                 disabled={disabled}

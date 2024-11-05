@@ -10,7 +10,7 @@ const Tabs: React.FC<TabsProps> = ({ tab1Label, tab2Label }) => {
     const [activeTab, setActiveTab] = useState<"tab1" | "tab2">("tab1");
 
     return (
-        <div className="flex w-[360px] h-[80px] px-[var(--Space-400,16px)] py-[var(--Space-200,8px)] justify-between items-center">
+        <div className="flex w-full h-[80px] px-[var(--Space-400,16px)] py-[var(--Space-200,8px)] justify-between items-center">
             <Tab
                 state={activeTab === "tab1" ? "active" : "default"}
                 onClick={() => setActiveTab("tab1")}

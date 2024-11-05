@@ -53,7 +53,7 @@ import {
     CelebrationOutlined,
     Celebration,
     LockOpenOutlined,
-    LockOpen, SquareOutlined, Square, CircleOutlined, Circle,
+    LockOpen, SquareOutlined, Square, CircleOutlined, Circle, ToggleOn, ToggleOff,
 } from "@mui/icons-material";
 import { cva, VariantProps } from "class-variance-authority";
 
@@ -104,7 +104,8 @@ export interface IconProps extends VariantProps<typeof iconVariant> {
         | "smily"
         | "confetti"
         | "unlocked"
-        | "empty";
+        | "empty"
+        | "switch";
 }
 
 const iconVariant = cva();
@@ -161,6 +162,7 @@ export default function Icon({ size = "medium", variant = "empty", fill = false,
         confetti: fill ? Celebration : CelebrationOutlined,
         unlocked: fill ? LockOpen : LockOpenOutlined,
         empty: null,
+        switch: fill ? ToggleOff: ToggleOn,
     };
 
     const SelectedIcon = icons[variant] ?? null;
@@ -174,3 +176,4 @@ export default function Icon({ size = "medium", variant = "empty", fill = false,
         <div className={colorClass} style={{ width: sizeMap[size], height: sizeMap[size] }} />
     );
 }
+
