@@ -59,27 +59,43 @@ const Modal: FunctionComponent<ModalProps> = ({
 
                 <div className="flex flex-col gap-4 max-h-96 overflow-y-auto py-4">
                     {content && (
-                        <p className="text-gray-800 text-sm font-normal leading-snug">
+                        <p
+                            className="text-gray-800 font-normal leading-snug custom-text"
+                            style={{
+                                display: '-webkit-box',
+                                WebkitBoxOrient: 'vertical',
+                                WebkitLineClamp: 12,
+                                alignSelf: 'stretch',
+                                overflow: 'hidden',
+                                color: 'var(--Text-ui-text-default, #313E3F)',
+                                textOverflow: 'ellipsis',
+                                fontFamily: 'Inter, sans-serif',
+                                fontSize: '16px',
+                                fontStyle: 'normal',
+                                fontWeight: 400,
+                                lineHeight: '120%',
+                            }}
+                        >
                             {content}
                         </p>
                     )}
 
                     {imageSrc && (
                         <div className="flex justify-center items-center">
-                            <img src={imageSrc} alt={imageAlt || "Image"} className="max-w-full h-auto" />
+                            <img src={imageSrc} alt={imageAlt || "Image"} className="max-w-full h-auto"/>
                         </div>
                     )}
 
                     {teacherTag && (
                         <div className="flex items-center gap-2 pl-4 pb-4">
-                            <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
+                            <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium"/>
                         </div>
                     )}
                 </div>
 
                 {buttons && buttons.length > 0 && (
                     <div className="flex gap-2 justify-end border-t border-gray-400 pt-4">
-                        {buttons.length === 1 && (
+                    {buttons.length === 1 && (
                             <button onClick={handleIconClick} className="focus:outline-none">
                                 <Icon variant={actionIconVariant} fill={isIconFilled} />
                             </button>
@@ -89,7 +105,6 @@ const Modal: FunctionComponent<ModalProps> = ({
                                 key={index}
                                 variant={button.variant || 'filled'}
                                 size="medium"
-                                onClick={button.onClick}
                             >
                                 {button.label}
                             </Button>

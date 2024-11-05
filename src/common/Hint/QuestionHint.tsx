@@ -11,12 +11,12 @@ export interface QuestionHintProps {
 
 const QuestionHint: React.FC<QuestionHintProps> = ({ hintText, questionText, personName, avatarSrc }) => {
     return (
-        <div className="flex flex-col gap-[8px] w-[344px] p-4 rounded-[24px] border border-primary-100 bg-white shadow-lg">
+        <div className="flex flex-col gap-2 p-2 sm:p-4 sm:gap-4 w-full sm:w-[296px] md:w-[344px] rounded-[24px] border border-primary-100 bg-white shadow-lg">
             <div className="w-fit">
                 <Hint>{hintText}</Hint>
             </div>
 
-            <p className="text-base font-inter font-normal text-black leading-[140%]">
+            <p className="text-sm sm:text-base font-inter font-normal text-black leading-[140%]">
                 {questionText}
             </p>
 
