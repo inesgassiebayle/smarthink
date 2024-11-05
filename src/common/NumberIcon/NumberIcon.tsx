@@ -19,10 +19,10 @@ const NumberIcon = ({ number, size = "medium", colorClass = "primary-500" }: Num
 
     return (
         <div
-            className={`flex items-center justify-center rounded-full border-2 ${borderColor} w-[${sizeValue}px] h-[${sizeValue}px]`} // Corrected width and height usage
-            style={{ width: `${sizeValue}px`, height: `${sizeValue}px` }} // Added inline styles for width and height
+            className={`flex items-center justify-center rounded-full border-2 ${borderColor} w-[${sizeValue}px] h-[${sizeValue}px]`}
+            style={{ width: `${sizeValue}px`, height: `${sizeValue}px` }}
         >
-            <span className={`${textColor} font-inter font-bold`} style={{fontSize: `${sizeValue * 0.5}px`, lineHeight: '120%',}}>
+            <span className={`${textColor} font-inter font-bold`} style={{fontSize: `${sizeValue * 0.5}px`, lineHeight: '120%', maxWidth: `${sizeValue}px`,overflow: 'hidden',}}>
                 {number}
             </span>
         </div>
