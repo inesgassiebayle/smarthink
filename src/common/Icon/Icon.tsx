@@ -162,7 +162,7 @@ export default function Icon({ size = "medium", variant = "empty", fill = false,
         confetti: fill ? Celebration : CelebrationOutlined,
         unlocked: fill ? LockOpen : LockOpenOutlined,
         empty: null,
-        switch: fill ? ToggleOff: ToggleOn,
+        switch: fill ? ToggleOn: ToggleOff,
     };
 
     const SelectedIcon = icons[variant] ?? null;
