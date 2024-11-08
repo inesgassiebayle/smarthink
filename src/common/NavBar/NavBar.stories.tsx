@@ -9,7 +9,12 @@ const meta: Meta<typeof NavBar> = {
 
 export default meta;
 
-const Template: StoryFn<typeof NavBar> = (args) => <NavBar {...(args as {})} />;
+const Template: StoryFn<typeof NavBar> = (args) => {
+    return (
+        <div className="flex flex-col items-center gap-[var(--Space-400,16px)]">
+            <NavBar {...(args as {})} />
+        </div>
+)};
 
 export const DefaultNavBar = Template.bind({});
 DefaultNavBar.args = {};

@@ -60,7 +60,7 @@ export default {
 
 const Template: StoryFn<typeof Header> = (args) =>{
     return (
-        <div className={"w-[360px]"}>
+        <div className="flex flex-col items-center gap-[var(--Space-400,16px)]">
             <Header {...args} />
         </div>
     )

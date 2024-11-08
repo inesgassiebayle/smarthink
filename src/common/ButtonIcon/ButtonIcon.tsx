@@ -7,6 +7,7 @@ export interface ButtonIconProps {
     colorClass?: string;
     className?: string;
     filled?: boolean;
+    disabled?: boolean;
     variant:
         | "explore"
         | "bookmark"
@@ -54,9 +55,9 @@ export interface ButtonIconProps {
         | "switch";
 }
 
-const ButtonIcon: FunctionComponent<ButtonIconProps> = ({onClick, variant, size, colorClass, filled=false}) => {
+const ButtonIcon: FunctionComponent<ButtonIconProps> = ({onClick, variant, disabled , size, colorClass, filled=false}) => {
     return (
-        <button onClick={onClick}>
+        <button onClick={onClick} disabled={disabled || false}>
             <Icon variant={variant} size={size} colorClass={colorClass} fill={filled}/>
         </button>
     )

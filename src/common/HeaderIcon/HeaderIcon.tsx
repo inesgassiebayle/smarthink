@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import Icon from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface HeaderIconProps {
     onClick: () => void;
@@ -11,9 +12,7 @@ const HeaderIcon: FunctionComponent<HeaderIconProps> = ({
                                                             variant = "empty",
                                                         }) => {
     return (
-        <button onClick={onClick} disabled={variant === "empty"}>
-            <Icon variant={variant} size="medium" fill={false} />
-        </button>
+        <ButtonIcon onClick={onClick} size={"medium"} variant={variant} filled={false} colorClass={"text-primary-500 hover:text-primary-800"}/>
     );
 };
 

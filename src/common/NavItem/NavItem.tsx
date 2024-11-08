@@ -1,12 +1,13 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
-import Icon from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface NavItemProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement>,
         VariantProps<typeof navItemVariant> {
     active: boolean;
     variant: "home" | "heart" | "bookmark";
+    onClick: () => void;
 }
 
 const navItemVariant = cva(
@@ -25,6 +26,7 @@ const navItemVariant = cva(
 export default function NavItem({
                                     variant,
                                     active,
+                                    onClick,
                                     ...props
                                 }: NavItemProps) {
     return (
@@ -32,10 +34,11 @@ export default function NavItem({
             className={`${navItemVariant({ variant })} w-8 h-8`}
             {...props}
         >
-            <Icon
+            <ButtonIcon
+                onClick={onClick}
                 variant={variant}
                 size="medium"
-                fill={active}
+                filled={active}
             />
         </button>
     );
