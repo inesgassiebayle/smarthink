@@ -14,7 +14,7 @@ const Template: StoryFn<CourseMapProps> = (args) => <CourseMap {...args} />;
 
 export const DefaultCourseMap = Template.bind({});
 DefaultCourseMap.args = {
-    title: 'The Human Body',
+    title: 'Environment Basic Concepts',
     modules: [
         { title: 'Climate Change'},
         { title: 'RRR: Reduce, Recycle and Reuse', icon: 'star'},

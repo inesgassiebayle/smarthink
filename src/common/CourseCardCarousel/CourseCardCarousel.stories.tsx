@@ -59,9 +59,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
 
 const Template: StoryFn<typeof CourseCardCarousel> = (args) => {
     return (
-        <div className={args.variant === 'horizontal' ? "w-[400px] overflow-x-auto" : "h-[300px] overflow-y-auto"}>
             <CourseCardCarousel {...args} />
-        </div>
     );
 };
 

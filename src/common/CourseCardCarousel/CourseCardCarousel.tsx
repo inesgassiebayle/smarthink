@@ -13,8 +13,8 @@ const CourseCardCarousel: FunctionComponent<CourseCardCarouselProps> = ({ course
         <div className="course-card-carousel w-full overflow-auto">
             {variant === "horizontal" ? (
                 <div
-                    className={`flex flex-row overflow-x-auto w-screen gap-[var(--Space-200,8px)] self-stretch 
-                    [-ms-overflow-style:'none'] [scrollbar-width:'none'] [&::-webkit-scrollbar]:hidden`}
+                    className={`flex flex-row overflow-x-auto gap-[var(--Space-200,8px)] self-stretch 
+                    [-ms-overflow-style:'none'] [scrollbar-width:'none'] [&::-webkit-scrollbar]:hidden w-fit`}
                 >
                     {courses.map((course) => (
                         <CourseCard

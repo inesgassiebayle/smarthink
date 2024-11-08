@@ -24,7 +24,7 @@ const CourseMap: FunctionComponent<CourseMapProps> = ({modules, moduleState, mod
     return (
         <div className="flex flex-col justify-between items-center w-full h-full mx-auto">
             <Header title={title} icon1={"menu"} onIconClick1={openMenu}/>
-            <div className={"my-[25%] space-y-2 pt-2 pb-2"}>
+            <div className={"my-[25%] space-y-2 pt-2 pb-2 w-full"}>
                 <CourseLevelCard variant={"leveled"} courseSource={courseSrc} level={level} points={points} progress={progress}/>
                 <ProgressMap modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
             </div>
