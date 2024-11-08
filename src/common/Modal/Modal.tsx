@@ -9,6 +9,12 @@ export interface ModalProps {
     content: string;
     onClose: () => void;
     showCloseIcon?: boolean;
+    showCourseImage?: boolean;
+    showTeacherTag?: boolean;
+    showSecondaryButton?: boolean;
+    showPrimaryButton?: boolean;
+    showFav?: boolean;
+    showFooter?: boolean;
     imageSrc?: string;
     imageAlt?: string;
     buttons?: { label: string; onClick: () => void; variant?: 'filled' | 'outlined' }[];
@@ -23,12 +29,18 @@ const Modal: FunctionComponent<ModalProps> = ({
                                                   content,
                                                   onClose,
                                                   showCloseIcon = true,
+                                                  showCourseImage = false,
+                                                  showTeacherTag = false,
+                                                  showSecondaryButton = false,
+                                                  showPrimaryButton = false,
+                                                  showFav = false,
+                                                  showFooter = false,
                                                   imageSrc,
                                                   imageAlt,
                                                   buttons,
                                                   icon,
                                                   teacherTag,
-                                                  actionIconVariant = 'heart'
+                                                  actionIconVariant = 'heart',
                                               }) => {
     const [isIconFilled, setIsIconFilled] = useState(false);
 
@@ -59,56 +71,50 @@ const Modal: FunctionComponent<ModalProps> = ({
 
                 <div className="flex flex-col gap-4 max-h-96 overflow-y-auto py-4">
                     {content && (
-                        <p
-                            className="text-gray-800 font-normal leading-snug custom-text"
-                            style={{
-                                display: '-webkit-box',
-                                WebkitBoxOrient: 'vertical',
-                                WebkitLineClamp: 12,
-                                alignSelf: 'stretch',
-                                overflow: 'hidden',
-                                color: 'var(--Text-ui-text-default, #313E3F)',
-                                textOverflow: 'ellipsis',
-                                fontFamily: 'Inter, sans-serif',
-                                fontSize: '16px',
-                                fontStyle: 'normal',
-                                fontWeight: 400,
-                                lineHeight: '120%',
-                            }}
-                        >
+                        <p className="text-gray-800 font-normal leading-snug custom-text">
                             {content}
                         </p>
                     )}
 
-                    {imageSrc && (
+                    {showCourseImage && imageSrc && (
                         <div className="flex justify-center items-center">
-                            <img src={imageSrc} alt={imageAlt || "Image"} className="max-w-full h-auto"/>
+                            <img src={imageSrc} alt={imageAlt || "Image"} className="max-w-full h-auto" />
                         </div>
                     )}
 
-                    {teacherTag && (
+                    {showTeacherTag && teacherTag && (
                         <div className="flex items-center gap-2 pl-4 pb-4">
-                            <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium"/>
+                            <PersonTag name={teacherTag.name} avatarSrc={teacherTag.avatarSrc} size="medium" />
                         </div>
                     )}
                 </div>
 
-                {buttons && buttons.length > 0 && (
-                    <div className="flex gap-2 justify-end border-t border-gray-400 pt-4">
-                    {buttons.length === 1 && (
+                {showFooter && (
+                    <div className="flex gap-2 justify-end border-t border-gray-400 pt-4"
+                         style={{paddingTop: showTeacherTag ? "16px" : "0px"}}>
+                        {showFav && (
                             <button onClick={handleIconClick} className="focus:outline-none">
                                 <Icon variant={actionIconVariant} fill={isIconFilled} />
                             </button>
                         )}
-                        {buttons.map((button, index) => (
+                        {showPrimaryButton && buttons && buttons[0] && (
                             <Button
-                                key={index}
-                                variant={button.variant || 'filled'}
+                                variant={buttons[0].variant || 'filled'}
                                 size="medium"
+                                onClick={buttons[0].onClick}
                             >
-                                {button.label}
+                                {buttons[0].label}
                             </Button>
-                        ))}
+                        )}
+                        {showSecondaryButton && buttons && buttons[1] && (
+                            <Button
+                                variant={buttons[1].variant || 'outlined'}
+                                size="medium"
+                                onClick={buttons[1].onClick}
+                            >
+                                {buttons[1].label}
+                            </Button>
+                        )}
                     </div>
                 )}
             </div>
