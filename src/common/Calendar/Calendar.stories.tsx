@@ -1,21 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import CalendarComponent from '../Calendar/Calendar';
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
+import CalendarComponent, { CalendarComponentProps } from './Calendar';
 
-const meta: Meta<typeof CalendarComponent> = {
-    title: 'Common/Calendar',
+export default {
+    title: 'Design System/Atoms/CalendarComponent',
     component: CalendarComponent,
-    parameters: {
-        layout: 'centered',
+    argTypes: {
+        initialDate: {
+            control: { type: 'date' },
+            description: 'Initial selected date on the calendar',
+            defaultValue: new Date(),
+        },
+        className: {
+            control: { type: 'text' },
+            description: 'Additional CSS classes for custom styling',
+        },
     },
-    tags: ['autodocs'],
-};
+} as Meta<typeof CalendarComponent>;
 
-export default meta;
-type Story = StoryObj<typeof CalendarComponent>;
+const Template: StoryFn<CalendarComponentProps> = (args) => <CalendarComponent onDateChange={(newDate: Date) => console.log("Selected date:", newDate)} {...args} />;
 
-export const Default: Story = {
-    args: {
-        initialDate: new Date(),
-    },
-
+export const Default = Template.bind({});
+Default.args = {
+    initialDate: new Date(),
+    className: '',
 };

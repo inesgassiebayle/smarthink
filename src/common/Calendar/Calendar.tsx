@@ -1,37 +1,48 @@
-import { useState, useEffect } from "react";
-import Calendar from "react-calendar";  // Importar el calendario
+import { useState } from "react";
+import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import {Value} from "react-calendar/dist/cjs/shared/types";  // Estilos de react-calendar
+import { Value } from "react-calendar/dist/cjs/shared/types";
 
-interface CalendarComponentProps {
+export interface CalendarComponentProps {
     onDateChange?: (newDate: Date) => void;
-    initialDate?: Date;  // Fecha inicial que viene como propiedad
+    initialDate?: Date;
     className?: string;
 }
-const CalendarComponent: React.FC<CalendarComponentProps> = () => {
-    // Update the state type to match react-calendar's Value type
-    const [date, setDate] = useState<Value>(new Date());
 
-    // Update the handler to match the expected types from react-calendar
-    const handleDateChange = (
-        value: Value,
-        event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-    ): void => {
-        setDate(value);
-        // Your additional date handling logic here
+const CalendarComponent: React.FC<CalendarComponentProps> = ({
+                                                                 onDateChange,
+                                                                 initialDate = new Date(),
+                                                                 className = '',
+                                                             }) => {
+    const [date, setDate] = useState<Value>(initialDate);
+
+    const handleDateChange = (newDate: Value) => {
+        setDate(newDate);
+        if (onDateChange && newDate instanceof Date) {
+            onDateChange(newDate);
+        }
+    };
+
+    const getTileClassName = ({ date: tileDate, view }: { date: Date; view: string }) => {
+        if (view === 'month' && tileDate.toDateString() === (date as Date).toDateString()) {
+            return 'text-white bg-primary-500 font-semibold rounded-full';
+        }
+        return tileDate.getDay() === 0 ? 'text-red-600' : 'text-gray-700';
     };
 
     return (
-        <div>
+        <div className={`p-4 bg-white rounded-lg shadow-md ${className}`}>
             <Calendar
                 value={date}
                 onChange={handleDateChange}
-            />
-            <div className="mt-4 text-center">
-                {date instanceof Date && (
-                    <p>Selected date: {date.toLocaleDateString()}</p>
+                className="w-full text-center rounded-lg border border-grayscale-300 shadow-sm"
+                tileClassName={getTileClassName}
+                navigationLabel={({ label }) => (
+                    <span className="text-primary-500 font-semibold">{label}</span>
                 )}
-            </div>
+                next2Label={null}
+                prev2Label={null}
+            />
         </div>
     );
 };
