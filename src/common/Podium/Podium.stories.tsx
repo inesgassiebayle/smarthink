@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Podium, { PodiumProps } from "./Podium";
-import animal1 from '../../assets/lion.webp';
-import animal2 from '../../assets/zebra.webp';
-import animal3 from '../../assets/cow.jpeg';
+import animal1 from '../../assets/panda.webp';
+import animal2 from '../../assets/dog.webp';
+import animal3 from '../../assets/cat.webp';
 
 export default {
     title: 'Design System/Atoms/Podium',
@@ -41,9 +41,9 @@ const Template: StoryFn<PodiumProps> = (args) => <Podium {...args} />;
 export const PodiumStory = Template.bind({});
 PodiumStory.args = {
     first: animal1,
-    first_username: 'Jane Doe',
+    first_username: '@janedoe',
     second: animal2,
-    second_username: 'John Smith',
+    second_username: '@johnsmith',
     third: animal3,
-    third_username: 'Alice Johnson',
+    third_username: '@alicejohnson',
 };
