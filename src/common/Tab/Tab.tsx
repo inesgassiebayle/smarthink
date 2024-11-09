@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
 const tabVariant = cva(
-    ["flex w-full p-4 flex-col items-center gap-4"],
+    ["flex w-1/2 p-4 flex-col items-center gap-4"],
     {
         variants: {
             state: {
