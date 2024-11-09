@@ -52,6 +52,8 @@ interface ButtonIconProps {
         | "confetti"
         | "unlocked"
         | "empty"
+        | "config"
+        | "information"
         | "switch";
 }
 

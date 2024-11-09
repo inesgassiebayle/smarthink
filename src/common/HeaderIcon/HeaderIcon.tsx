@@ -4,7 +4,7 @@ import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface HeaderIconProps {
     onClick: () => void;
-    variant: "menu" | "explore" | "empty";
+    variant: "menu" | "explore" | "empty" | "information" | "people" | "back" | "config";
 }
 
 const HeaderIcon: FunctionComponent<HeaderIconProps> = ({

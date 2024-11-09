@@ -3,10 +3,10 @@ import HeaderIcon from "../HeaderIcon/HeaderIcon";
 
 export interface HeaderProps {
     title: string;
-    icon1?: "empty" | "menu" | "explore";
-    icon2?: "empty" | "menu" | "explore";
-    icon3?: "empty" | "menu" | "explore";
-    icon4?: "empty" | "menu" | "explore";
+    icon1?: "empty" | "menu" | "explore" | "information" | "people" | "back" | "config";
+    icon2?: "empty" | "menu" | "explore" | "information" | "people" | "back" | "config";
+    icon3?: "empty" | "menu" | "explore" | "information" | "people" | "back" | "config";
+    icon4?: "empty" | "menu" | "explore" | "information" | "people" | "back" | "config";
     onIconClick1?: () => void;
     onIconClick2?: () => void;
     onIconClick3?: () => void;

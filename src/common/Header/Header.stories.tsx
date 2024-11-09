@@ -38,7 +38,7 @@ export default {
         icon4: {
             control: {
                 type: 'radio',
-                options: ['empty', 'menu', 'explore'],
+                options: ['empty', 'menu', 'explore', 'information', 'config', 'back', 'people'],
             },
             description: 'Fourth icon variant',
             defaultValue: 'empty',

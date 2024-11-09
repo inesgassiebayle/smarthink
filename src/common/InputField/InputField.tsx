@@ -35,6 +35,13 @@ const inputVariant = cva(
                     "cursor-not-allowed",
                     "placeholder:text-disabled",
                 ],
+                active: [
+                    "border-primary-500",
+                    "text-black",
+                    "focus:border-primary-500",
+                    "hover:border-primary-600",
+                    "placeholder:text-grayscale-500",
+                ],
             },
         },
         defaultVariants: {
@@ -43,11 +50,24 @@ const inputVariant = cva(
     }
 );
 
-export default function InputField({ state, icon, disabled, iconProps, onClick = () => {}, ...props }: InputProps) {
+export default function InputField({
+                                       state = "default",
+                                       icon,
+                                       disabled,
+                                       iconProps,
+                                       onClick = () => {},
+                                       ...props
+                                   }: InputProps) {
+    const iconColorClass = disabled
+        ? "text-primary-100"
+        : state === "error"
+            ? "text-state-error"
+            : "text-primary-500";
+
     return (
         <div className="relative w-full">
             <input
-                className={`${inputVariant({ state: disabled ? "disabled" : state })} w-full pr-10`}
+                className={`${inputVariant({ state: disabled ? "disabled" : state })} w-full pr-10 placeholder-truncate placeholder:text-ellipsis`}
                 disabled={disabled}
                 {...props}
             />
@@ -62,7 +82,7 @@ export default function InputField({ state, icon, disabled, iconProps, onClick =
                         onClick={onClick}
                         variant={icon}
                         size="medium"
-                        colorClass={disabled ? "text-primary-100" : "text-primary-500"}
+                        colorClass={iconColorClass}
                         {...iconProps}
                     />
                 </button>
@@ -70,5 +90,3 @@ export default function InputField({ state, icon, disabled, iconProps, onClick =
         </div>
     );
 }
-
-

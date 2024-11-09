@@ -7,7 +7,7 @@ const meta: Meta<typeof InputField> = {
     component: InputField,
     argTypes: {
         state: {
-            options: ["default", "error", "disabled"],
+            options: ["default", "error"],
             control: { type: "select" },
             description: "State of the input field",
             defaultValue: "default",
@@ -65,6 +65,12 @@ const meta: Meta<typeof InputField> = {
         placeholder: {
             control: { type: "text" },
             defaultValue: "Input name",
+            description: "Placeholder text for the input field",
+        },
+        disabled: {
+            control: { type: "boolean" },
+            description: "Disable the input field",
+            defaultValue: false,
         },
     },
 };
@@ -87,8 +93,8 @@ const Template: StoryFn<typeof InputField> = (args) => {
     );
 };
 
-export const InputFieldStory = Template.bind({});
-InputFieldStory.args = {
+export const Default = Template.bind({});
+Default.args = {
     state: "default",
     placeholder: "Input name",
     value: "",
