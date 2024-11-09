@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Icon from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 
 interface AnswerIconProps {
@@ -7,32 +8,45 @@ interface AnswerIconProps {
     state: 'incorrect' | "correct" | "default";
     filled: boolean;
     color?: string;
+    clickable?: boolean;
+
 }
 
-const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, color }) => {
+const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, color, clickable = true }) => {
+    const [isFilled, setIsFilled] = useState(filled);
+
+    useEffect(() => {
+        setIsFilled(filled);
+    }, [filled]);
+
 
 
     const getIconVariant = () => {
         if (state === 'incorrect') {
             return shape === 'circle'
-                ? (filled ? 'incorrect_circle' : 'empty')
-                : (filled ? 'incorrect_square' : 'empty');
+                ? (isFilled ? 'incorrect_circle' : 'empty')
+                : (isFilled ? 'incorrect_square' : 'empty');
         } else if (state === 'correct') {
             return shape === 'circle'
-                ? (filled? 'correct_circle' : 'correct_circle')
-                : (filled? 'correct_square' : 'correct_square');
+                ? (isFilled? 'correct_circle' : 'correct_circle')
+                : (isFilled? 'correct_square' : 'correct_square');
         } else if (state === 'default') {
             return shape === 'circle'
-                ?(filled? 'circle' : 'circle')
-                :(filled? 'square' : 'square');
+                ?(isFilled? 'circle' : 'circle')
+                :(isFilled? 'square' : 'square');
         }
         return 'empty';
     };
 
+    const handleClick = () => {
+        if (state === 'default' && clickable) {
+            setIsFilled(prev => !prev);
+        }
+    }
+
 
     return (
-            <Icon variant={getIconVariant()} fill={filled} colorClass={color} />
-        //cambiar a button icon
+            <ButtonIcon variant={getIconVariant()} filled={isFilled} colorClass={color} onClick={handleClick} size={"medium"} />
     );
 };
 

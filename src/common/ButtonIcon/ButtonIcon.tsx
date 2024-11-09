@@ -1,7 +1,7 @@
 import {FunctionComponent} from "react";
 import Icon from "../Icon/Icon";
 
-export interface ButtonIconProps {
+interface ButtonIconProps {
     onClick: () => void;
     size: "small" | "medium" | "large";
     colorClass?: string;
