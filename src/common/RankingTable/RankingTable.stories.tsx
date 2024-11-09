@@ -22,13 +22,13 @@ const Template: StoryFn<RankingTableProps> = (args) => {
 export const RankingTableStory = Template.bind({});
 RankingTableStory.args = {
     rankings: [
-        { personPicture: animal, personUsername: 'User 1', points: '300' },
-        { personPicture: animal, personUsername: 'User 2', points: '500' },
-        { personPicture: animal, personUsername: 'User 3', points: '200' },
-        { personPicture: animal, personUsername: 'User 4', points: '450' },
-        { personPicture: animal, personUsername: 'User 5', points: '450' },
-        { personPicture: animal, personUsername: 'User 6', points: '450' },
-        { personPicture: animal, personUsername: 'User 7', points: '450' },
+        { personPicture: animal, personUsername: 'User 1', points: 300 },
+        { personPicture: animal, personUsername: 'User 2', points: 500 },
+        { personPicture: animal, personUsername: 'User 3', points: 200 },
+        { personPicture: animal, personUsername: 'User 4', points: 450 },
+        { personPicture: animal, personUsername: 'User 5', points: 450 },
+        { personPicture: animal, personUsername: 'User 6', points: 450 },
+        { personPicture: animal, personUsername: 'User 7', points: 450 },
     ],
 };
 

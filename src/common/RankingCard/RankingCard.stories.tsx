@@ -9,7 +9,7 @@ export default {
     argTypes: {
         personPicture: { control: 'text' },
         personUsername: { control: 'text' },
-        points: { control: 'text' },
+        points: { control: 'number' },
     },
 } as Meta<typeof RankingCard>;
 
@@ -20,6 +20,6 @@ export const RankingCardStory = Template.bind({});
 RankingCardStory.args = {
     personPicture: animal,
     personUsername: 'JaneDoe123',
-    points: '1500',
+    points: 1500,
 };
 
