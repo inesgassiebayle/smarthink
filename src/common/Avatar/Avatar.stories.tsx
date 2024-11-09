@@ -1,7 +1,9 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import Avatar, { AvatarProps } from './Avatar';
-import sampleImage from '../../assets/avatar-boy1.jpg';
+import dog from '../../assets/dog.webp';
+import penguin from '../../assets/pinguin.webp';
+import panda from '../../assets/panda.webp';
 
 export default {
     title: 'Design System/Atoms/Avatar',
@@ -15,8 +17,15 @@ export default {
             description: 'Size of the avatar',
         },
         imageSrc: {
-            control: { type: 'text' },
-            description: 'URL of the image for the avatar',
+            control: {
+                type: 'select',
+                options: {
+                    Dog: dog,
+                    Panda: panda,
+                    Penguin: penguin,
+                },
+            },
+            description: 'Source of the avatar image',
         },
     },
 } as Meta<typeof Avatar>;
@@ -25,6 +34,6 @@ const Template: StoryFn<AvatarProps> = (args) => <Avatar {...args} />;
 
 export const AvatarStory = Template.bind({});
 AvatarStory.args = {
-    imageSrc: sampleImage,
+    imageSrc: dog,
     size: 'medium',
 };

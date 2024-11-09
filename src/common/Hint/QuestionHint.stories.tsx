@@ -1,9 +1,10 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import QuestionHint, { QuestionHintProps } from "./QuestionHint";
-import avatarImage from '../../stories/assets/avatar.png';
+import avatarImage from '../../assets/girl3.jpg';
+
 export default {
-    title: "Design System/Molecules/QuestionHint",
+    title: "Design System/Atoms/QuestionHint",
     component: QuestionHint,
     argTypes: {
         hintText: {
@@ -35,6 +36,6 @@ export const Default = Template.bind({});
 Default.args = {
     hintText: "Hint",
     questionText: "Consider Macbeth’s motivations throughout the play. What drives him to make his most significant decisions, and how does this ultimately lead to his downfall?",
-    personName: "Tom Doe",
+    personName: "Jane Doe",
     avatarSrc: avatarImage,
 };

@@ -4,7 +4,7 @@ import animal from '../../assets/lion.webp';
 import {Meta, StoryFn} from "@storybook/react";
 
 export default {
-    title: 'Design System/Molecules/RankingTable',
+    title: 'Design System/Atoms/RankingTable',
     component: RankingTable,
     argTypes: {
         control: { type: 'object' },

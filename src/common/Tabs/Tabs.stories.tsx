@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import Tabs from "./Tabs";
 
 export default {
-    title: "Design System/Molecules/Tabs",
+    title: "Design System/Atoms/Tabs",
     component: Tabs,
     argTypes: {
         tab1Label: {

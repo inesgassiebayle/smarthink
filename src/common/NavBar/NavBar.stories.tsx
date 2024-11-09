@@ -2,7 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import NavBar from "./NavBar";
 
 const meta: Meta<typeof NavBar> = {
-    title: "Design System/Molecules/NavBar",
+    title: "Design System/Atoms/NavBar",
     component: NavBar,
     argTypes: {},
 };

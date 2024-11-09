@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import PersonTag from './PersonTag';
-import avatarImage from '../../assets/avatar-boy1.jpg';
+import avatarImage from '../../assets/girl3.jpg';
 
 export default {
     title: "Design System/Atoms/TeacherTag",
@@ -17,21 +17,7 @@ const Template: StoryFn<typeof PersonTag> = (args) => <PersonTag {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-    name: "Iván Rodríguez Vuillermoz",
+    name: "Jennifer Doe",
     avatarSrc: avatarImage,
     size: "medium",
-};
-
-export const Large = Template.bind({});
-Large.args = {
-    name: "Iván Rodríguez Vuillermoz",
-    avatarSrc: avatarImage,
-    size: "large",
-};
-
-export const Small = Template.bind({});
-Small.args = {
-    name: "Iván Rodríguez Vuillermoz",
-    avatarSrc: avatarImage,
-    size: "small",
 };

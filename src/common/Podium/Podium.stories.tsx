@@ -6,7 +6,7 @@ import animal2 from '../../assets/zebra.webp';
 import animal3 from '../../assets/cow.jpeg';
 
 export default {
-    title: 'Design System/Molecules/Podium',
+    title: 'Design System/Atoms/Podium',
     component: Podium,
     argTypes: {
         first: {

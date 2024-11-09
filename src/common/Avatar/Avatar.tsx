@@ -30,7 +30,7 @@ const Avatar: FunctionComponent<AvatarProps> = ({ imageSrc, size = 'medium' }) =
     return (
         <div className={avatarVariants({ size })}>
             <img
-                src={imageSrc || '/path/to/default/avatar.png'} // fallback image
+                src={imageSrc}
                 alt="Avatar"
                 className="w-full h-full object-cover"
             />

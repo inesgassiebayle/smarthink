@@ -9,7 +9,7 @@ export interface ProgressMapProps {
 
 const ProgressMap: FunctionComponent<ProgressMapProps> = ({ modules, moduleState, moduleReached }) => {
     return (
-        <div className="flex flex-col w-full h-full overflow-y-auto">
+        <div className="flex flex-col w-full h-full overflow-y-auto pb-2">
             {modules.map((module, index) => {
                 let variant: ProgressMapModuleProps["variant"];
 

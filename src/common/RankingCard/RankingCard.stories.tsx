@@ -1,7 +1,7 @@
 import RankingCard, { RankingCardProps } from './RankingCard';
 import {Meta, StoryFn} from "@storybook/react";
 import React from "react";
-import animal from '../../assets/lion.webp';
+import animal from '../../assets/cat.webp';
 
 export default {
     title: 'Design System/Atoms/Ranking Card',

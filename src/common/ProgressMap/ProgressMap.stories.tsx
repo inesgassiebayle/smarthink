@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import ProgressMap, { ProgressMapProps } from './ProgressMap';
 
 const meta: Meta<typeof ProgressMap> = {
-    title: 'Design System/Molecules/ProgressMap',
+    title: 'Design System/Atoms/ProgressMap',
     component: ProgressMap,
     argTypes: {
         moduleState: {

@@ -2,6 +2,7 @@ import { FunctionComponent, ReactNode, useState } from "react";
 import Button from "../Button/Button";
 import PersonTag from "../TeacherTag/PersonTag";
 import Icon from "../Icon/Icon";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 export interface ModalProps {
     isOpen: boolean;
@@ -59,13 +60,7 @@ const Modal: FunctionComponent<ModalProps> = ({
                         <h2 className="text-xl font-bold text-black">{title}</h2>
                     </div>
                     {showCloseIcon && (
-                        <button
-                            aria-label="close"
-                            onClick={onClose}
-                            className="text-gray-600 hover:text-gray-800 focus:outline-none"
-                        >
-                            ✕
-                        </button>
+                        <ButtonIcon onClick={onClose} size={"medium"} variant={"close"}/>
                     )}
                 </div>
 
@@ -97,15 +92,6 @@ const Modal: FunctionComponent<ModalProps> = ({
                                 <Icon variant={actionIconVariant} fill={isIconFilled} />
                             </button>
                         )}
-                        {showPrimaryButton && buttons && buttons[0] && (
-                            <Button
-                                variant={buttons[0].variant || 'filled'}
-                                size="medium"
-                                onClick={buttons[0].onClick}
-                            >
-                                {buttons[0].label}
-                            </Button>
-                        )}
                         {showSecondaryButton && buttons && buttons[1] && (
                             <Button
                                 variant={buttons[1].variant || 'outlined'}
@@ -113,6 +99,15 @@ const Modal: FunctionComponent<ModalProps> = ({
                                 onClick={buttons[1].onClick}
                             >
                                 {buttons[1].label}
+                            </Button>
+                        )}
+                        {showPrimaryButton && buttons && buttons[0] && (
+                            <Button
+                                variant={buttons[0].variant || 'filled'}
+                                size="medium"
+                                onClick={buttons[0].onClick}
+                            >
+                                {buttons[0].label}
                             </Button>
                         )}
                     </div>
