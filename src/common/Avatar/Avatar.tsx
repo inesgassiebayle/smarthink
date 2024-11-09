@@ -3,7 +3,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 export interface AvatarProps extends VariantProps<typeof avatarVariants> {
     imageSrc: string;
-    size: "small" | "medium" | "large" | "xlarge";
+    size?: "xxsmall" | "xsmall" | "small" | "medium" | "large" | "xlarge" | "xxlarge";
 }
 
 const avatarVariants = cva(
@@ -11,10 +11,13 @@ const avatarVariants = cva(
     {
         variants: {
             size: {
-                small: 'w-4 h-4',
-                medium: 'w-6 h-6',
-                large: 'w-8 h-8',
-                xlarge: 'w-10 h-10',
+                xxsmall: 'w-4 h-4',
+                xsmall: 'w-6 h-6',
+                small: 'w-8 h-8',
+                medium: 'w-10 h-10',
+                large: 'w-14 h-14',
+                xlarge: 'w-20 h-20',
+                xxlarge: 'w-64 h-64',
             },
         },
         defaultVariants: {
@@ -23,11 +26,11 @@ const avatarVariants = cva(
     }
 );
 
-const Avatar: FunctionComponent<AvatarProps> = ({ imageSrc, size }) => {
+const Avatar: FunctionComponent<AvatarProps> = ({ imageSrc, size = 'medium' }) => {
     return (
         <div className={avatarVariants({ size })}>
             <img
-                src={imageSrc}
+                src={imageSrc || '/path/to/default/avatar.png'} // fallback image
                 alt="Avatar"
                 className="w-full h-full object-cover"
             />

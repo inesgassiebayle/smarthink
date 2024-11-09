@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Meta, StoryFn} from '@storybook/react';
+import React from 'react';
+import { Meta, StoryFn } from '@storybook/react';
 import AnswerIcon from './AnswerIcon';
 
 const meta: Meta<typeof AnswerIcon> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof AnswerIcon> = {
         state: {
             control: {
                 type: 'select',
-                options: ['incorrect', 'correct'],
+                options: ['incorrect', 'correct', 'default'],
             },
         },
         shape: {
@@ -22,20 +22,17 @@ const meta: Meta<typeof AnswerIcon> = {
             control: {
                 type: 'boolean',
             },
-        }
+        },
+        clickable: {
+            control: {
+                type: 'boolean',
+            },
+        },
     },
 };
 export default meta;
 
-const Template: StoryFn<typeof AnswerIcon> = (args) => {
-
-
-    return (
-        <AnswerIcon
-            {...args}
-        />
-    );
-};
+const Template: StoryFn<typeof AnswerIcon> = (args) => <AnswerIcon {...args} />;
 
 export const AnswerIconStory = Template.bind({});
 AnswerIconStory.args = {

@@ -10,15 +10,13 @@ export default {
         size: {
             control: {
                 type: 'radio',
-                options: ['small', 'medium', 'large', 'xlarge'],
+                options: ['xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge'],
             },
             description: 'Size of the avatar',
-            defaultValue: 'medium',
         },
         imageSrc: {
             control: { type: 'text' },
             description: 'URL of the image for the avatar',
-            defaultValue: sampleImage,
         },
     },
 } as Meta<typeof Avatar>;
