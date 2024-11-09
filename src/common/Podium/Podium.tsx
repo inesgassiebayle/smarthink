@@ -13,7 +13,7 @@ export interface PodiumProps {
 
 const Podium: FunctionComponent<PodiumProps> = ({ first, first_username, second, second_username, third, third_username }) => {
     return (
-        <div className="flex w-[400px] h-[250px] justify-center items-end gap-[16px]">
+        <div className="flex w-full h-full pt-2 justify-center items-end gap-[16px]">
             <div className="flex flex-col items-center w-[80px] h-[160px] bg-primary-300 rounded-t-full p-2">
                 <Avatar imageSrc={second} size={"large"} />
                 <p className="text-center text-white font-inter text-[12px] font-bold mt-2">#2</p>

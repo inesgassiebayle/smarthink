@@ -8,11 +8,11 @@ export interface RankingTableProps {
 const RankingTable: React.FC<RankingTableProps> = ({ rankings }) => {
     const sortedRankings = [...rankings].sort((a, b) => Number(b.points) - Number(a.points));
     return (
-        <div className="flex flex-col w-full h-full overflow-y-scroll scrollbar-hide">
+        <div className="flex flex-col items-center w-full h-full overflow-y-auto scrollbar-hide">
             {sortedRankings.map((rank, index) => (
                 <div
                     key={index}
-                    className={`flex flex-col w-full ${index < sortedRankings.length - 1 ? 'border-b border-primary-900' : ''}`}
+                    className={`flex w-full ${index < sortedRankings.length - 1 ? 'border-b border-primary-900' : ''} py-2`}
                 >
                     <RankingCard
                         personPicture={rank.personPicture}

@@ -4,7 +4,7 @@ import PersonTag from "../TeacherTag/PersonTag";
 export interface RankingCardProps {
     personPicture: string;
     personUsername: string;
-    points: string;
+    points: number;
 };
 
 const RankingCard : FunctionComponent<RankingCardProps> = ({personUsername, personPicture, points}) => {
