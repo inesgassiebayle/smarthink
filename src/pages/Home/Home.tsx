@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState, useEffect } from "react";
 import Header from "../../common/Header/Header";
 import SearchBar from "../../common/SearchBar/SearchBar";
 import CategoryCourses, { CategoryCoursesProps } from "../../common/CategoryCourses/CategoryCourses";
@@ -18,6 +18,19 @@ const openMenu = () => {
 const Home: FunctionComponent<HomeProps> = ({ categories }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        // Cleanup to reset overflow when component unmounts
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [isModalOpen]);
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
@@ -44,13 +57,17 @@ const Home: FunctionComponent<HomeProps> = ({ categories }) => {
             {isModalOpen && selectedCourse && (
                 <Modal
                     isOpen={isModalOpen}
-                    title={"William Shakespeare"}
-                    content={
-                        "William Shakespeare was an English playwright, poet, and actor, widely regarded as the greatest writer in the English language and the world's greatest dramatist."
-                    }
                     onClose={handleCloseModal}
+                    title={"William Shakespeare"}
+                    content={"William Shakespeare, often hailed as the greatest playwright in the English language and one of the most influential writers in world literature, was born in Stratford-upon-Avon, England, in 1564. His work has left an indelible mark on literature, theater, and the English language itself. Over his lifetime, Shakespeare wrote approximately 39 plays, 154 sonnets, and two narrative poems, encompassing a vast range of genres that include tragedy, comedy, and history. His ability to capture the complexity of human emotions and the nuances of individual psychology set him apart from his contemporaries and continue to resonate with readers and audiences across the globe."
+                    }
+                    showPrimaryButton={true}
                     showCloseIcon={true}
                     imageSrc={literature}
+                    showCourseImage={true}
+                    showTeacherTag={true}
+                    showFooter={true}
+                    showFav={true}
                     buttons={[
                         {
                             label: "Enroll",

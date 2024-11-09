@@ -85,20 +85,20 @@ const Modal: FunctionComponent<ModalProps> = ({
                 </div>
 
                 {showFooter && (
-                    <div className="flex gap-2 justify-end border-t border-gray-400 pt-4"
-                         style={{paddingTop: showTeacherTag ? "16px" : "0px"}}>
+                    <div className="flex gap-2 pb-2 justify-end border-t border-gray-400 pt-4"
+                         style={{paddingTop: "16px"}}>
                         {showFav && (
                             <button onClick={handleIconClick} className="focus:outline-none">
                                 <Icon variant={actionIconVariant} fill={isIconFilled} />
                             </button>
                         )}
-                        {showSecondaryButton && buttons && buttons[1] && (
+                        {showSecondaryButton && buttons && (
                             <Button
-                                variant={buttons[1].variant || 'outlined'}
+                                variant={(buttons.length > 1 ? buttons[1] : buttons[0]).variant || 'outlined'}
                                 size="medium"
-                                onClick={buttons[1].onClick}
+                                onClick={(buttons.length > 1 ? buttons[1] : buttons[0]).onClick}
                             >
-                                {buttons[1].label}
+                                {(buttons.length > 1 ? buttons[1] : buttons[0]).label}
                             </Button>
                         )}
                         {showPrimaryButton && buttons && buttons[0] && (
