@@ -18,6 +18,7 @@ const meta: Meta<ProgressMapModuleProps> = {
         },
         icon: {
             options: [
+                null, // Allow null as an option
                 "explore", "bookmark", "heart", "people", "switch_left", "switch_right", "tick", "clock",
                 "correct_circle", "correct_square", "incorrect_circle", "incorrect_square", "star", "close",
                 "add", "paper_clip", "download", "chat", "chat_multiple", "calendar", "search", "pencil",
@@ -25,7 +26,7 @@ const meta: Meta<ProgressMapModuleProps> = {
                 "pause", "play", "back", "menu", "home", "text", "mic", "smily", "confetti", "unlocked", "empty"
             ],
             control: { type: 'select' },
-            description: 'Icon variant to be displayed',
+            description: 'Icon variant to be displayed, or null for no icon',
         },
     },
     args: {
@@ -38,11 +39,8 @@ const meta: Meta<ProgressMapModuleProps> = {
 
 export default meta;
 
-const Template: StoryFn<ProgressMapModuleProps> = (args) =>
-{
-    return (
-            <ProgressMapModule {...args} />
-    )
+const Template: StoryFn<ProgressMapModuleProps> = (args) => {
+    return <ProgressMapModule {...args} />;
 };
 
 export const ProgressMapModuleStory = Template.bind({});

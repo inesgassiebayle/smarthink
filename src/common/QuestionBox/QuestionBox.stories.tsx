@@ -32,17 +32,3 @@ DefaultVariant.args = {
     body: "Esta es una pregunta simple para que respondas.",
     variant: "default",
 };
-
-export const PressedVariant = Template.bind({});
-PressedVariant.args = {
-    title: "¿Qué tecnología te gustaría aprender?",
-    body: "Explora las opciones y elige una tecnología que te interese.",
-    variant: "pressed",
-};
-
-export const AnsweredVariant = Template.bind({});
-AnsweredVariant.args = {
-    title: "¿Cómo te sientes hoy?",
-    body: "Una simple pregunta para conocer tu estado de ánimo.",
-    variant: "answered",
-};
