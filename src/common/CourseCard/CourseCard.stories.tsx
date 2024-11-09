@@ -5,7 +5,7 @@ import avatarImage from "../../assets/avatar-boy1.jpg";
 import courseImage from "../../assets/statistics.jpg";
 
 export default {
-    title: "Design System/Molecules/CourseCard",
+    title: "Design System/Atoms/CourseCard",
     component: CourseCard,
     argTypes: {
         variant: {

@@ -4,7 +4,7 @@ import sampleImage from "../../assets/statistics.jpg";
 import CourseLevelCard from "./CourseLevelCard";
 
 export default {
-    title: "Design System/Molecules/CourseCard",
+    title: "Design System/Atoms/CourseCard",
     component: CourseLevelCard,
     argTypes: {
         variant: {

@@ -11,7 +11,7 @@ import man2 from "../../assets/man2.jpg";
 import statistics from "../../assets/statistics.jpg";
 
 export default {
-    title: "Design System/Molecules/CourseCardCarousel",
+    title: "Design System/Atoms/CourseCardCarousel",
     component: CourseCardCarousel,
     argTypes: {
         variant: {

@@ -13,16 +13,16 @@ export interface CourseLevelCardProps {
 }
 
 export default function CourseLevelCard({
-                                       level,
-                                       progress,
-                                       courseSource,
-                                       points,
-                                       title,
-                                       variant,
-                                       ...props
-                                   }: CourseLevelCardProps) {
+                                            level,
+                                            progress,
+                                            courseSource,
+                                            points,
+                                            title,
+                                            variant,
+                                            ...props
+                                        }: CourseLevelCardProps) {
     return (
-        <div className="flex w-full h-[80px] items-center gap-[8px] flex-shrink-0 rounded-[16px] border border-primary-100 bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.08)]">
+        <div className="flex items-center gap-2 rounded-lg border bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.08)] border-primary-100 w-full h-[80px] flex-shrink-0">
             <img
                 src={courseSource}
                 alt="Course Image"
@@ -34,7 +34,9 @@ export default function CourseLevelCard({
                         <div className="flex flex-col justify-center gap-[8px]">
                             <div className="flex items-center gap-[8px]">
                                 <NumberIcon number={level} size="medium" />
-                                <span className="text-text-black font-inter text-sm font-regular leading-[120%]">Level {level}</span>
+                                <span className="text-text-black font-inter text-sm font-regular leading-[120%]">
+                                    Level {level}
+                                </span>
                             </div>
                             <div className="inline-flex">
                                 <SubjectTag subject={`Points: ${points}`} />
@@ -45,7 +47,9 @@ export default function CourseLevelCard({
                 ) : (
                     <>
                         <div className="flex flex-col items-start gap-[8px] flex-1">
-                            <span className="text-[16px] leading-[120%] font-regular text-text-black">{title}</span>
+                            <span className="text-[16px] leading-[120%] font-regular text-text-black whitespace-nowrap overflow-hidden text-ellipsis w-[120px]">
+                                {title}
+                            </span>
                             <div className="inline-flex">
                                 <SubjectTag subject={`Points: ${points}`} />
                             </div>
