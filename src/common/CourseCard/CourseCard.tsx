@@ -43,15 +43,16 @@ export default function CourseCard({
         <div className={courseCardVariant({ variant })} onClick={onClick} {...props}>
             {variant === "horizontal" ? (
                 <>
-                <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)]">
-                    <div className="flex flex-col items-start gap-2 flex-[1_0_0%] w-full">
+                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)]">
+                        <div className="flex flex-col items-start gap-2 flex-[1_0_0%] w-full">
                             <div className="flex flex-col items-start gap-1 self-stretch">
                                 <SubjectTag subject={subject} />
                                 <span
-                                    className="text-text-black font-inter text-base font-regular leading-[120%] w-full whitespace-pre self-stretch max-h-[19px] overflow-hidden text-ellipsis ">                                    {title}
+                                    className="text-text-black font-inter text-base font-regular leading-[120%] w-full whitespace-nowrap overflow-hidden text-ellipsis">
+                                    {title}
                                 </span>
                             </div>
-                            <PersonTag name={teacher} avatarSrc={avatarSource} size={"medium"}/>
+                            <PersonTag name={teacher} avatarSrc={avatarSource} size={"medium"} />
                         </div>
                     </div>
                     <img
@@ -76,7 +77,7 @@ export default function CourseCard({
                         <span className="overflow-hidden max-h-[38px] text-text-black text-ellipsis font-inter text-base font-regular leading-[120%] self-stretch line-clamp-2 break-words">
                             {title}
                         </span>
-                        <PersonTag name={teacher} avatarSrc={avatarSource} size={"small"}/>
+                        <PersonTag name={teacher} avatarSrc={avatarSource} size={"small"} />
                     </div>
                 </>
             )}
