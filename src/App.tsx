@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Button from "./common/Button/Button";
+import CourseDetailsPopUp from "./common/CourseDetailsPopUp/CourseDetailsPopUp"; // Adjust the path as necessary
 
 function App() {
-  return (
-    <div className="App">
-        <Button variant={"filled"} size={"medium"}>Hello World</Button>
-    </div>
-  );
+    return (
+        <div className="App">
+            <CourseDetailsPopUp/>
+        </div>
+    );
 }
 
 export default App;
