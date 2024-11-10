@@ -5,6 +5,16 @@ import CalendarComponent, { CalendarComponentProps } from './Calendar';
 export default {
     title: 'Design System/Atoms/CalendarComponent',
     component: CalendarComponent,
+    parameters: {
+        viewport: {
+            defaultViewport: 'mobile1',
+        },
+        docs: {
+            description: {
+                component: 'Mobile-optimized calendar with touch-friendly interface and no hover effects.'
+            }
+        }
+    },
     argTypes: {
         initialDate: {
             control: { type: 'date' },
