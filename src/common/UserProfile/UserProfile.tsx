@@ -12,13 +12,13 @@ const UserProfile: FunctionComponent<UserProfileProps> = ({
                                                               avatarSrc,
                                                           }) => {
     return (
-        <div className="flex flex-col items-center w-[256px]">
+        <div className="flex w-full flex-col items-center">
             <div
-                className="w-full h-[128px] bg-cover bg-center"
+                className="w-full h-[104px] bg-cover bg-center"
                 style={{ backgroundImage: `url(${background})` }}
             />
 
-            <div className="flex flex-col items-center -mt-[64px]">
+            <div className="flex flex-col items-center -mt-[56px]">
                 <Avatar imageSrc={avatarSrc} size="xlarge" />
                 <p className="text-center text-gray-800 font-medium mt-2 max-w-[200px] truncate">
                     @{name}

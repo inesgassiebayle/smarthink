@@ -59,7 +59,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
 
 const Template: StoryFn<typeof CourseCardCarousel> = (args) => {
     return (
-            <CourseCardCarousel {...args} />
+            <CourseCardCarousel {...args} onCourseClick={(id) => alert(`Course with id ${id} clicked`)}/>
     );
 };
 

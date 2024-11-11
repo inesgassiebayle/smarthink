@@ -60,7 +60,7 @@ const coursesData: Omit<CourseCardProps, 'variant'>[] = [
     },
 ];
 
-const Template: StoryFn<CategoryCoursesProps> = (args) => <CategoryCourses {...args} />;
+const Template: StoryFn<CategoryCoursesProps> = (args) => <CategoryCourses {...args} onCategoryClick={() => alert("More courses will open")} onCourseClick={(id) => alert(`Course with id ${id} was clicked`)}/>;
 
 export const Default = Template.bind({});
 Default.args = {

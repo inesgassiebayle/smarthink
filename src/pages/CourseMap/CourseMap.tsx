@@ -9,7 +9,7 @@ import literature from "../../assets/environment.png";
 import girl1 from "../../assets/woman1.jpg";
 
 export interface CourseMapProps {
-    modules: Omit<Omit<ProgressMapModuleProps, "variant">, "state">[];
+    modules: Omit<Omit<ProgressMapModuleProps & { id: string }, "variant">, "state">[];
     moduleReached: number;
     moduleState: "in-progress" | "default" | "completed";
     level: number;
@@ -17,13 +17,14 @@ export interface CourseMapProps {
     progress: number;
     points: number;
     courseSrc: string;
+    onModuleClick: (id: string) => void;
 }
 
 const openMenu = () => {
     console.log("Open menu");
 };
 
-const CourseMap: FunctionComponent<CourseMapProps> = ({modules, moduleState, moduleReached, progress, title, points, level, courseSrc}) => {
+const CourseMap: FunctionComponent<CourseMapProps> = ({modules, onModuleClick, moduleState, moduleReached, progress, title, points, level, courseSrc}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
     // Disable body scroll when modal is open
@@ -34,7 +35,7 @@ const CourseMap: FunctionComponent<CourseMapProps> = ({modules, moduleState, mod
             document.body.style.overflow = "auto";
         }
         return () => {
-            document.body.style.overflow = "auto"; // Reset on cleanup
+            document.body.style.overflow = "auto";
         };
     }, [modalOpen]);
 
@@ -43,7 +44,7 @@ const CourseMap: FunctionComponent<CourseMapProps> = ({modules, moduleState, mod
             <Header title={title} icon1={"menu"} onIconClick1={openMenu} icon4={"information"} onIconClick4={() => setModalOpen(true)}/>
             <div className={"my-[25%] space-y-2 pt-2 pb-2 w-full"}>
                 <CourseLevelCard variant={"leveled"} courseSource={courseSrc} level={level} points={points} progress={progress}/>
-                <ProgressMap modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
+                <ProgressMap onModuleClick={onModuleClick} modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
             </div>
             <NavBar/>
             {modalOpen && (

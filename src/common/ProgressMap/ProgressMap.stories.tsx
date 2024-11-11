@@ -27,7 +27,7 @@ export default meta;
 const Template: StoryFn<ProgressMapProps> = (args) => {
     return (
         <div className={"h-[346px]"}>
-            <ProgressMap {...args} />
+            <ProgressMap {...args} onModuleClick={(id: string) => alert(`Module with id ${id} was clicked`)}/>
         </div>
     )
 
@@ -35,12 +35,12 @@ const Template: StoryFn<ProgressMapProps> = (args) => {
 export const Default = Template.bind({});
 Default.args = {
     modules: [
-        { title: 'Hamlet' },
-        { title: 'Sonnet 16' },
-        { title: 'Macbeth'},
-        { title: 'Romeo and Juliet' },
-        { title: 'History of William Shakespeare' , icon: 'star'},
-        { title: 'Dramatic Metaphors' },
+        { title: 'Hamlet' , id: '1'},
+        { title: 'Sonnet 16', id: '2' },
+        { title: 'Macbeth', id: '3'},
+        { title: 'Romeo and Juliet', id: '4' },
+        { title: 'History of William Shakespeare' , icon: 'star', id: '5'},
+        { title: 'Dramatic Metaphors', id: '6' },
     ],
     moduleReached: 2,
     moduleState: 'in-progress',

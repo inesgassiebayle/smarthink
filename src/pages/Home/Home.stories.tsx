@@ -22,10 +22,11 @@ export default {
 
 const Template: StoryFn<HomeProps> = (args) => <Home {...args} />;
 
-const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
+const sampleCategories: Map<string, CategoryCoursesProps & { id: string }> = new Map([
     [
         "1",
         {
+            id: "1",
             title: "Continue with your courses",
             courses: [
                 {
@@ -53,14 +54,14 @@ const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
                     courseSource: environment,
                 },
             ],
-            onClick: () => console.log("View All Continue Courses clicked"),
-            onCourseClick: (id: string) => console.log(`Course ${id} clicked`),
+            onCourseClick: (id: string) => console.log(`Course ${id} clicked`), // Added `onCourseClick`
             onCategoryClick: () => console.log("Continue category clicked"),
         },
     ],
     [
         "2",
         {
+            id: "2",
             title: "Trending topics",
             courses: [
                 {
@@ -88,14 +89,14 @@ const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
                     courseSource: physics,
                 },
             ],
-            onClick: () => console.log("View All Trending Courses clicked"),
-            onCourseClick: (id: string) => console.log(`Course ${id} clicked`),
+            onCourseClick: (id: string) => console.log(`Course ${id} clicked`), // Added `onCourseClick`
             onCategoryClick: () => console.log("Trending category clicked"),
         },
     ],
     [
         "3",
         {
+            id: "3",
             title: "Popular Courses",
             courses: [
                 {
@@ -123,14 +124,14 @@ const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
                     courseSource: environment,
                 },
             ],
-            onClick: () => console.log("View All Popular Courses clicked"),
-            onCourseClick: (id: string) => console.log(`Course ${id} clicked`),
+            onCourseClick: (id: string) => console.log(`Course ${id} clicked`), // Added `onCourseClick`
             onCategoryClick: () => console.log("Popular category clicked"),
         },
     ],
     [
         "4",
         {
+            id: "4",
             title: "New Courses",
             courses: [
                 {
@@ -158,8 +159,7 @@ const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
                     courseSource: math,
                 },
             ],
-            onClick: () => console.log("View All New Courses clicked"),
-            onCourseClick: (id: string) => console.log(`Course ${id} clicked`),
+            onCourseClick: (id: string) => console.log(`Course ${id} clicked`), // Added `onCourseClick`
             onCategoryClick: () => console.log("New category clicked"),
         },
     ],
@@ -168,4 +168,5 @@ const sampleCategories: Map<string, CategoryCoursesProps> = new Map([
 export const DefaultHome = Template.bind({});
 DefaultHome.args = {
     categories: sampleCategories,
+    onCategoryClick: (id: string) => alert(`Category ${id} clicked`),
 };

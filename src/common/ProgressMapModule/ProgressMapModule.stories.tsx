@@ -40,7 +40,7 @@ const meta: Meta<ProgressMapModuleProps> = {
 export default meta;
 
 const Template: StoryFn<ProgressMapModuleProps> = (args) => {
-    return <ProgressMapModule {...args} />;
+    return <ProgressMapModule {...args} onClick={() => alert("Module should open")}/>;
 };
 
 export const ProgressMapModuleStory = Template.bind({});

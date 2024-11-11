@@ -8,14 +8,15 @@ import literature from "../../assets/literature.webp";
 import girl1 from "../../assets/woman1.jpg";
 
 export interface HomeProps {
-    categories: Map<string, CategoryCoursesProps>;
+    categories: Map<string, CategoryCoursesProps & { id: string }>;
+    onCategoryClick: (id: string) => void;
 }
 
 const openMenu = () => {
     console.log("Menu clicked");
 };
 
-const Home: FunctionComponent<HomeProps> = ({ categories }) => {
+const Home: FunctionComponent<HomeProps> = ({ categories, onCategoryClick }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState<string | null>(null);
 
@@ -26,7 +27,6 @@ const Home: FunctionComponent<HomeProps> = ({ categories }) => {
             document.body.style.overflow = "auto";
         }
 
-        // Cleanup to reset overflow when component unmounts
         return () => {
             document.body.style.overflow = "auto";
         };
@@ -49,7 +49,12 @@ const Home: FunctionComponent<HomeProps> = ({ categories }) => {
                 className="mt-[88px] mb-[80px] flex flex-col w-full overflow-y-auto flex-grow gap-[var(--Space-400,16px)] overflow-x-hidden flex-1">
                 <SearchBar placeholder="Insert a class code or name"/>
                 {Array.from(categories.entries()).map(([key, categoryProps]) => (
-                    <CategoryCourses key={key} {...categoryProps} onCourseClick={handleCourseClick} />
+                    <CategoryCourses
+                        key={key}
+                        {...categoryProps}
+                        onCourseClick={handleCourseClick}
+                        onCategoryClick={() => onCategoryClick(categoryProps.id)}
+                    />
                 ))}
             </div>
             <NavBar index={1} />
