@@ -46,7 +46,7 @@ const meta: Meta<typeof Icon> = {
                 "home",
                 "text",
                 "mic",
-                "smily",
+                "smiley",
                 "confetti",
                 "unlocked",
                 "empty",

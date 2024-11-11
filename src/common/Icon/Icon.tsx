@@ -101,7 +101,7 @@ export interface IconProps extends VariantProps<typeof iconVariant> {
         | "home"
         | "text"
         | "mic"
-        | "smily"
+        | "smiley"
         | "confetti"
         | "unlocked"
         | "empty"

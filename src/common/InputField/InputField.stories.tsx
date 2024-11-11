@@ -54,7 +54,7 @@ const meta: Meta<typeof InputField> = {
                 "home",
                 "text",
                 "mic",
-                "smily",
+                "smiley",
                 "confetti",
                 "unlocked",
                 "empty",

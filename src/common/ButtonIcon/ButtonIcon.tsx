@@ -48,7 +48,7 @@ interface ButtonIconProps {
         | "home"
         | "text"
         | "mic"
-        | "smily"
+        | "smiley"
         | "confetti"
         | "unlocked"
         | "empty"

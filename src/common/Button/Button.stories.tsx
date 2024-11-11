@@ -69,7 +69,7 @@ const meta: Meta<typeof Button> = {
                 "home",
                 "text",
                 "mic",
-                "smily",
+                "smiley",
                 "confetti",
                 "unlocked",
                 "empty",

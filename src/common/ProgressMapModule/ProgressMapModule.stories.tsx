@@ -23,7 +23,7 @@ const meta: Meta<ProgressMapModuleProps> = {
                 "correct_circle", "correct_square", "incorrect_circle", "incorrect_square", "star", "close",
                 "add", "paper_clip", "download", "chat", "chat_multiple", "calendar", "search", "pencil",
                 "folder", "bell", "prize", "export", "circle", "square", "profile", "pin", "video", "image",
-                "pause", "play", "back", "menu", "home", "text", "mic", "smily", "confetti", "unlocked", "empty"
+                "pause", "play", "back", "menu", "home", "text", "mic", "smiley", "confetti", "unlocked", "empty"
             ],
             control: { type: 'select' },
             description: 'Icon variant to be displayed, or null for no icon',
