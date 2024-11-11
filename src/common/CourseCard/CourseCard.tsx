@@ -22,8 +22,8 @@ const courseCardVariant = cva(
     {
         variants: {
             variant: {
-                horizontal: ["w-full h-[80px] flex-shrink-0"],
-                vertical: ["w-[150px] h-[150px] flex-col pb-2"],
+                horizontal: ["w-full h-[80px] flex-shrink-0 overflow-hidden"], // Agregado overflow-hidden
+                vertical: ["w-[150px] h-[150px] flex-col pb-2 overflow-hidden"], // Agregado overflow-hidden
             },
         },
     }
@@ -43,7 +43,7 @@ export default function CourseCard({
         <div className={courseCardVariant({ variant })} onClick={onClick} {...props}>
             {variant === "horizontal" ? (
                 <>
-                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)]">
+                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)] overflow-hidden">
                         <div className="flex flex-col items-start gap-2 flex-[1_0_0%] w-full">
                             <div className="flex flex-col items-start gap-1 self-stretch">
                                 <SubjectTag subject={subject} />
@@ -58,12 +58,12 @@ export default function CourseCard({
                     <img
                         src={courseSource}
                         alt="Course Image"
-                        className="w-[80px] h-[80px] object-cover rounded-r-lg"
+                        className="w-[80px] h-[80px] object-cover rounded-r-lg overflow-hidden" // para q la imagen no se sobresalga
                     />
                 </>
             ) : (
                 <>
-                    <div className="relative w-full h-[60px] flex-shrink-0">
+                    <div className="relative w-full h-[60px] flex-shrink-0 overflow-hidden"> {}
                         <img
                             src={courseSource}
                             alt="Course Image"

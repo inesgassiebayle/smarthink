@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    staticDirs: ['public'],
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -75,4 +76,3 @@ module.exports = {
   },
   plugins: [],
 }
-
