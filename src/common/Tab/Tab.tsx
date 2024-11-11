@@ -2,7 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
 const tabVariant = cva(
-    ["flex w-1/2 p-4 flex-col items-center gap-4"],
+    ["flex flex-1 p-4 flex-col items-center gap-4"],
     {
         variants: {
             state: {
@@ -19,8 +19,8 @@ const tabVariant = cva(
 interface TabProps extends VariantProps<typeof tabVariant> {
     children: React.ReactNode;
     onClick: () => void;
+    className?: string;
 }
-
 
 const Tab = ({ state = "default", children, onClick }: TabProps) => {
     return (

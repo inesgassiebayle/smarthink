@@ -18,9 +18,27 @@ const inputVariant = cva(
     {
         variants: {
             state: {
-                default: ["bg-grayscale-white", "border-grayscale-500", "placeholder:text-grayscale-500"],
-                active: ["bg-grayscale-white", "border-primary-500", "placeholder:text-primary-500"],
-                disabled: ["bg-grayscale-white", "border-primary-100", "placeholder:text-primary-100", "text-primary-100", "cursor-not-allowed"],
+                default: [
+                    "bg-grayscale-white",
+                    "border-grayscale-500",
+                    "placeholder:text-grayscale-500",
+                ],
+                active: [
+                    "bg-grayscale-white",
+                    "border-primary-500",
+                    "placeholder:text-primary-500",
+                    "border-[1.5px]",
+                    "border-solid",
+                    "box-border",
+                    "text-grayscale-black",
+                ],
+                disabled: [
+                    "bg-grayscale-white",
+                    "border-primary-100",
+                    "placeholder:text-primary-100",
+                    "text-primary-100", // Aseguramos que el texto en "disabled" sea de color primary-100
+                    "cursor-not-allowed",
+                ],
             },
         },
         defaultVariants: {
@@ -34,6 +52,11 @@ export default function SearchBar({ state: initialState = "default", value = "",
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
+        // Solo actualiza el estado cuando el prop `state` cambie
+        setState(initialState);
+    }, [initialState]);
+
+    useEffect(() => {
         if (initialState === "disabled") {
             setState("disabled");
         } else if (valueLocal !== "") {
@@ -41,7 +64,7 @@ export default function SearchBar({ state: initialState = "default", value = "",
         } else {
             setState("default");
         }
-    }, [valueLocal, initialState]);
+    }, [valueLocal]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (state === "disabled") return;
@@ -53,15 +76,17 @@ export default function SearchBar({ state: initialState = "default", value = "",
     };
 
     return (
-        <div className={`${inputVariant({ state })} flex items-center`}>
-            <input
-                value={valueLocal}
-                onChange={handleInputChange}
-                disabled={state === "disabled"}
-                className="flex-grow bg-transparent border-none focus:outline-none px-2"
-                {...props}
-            />
-            <div className="cursor-pointer">
+        <div className={`${inputVariant({ state })} flex items-center relative w-full`}>
+            <div className="flex-1 relative leading-[120%] overflow-hidden text-ellipsis whitespace-nowrap">
+                <input
+                    value={valueLocal}
+                    onChange={handleInputChange}
+                    disabled={state === "disabled"}
+                    className="flex-grow border-none focus:outline-none px-2 text-primary-500"
+                    {...props}
+                />
+            </div>
+            <div className="w-6 h-6 overflow-hidden shrink-0 flex flex-row items-center justify-center p-2 box-border">
                 {state === "disabled" ? (
                     <Icon variant="search" size="medium" colorClass="text-primary-100" />
                 ) : state === "default" ? (

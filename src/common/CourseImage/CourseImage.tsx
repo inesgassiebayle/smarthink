@@ -10,7 +10,6 @@ import economics from "../../assets/economics.png";
 import finance from "../../assets/finance.png";
 import finance3 from "../../assets/finance3.png";
 
-// Define the prop type to include the `subject` variant
 export type CourseImageProps = {
     subject?: 'chemistry' | 'math' | 'literature' | 'biology' | 'history' | 'finance2' | 'writing' | 'economics' | 'finance' | 'finance3';
 };

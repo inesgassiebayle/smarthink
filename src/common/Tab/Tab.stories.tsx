@@ -22,7 +22,7 @@ const meta: Meta<typeof Tab> = {
 
 export default meta;
 
-const Template: StoryFn<typeof Tab> = (args) => <Tab {...args} />;
+const Template: StoryFn<typeof Tab> = (args) => <Tab {...args}/>;
 
 export const TabStory = Template.bind({});
 TabStory.args = {

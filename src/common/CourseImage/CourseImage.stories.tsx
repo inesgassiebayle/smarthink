@@ -1,34 +1,35 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import CourseImage, { CourseImageProps } from './CourseImage';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import CourseImage, { CourseImageProps } from "./CourseImage";
 
 export default {
-    title: 'Components/CourseImage',
+    title: "Design System/Atoms/CourseImage",
     component: CourseImage,
     argTypes: {
         subject: {
-            control: {
-                type: 'select',
-                options: [
-                    'chemistry',
-                    'math',
-                    'literature',
-                    'biology',
-                    'history',
-                    'finance2',
-                    'writing',
-                    'economics',
-                    'finance',
-                    'finance3',
-                ],
-            },
+            control: "radio",
+            options: [
+                "chemistry",
+                "math",
+                "literature",
+                "biology",
+                "history",
+                "finance2",
+                "writing",
+                "economics",
+                "finance",
+                "finance3",
+            ],
+            description: "Selects the image subject for the CourseImage component",
         },
     },
-} as Meta;
+} as Meta<typeof CourseImage>;
 
-const Template: StoryFn<CourseImageProps> = (args) => <CourseImage {...args} />;
+const Template: StoryFn<typeof CourseImage> = (args) => {
+    return <CourseImage {...args} />;
+};
 
-export const Default = Template.bind({});
-Default.args = {
-    subject: 'math', // Default subject
+export const CourseImageStory = Template.bind({});
+CourseImageStory.args = {
+    subject: "math",
 };
