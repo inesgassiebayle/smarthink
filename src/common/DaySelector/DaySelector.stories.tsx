@@ -6,7 +6,7 @@ export default {
     title: 'Components/DaySelector',
     component: DaySelector,
     argTypes: {
-        dia: {
+        day: {
             control: 'select',
             options: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
         },
@@ -30,14 +30,4 @@ NotSelected.args = {
     selected: false,
 };
 
-export const AllSelected = Template.bind({});
-AllSelected.args = {
-    day: 'S',
-    selected: true,
-};
 
-export const AllNotSelected = Template.bind({});
-AllNotSelected.args = {
-    day: 'F',
-    selected: false,
-};
