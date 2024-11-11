@@ -54,6 +54,7 @@ interface ButtonIconProps {
         | "empty"
         | "config"
         | "information"
+        | "send"
         | "switch";
 }
 

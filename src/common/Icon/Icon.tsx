@@ -53,7 +53,17 @@ import {
     CelebrationOutlined,
     Celebration,
     LockOpenOutlined,
-    LockOpen, SquareOutlined, Square, CircleOutlined, Circle, ToggleOn, ToggleOff, Tune, InfoOutlined, ArrowBack,
+    LockOpen,
+    SquareOutlined,
+    Square,
+    CircleOutlined,
+    Circle,
+    ToggleOn,
+    ToggleOff,
+    Tune,
+    InfoOutlined,
+    ArrowBack,
+    SendOutlined,
 } from "@mui/icons-material";
 import { cva, VariantProps } from "class-variance-authority";
 
@@ -107,6 +117,7 @@ export interface IconProps extends VariantProps<typeof iconVariant> {
         | "empty"
         | "config"
         | "information"
+        | "send"
         | "switch";
 }
 
@@ -166,6 +177,7 @@ export default function Icon({ size = "medium", variant = "empty", fill = false,
         empty: null,
         switch: fill ? ToggleOn: ToggleOff,
         config: Tune,
+        send: SendOutlined,
         information: InfoOutlined
     };
 

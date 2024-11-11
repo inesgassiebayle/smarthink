@@ -10,16 +10,14 @@ const meta: Meta<typeof ChatBar> = {
 export default meta;
 
 const Template: StoryFn<typeof ChatBar> = (args) => {
-    const [text, setText] = useState('');
-
-    const handleTextChange = (newText: string) => {
-        setText(newText);
-    };
-
-    return <ChatBar {...args} text={text} onTextChange={handleTextChange} />;
+    return <ChatBar {...args} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
     text: '',
+    onClickAdd: () => alert("Add button clicked"),
+    onClickEmoji: () => alert("Emoji button clicked"),
+    onClickMic: () => alert("Mic button clicked"),
+    onClickSend: () => alert("Send button clicked"),
 };

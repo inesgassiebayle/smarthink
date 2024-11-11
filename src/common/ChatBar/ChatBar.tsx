@@ -1,40 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FunctionComponent } from 'react';
-import Icon from '../Icon/Icon';
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 interface ChatBarProps {
     text: string;
-    onTextChange: (text: string) => void;
+    onClickMic: () => void;
+    onClickSend: () => void;
+    onClickAdd: () => void;
+    onClickEmoji: () => void;
 }
 
-const ChatBar: FunctionComponent<ChatBarProps> = ({ text, onTextChange }) => {
+const ChatBar: FunctionComponent<ChatBarProps> = ({ onClickEmoji, onClickMic, onClickSend, onClickAdd }) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        onTextChange(event.target.value);
+        handleTextChange(event.target.value);
     };
 
+    const [text, setText] = useState('');
+
+    const handleTextChange = (newText: string) => {
+        setText(newText);
+    };
+
+    const handleSend = () => {
+        handleTextChange('');
+        onClickSend();
+    };
+
+
     return (
-        <div className="w-full relative rounded-t-2xl rounded-b-none bg-primary-100 h-20 flex flex-row items-center justify-center py-4 px-2 box-border gap-4">
-            <div className="overflow-hidden flex flex-row items-center justify-center">
-                <div className="w-4 h-4 overflow-hidden shrink-0 flex flex-row items-center justify-center p-0.5 box-border">
-                    <Icon variant="add" size="small" colorClass="text-primary-900" />
-                </div>
+        <div className="w-full relative rounded-t-2xl rounded-b-none bg-primary-100 h-20 flex flex-row items-center justify-center py-2 px-2 box-border gap-2 sm:gap-4">
+            <div className="flex flex-row items-center justify-center">
+                <ButtonIcon variant="add" size="medium" colorClass="text-primary-900" onClick={onClickAdd} />
             </div>
-            <div className="overflow-hidden flex flex-row items-center justify-center">
-                <div className="w-[15.5px] h-[15.5px] overflow-hidden shrink-0 flex flex-row items-center justify-start p-px box-border">
-                    <Icon variant={"smiley"} size="small" colorClass={"text-primary-900"} />
-                </div>
+            <div className="flex flex-row items-center justify-center">
+                <ButtonIcon variant="smiley" size="medium" colorClass="text-primary-900" onClick={onClickEmoji} />
             </div>
-            <div className="self-stretch flex-1 rounded-[28px] bg-grayscale-white flex flex-row items-center justify-between py-4 px-6">
+            <div className="flex-1 w-full rounded-full bg-grayscale-white flex flex-row items-center justify-between py-2 px-4 sm:py-4 sm:px-6">
                 <input
                     type="text"
                     value={text}
                     onChange={handleChange}
                     placeholder=""
-                    className="flex-1 bg-transparent border-none outline-none text-base text-primary-900" // Cambié a text-lg para hacerlo más grande
+                    className="flex-1 w-full bg-transparent border-none outline-none text-base text-primary-900"
                 />
-                <Icon variant={"mic"} size={"medium"} colorClass={"text-primary-900"} />
+                <ButtonIcon onClick={handleSend} size="medium" variant="send" colorClass="text-primary-500" />
             </div>
-            <button onClick={() => {}} className="hidden">Enviar</button>
+            <ButtonIcon onClick={onClickMic} variant="mic" size="medium" colorClass="text-primary-900" />
         </div>
     );
 };
