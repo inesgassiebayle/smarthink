@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from "@storybook/react";
 import MessageBubble, { MessageBubbleProps } from './MessageBubble';
 
 export default {
@@ -7,33 +7,34 @@ export default {
     component: MessageBubble,
     argTypes: {
         variant: {
-            control: {
-                type: 'select',
-                options: ['ingoing', 'outgoing', 'MessageCardIngoing', 'MessageCardOutgoing'],
-            },
-            description: 'The variant of the MessageBubble component',
+            control: 'select',
+            options: ['ingoing', 'outgoing'],
+            description: 'Indica si el mensaje es entrante (ingoing) o saliente (outgoing)'
+        },
+        isLastMessage: {
+            control: 'boolean',
+            description: 'Indica si es el último mensaje, para mostrar la colita'
+        },
+        text: {
+            control: 'text',
+            defaultValue: 'Este es un mensaje de prueba',
+            description: 'Texto del mensaje'
+        },
+        time: {
+            control: 'text',
+            defaultValue: '12:45 PM',
+            description: 'Hora del mensaje'
         },
     },
-} as Meta;
+} as Meta<MessageBubbleProps>;
 
-const Template: StoryFn<MessageBubbleProps> = (args) => <MessageBubble {...args} />;
+type Story = StoryObj<MessageBubbleProps>;
 
-export const Ingoing = Template.bind({});
-Ingoing.args = {
-    variant: 'ingoing',
-};
-
-export const Outgoing = Template.bind({});
-Outgoing.args = {
-    variant: 'outgoing',
-};
-
-export const MessageCardIngoing = Template.bind({});
-MessageCardIngoing.args = {
-    variant: 'MessageCardIngoing',
-};
-
-export const MessageCardOutgoing = Template.bind({});
-MessageCardOutgoing.args = {
-    variant: 'MessageCardOutgoing',
+export const Default: Story = {
+    args: {
+        variant: 'ingoing',
+        isLastMessage: true,
+        text: '"¡Hola profe! Tenía una duda sobre la entrega del proyecto final. ¿Tiene que estar todo el código documentado o solo las partes principales?"',
+        time: '12:45 PM',
+    },
 };
