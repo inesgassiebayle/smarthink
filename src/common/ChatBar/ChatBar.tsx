@@ -30,7 +30,7 @@ const ChatBar: FunctionComponent<ChatBarProps> = ({ text, onTextChange }) => {
                     value={text}
                     onChange={handleChange}
                     placeholder=""
-                    className="flex-1 bg-transparent border-none outline-none text-lg text-primary-900" // Cambié a text-lg para hacerlo más grande
+                    className="flex-1 bg-transparent border-none outline-none text-base text-primary-900" // Cambié a text-lg para hacerlo más grande
                 />
                 <Icon variant={"mic"} size={"medium"} colorClass={"text-primary-900"} />
             </div>
