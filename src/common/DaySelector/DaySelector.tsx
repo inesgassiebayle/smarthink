@@ -15,7 +15,7 @@ const DaySelector: React.FC<DaySelectorProps> = ({ day }) => {
         <div
             onClick={toggleSelected}
             className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer
-                  ${selected ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-500'}`}
+                  ${selected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
         >
             {day}
         </div>
