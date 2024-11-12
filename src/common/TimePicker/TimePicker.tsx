@@ -46,11 +46,9 @@ const TimePicker: FC<TimePickerProps> = ({
     };
 
     const handleFromOk = () => {
-        // Si los minutos de FROM están completos, mover el foco a la hora de TO
-        if (fromMinuteRef.current?.value) {
-            toHourRef.current?.focus(); // Mover foco a la hora de TO
-        } else if (fromHourRef.current?.value) {
-            fromMinuteRef.current?.focus(); // Si la hora de FROM está completa, mover foco a los minutos de FROM
+        // Si ya se ha configurado la hora de FROM, mover el foco a los minutos de FROM
+        if (fromHourRef.current?.value) {
+            fromMinuteRef.current?.focus(); // Mover foco a los minutos de FROM
         }
     };
 
