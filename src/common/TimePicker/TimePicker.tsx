@@ -24,7 +24,6 @@ const TimePicker: FC<TimePickerProps> = ({
                                              onCancel,
                                              onAccept
                                          }) => {
-    // References for the inputs
     const fromHourRef = useRef<HTMLInputElement>(null);
     const fromMinuteRef = useRef<HTMLInputElement>(null);
     const toHourRef = useRef<HTMLInputElement>(null);
@@ -45,14 +44,12 @@ const TimePicker: FC<TimePickerProps> = ({
     };
 
     const handleFromOk = () => {
-        // If the FROM hour is already set, move focus to the FROM minutes
         if (fromHourRef.current?.value) {
             fromMinuteRef.current?.focus();
         }
     };
 
     const handleToOk = () => {
-        // Move focus from 'TO' hour to minutes if the hour is already selected
         if (toHourRef.current?.value) {
             toMinuteRef.current?.focus();
         }
@@ -82,7 +79,7 @@ const TimePicker: FC<TimePickerProps> = ({
         minuteRef: React.RefObject<HTMLInputElement>;
         onOk: () => void;
     }) => (
-        <div className="w-full bg-[#DDE4E4] p-4 rounded-lg">
+        <div className="w-full bg-grayscale-100 p-4 rounded-lg self-stretch">
             <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
             <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
                 <div className="flex gap-4 sm:gap-8 justify-between">
@@ -94,7 +91,7 @@ const TimePicker: FC<TimePickerProps> = ({
                             value={time.hour}
                             onChange={onChange('hour')}
                             ref={hourRef}
-                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
+                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
                             style={{
                                 textAlign: 'center',

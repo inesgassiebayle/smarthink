@@ -126,9 +126,8 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
                 navigationLabel={({ label }) => (
                     <span className="text-primary-500 font-semibold">{label}</span>
                 )}
-                // Usando Icono para las flechas personalizadas
-                nextLabel={<Icon variant="switch_right" size="medium" colorClass="text-primary-500" />} // Usa el ícono personalizado para la flecha derecha
-                prevLabel={<Icon variant="switch_left" size="medium" colorClass="text-primary-500" />} // Usa el ícono personalizado para la flecha izquierda
+                nextLabel={<Icon variant="switch_right" size="medium" colorClass="text-primary-500" />}
+                prevLabel={<Icon variant="switch_left" size="medium" colorClass="text-primary-500" />}
                 next2Label={null}
                 prev2Label={null}
                 locale="en-US"

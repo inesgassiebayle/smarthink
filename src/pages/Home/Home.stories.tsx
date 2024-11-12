@@ -54,7 +54,7 @@ const sampleCategories: Map<string, CategoryCoursesProps & { id: string }> = new
                     courseSource: environment,
                 },
             ],
-            onCourseClick: (id: string) => console.log(`Course ${id} clicked`), // Added `onCourseClick`
+            onCourseClick: (id: string) => console.log(`Course ${id} clicked`),
             onCategoryClick: () => console.log("Continue category clicked"),
         },
     ],

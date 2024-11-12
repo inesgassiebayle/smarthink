@@ -52,7 +52,6 @@ export default function SearchBar({ state: initialState = "default", value = "",
     const [state, setState] = useState(initialState);
 
     useEffect(() => {
-        // Solo actualiza el estado cuando el prop `state` cambie
         setState(initialState);
     }, [initialState]);
 

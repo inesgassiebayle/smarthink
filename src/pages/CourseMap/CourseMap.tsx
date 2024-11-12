@@ -27,7 +27,6 @@ const openMenu = () => {
 const CourseMap: FunctionComponent<CourseMapProps> = ({modules, onModuleClick, moduleState, moduleReached, progress, title, points, level, courseSrc}) => {
     const [modalOpen, setModalOpen] = useState(false);
 
-    // Disable body scroll when modal is open
     useEffect(() => {
         if (modalOpen) {
             document.body.style.overflow = "hidden";
