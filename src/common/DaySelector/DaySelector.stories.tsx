@@ -1,43 +1,24 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import DaySelector, { DaySelectorProps } from './DaySelector';
+import type { Meta, StoryObj } from '@storybook/react';
+import DaySelector from './DaySelector';
 
-export default {
-    title: 'Components/DaySelector',
+const meta: Meta<typeof DaySelector> = {
+    title: 'Design System/Atoms/DaySelector',
     component: DaySelector,
     argTypes: {
-        dia: {
+        day: {
             control: 'select',
-            options: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        },
-        selected: {
-            control: 'boolean',
+            options: ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'],
+            description: 'Day of the week'
         },
     },
-} as Meta;
-
-const Template: StoryFn<DaySelectorProps> = (args) => <DaySelector {...args} />;
-
-export const Selected = Template.bind({});
-Selected.args = {
-    day: 'M', // Puedes elegir el día que desees
-    selected: true,
 };
 
-export const NotSelected = Template.bind({});
-NotSelected.args = {
-    day: 'T',
-    selected: false,
-};
+export default meta;
 
-export const AllSelected = Template.bind({});
-AllSelected.args = {
-    day: 'S',
-    selected: true,
-};
+type Story = StoryObj<typeof DaySelector>;
 
-export const AllNotSelected = Template.bind({});
-AllNotSelected.args = {
-    day: 'F',
-    selected: false,
+export const Default: Story = {
+    args: {
+        day: 'monday'
+    },
 };
