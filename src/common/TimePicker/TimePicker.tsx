@@ -24,8 +24,7 @@ const TimePicker: FC<TimePickerProps> = ({
                                              onCancel,
                                              onAccept
                                          }) => {
-
-    // Referencias para los inputs
+    // References for the inputs
     const fromHourRef = useRef<HTMLInputElement>(null);
     const fromMinuteRef = useRef<HTMLInputElement>(null);
     const toHourRef = useRef<HTMLInputElement>(null);
@@ -46,14 +45,14 @@ const TimePicker: FC<TimePickerProps> = ({
     };
 
     const handleFromOk = () => {
-        // Si ya se ha configurado la hora de FROM, mover el foco a los minutos de FROM
+        // If the FROM hour is already set, move focus to the FROM minutes
         if (fromHourRef.current?.value) {
-            fromMinuteRef.current?.focus(); // Mover foco a los minutos de FROM
+            fromMinuteRef.current?.focus();
         }
     };
 
     const handleToOk = () => {
-        // Mover el foco de 'TO' a los minutos si la hora ya está seleccionada
+        // Move focus from 'TO' hour to minutes if the hour is already selected
         if (toHourRef.current?.value) {
             toMinuteRef.current?.focus();
         }
@@ -83,7 +82,7 @@ const TimePicker: FC<TimePickerProps> = ({
         minuteRef: React.RefObject<HTMLInputElement>;
         onOk: () => void;
     }) => (
-        <div className="w-full max-w-[328px] h-auto sm:h-[243px] bg-[#DDE4E4] p-4 rounded-lg">
+        <div className="w-full bg-[#DDE4E4] p-4 rounded-lg">
             <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
             <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
                 <div className="flex gap-4 sm:gap-8 justify-between">
@@ -99,13 +98,12 @@ const TimePicker: FC<TimePickerProps> = ({
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
                             style={{
                                 textAlign: 'center',
-                                lineHeight: '72px', // Asegura que el texto esté centrado verticalmente
+                                lineHeight: '72px',
                             }}
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Hour</span>
                     </div>
 
-                    {/* Minute input y label */}
                     <div className="flex flex-col items-center justify-center">
                         <input
                             type="number"
@@ -118,20 +116,18 @@ const TimePicker: FC<TimePickerProps> = ({
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
                             style={{
                                 textAlign: 'center',
-                                lineHeight: '72px', // Asegura que el texto esté centrado verticalmente
+                                lineHeight: '72px',
                             }}
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Minute</span>
                     </div>
                 </div>
 
-                {/* Dos puntos con margen inferior */}
                 <div className="absolute left-1/2 top-4 -translate-x-1/2 mb-16 sm:mb-0">
                     <span className="text-h1 font-bold text-black">:</span>
                 </div>
             </div>
 
-            {/* Icono y botones */}
             <div className="mt-8 flex items-center justify-between w-full">
                 <Icon variant="clock" size="medium" colorClass="w-6 h-6 text-primary-900" />
                 <div className="flex gap-4">
