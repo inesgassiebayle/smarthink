@@ -20,7 +20,7 @@ const Switch: FunctionComponent<SwitchProps> = ({ initialActive = false, onToggl
             onClick={handleToggle}
             variant={"switch"}
             filled={!isActive}
-            size="medium"
+            size="large"
             colorClass={isActive ? "text-primary-100" : "text-primary-500"}
         />
     );
