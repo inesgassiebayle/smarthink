@@ -86,9 +86,7 @@ const TimePicker: FC<TimePickerProps> = ({
         <div className="w-full max-w-[328px] h-auto sm:h-[243px] bg-[#DDE4E4] p-4 rounded-lg">
             <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
             <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
-                {/* Contenedor para mantener el espacio y alineación */}
                 <div className="flex gap-4 sm:gap-8 justify-between">
-                    {/* Hour input y label */}
                     <div className="flex flex-col items-center justify-center">
                         <input
                             type="number"
