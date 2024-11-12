@@ -22,7 +22,7 @@ const DaySelector: React.FC<DaySelectorProps> = ({ day }) => {
     return (
         <div
             onClick={() => setIsSelected(!isSelected)}
-            className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition-colors
+            className={`w-8 h-8 flex items-center justify-center rounded-full cursor-pointer transition-colors
                 ${isSelected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
         >
             {dayDisplayMap[day]}
