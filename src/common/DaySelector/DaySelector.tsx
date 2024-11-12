@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export interface DaySelectorProps {
-    day: 'S' | 'M' | 'T' | 'W' | 'T' | 'F' | 'S';
+export interface DayConfig {
+    id: string;
+    display: string;
 }
 
-const DaySelector: React.FC<DaySelectorProps> = ({ day }) => {
-    const [selected, setSelected] = useState(false);
+export interface DaySelectorProps {
+    dayConfig: DayConfig;
+    selected: boolean;
+    onClick: () => void;
+}
 
-    const toggleSelected = () => {
-        setSelected((prevSelected) => !prevSelected);
-    };
-
+const DaySelector: React.FC<DaySelectorProps> = ({ dayConfig, selected, onClick }) => {
     return (
         <div
-            onClick={toggleSelected}
-            className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer
-                  ${selected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
+            onClick={onClick}
+            className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition-colors
+                ${selected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
         >
-            {day}
+            {dayConfig.display}
         </div>
     );
 };
