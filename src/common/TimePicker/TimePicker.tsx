@@ -43,10 +43,9 @@ const TimePicker: FC<TimePickerProps> = ({
         time: TimeValue;
         onChange: (field: keyof TimeValue) => (e: ChangeEvent<HTMLInputElement>) => void;
     }) => (
-        <div className="w-[328px] h-[243px] bg-[#DDE4E4] p-4 rounded-lg">
-            <p className="text-black mb-4">{label}</p>
+        <div className="w-full h-[243px] bg-grayscale-100 p-4 rounded-lg">
+            <p className="text-text-black mb-4">{label}</p>
             <div className="flex items-center gap-2">
-                {/* Hour input */}
                 <div className="flex flex-col items-center gap-1">
                     <input
                         type="number"
@@ -54,17 +53,15 @@ const TimePicker: FC<TimePickerProps> = ({
                         max="23"
                         value={time.hour}
                         onChange={onChange('hour')}
-                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
-                                 rounded-lg p-2 text-2xl text-center text-black focus:outline-none
+                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
+                                 rounded-lg p-2 text-2xl text-center text-text-black focus:outline-none
                                  drop-shadow-lg"
                     />
                     <span className="text-black text-sm">Hour</span>
                 </div>
 
-                {/* Dos puntos alineados */}
                 <span className="text-2xl font-bold">:</span>
 
-                {/* Minute input */}
                 <div className="flex flex-col items-center gap-1">
                     <input
                         type="number"
@@ -72,7 +69,7 @@ const TimePicker: FC<TimePickerProps> = ({
                         max="59"
                         value={time.minute}
                         onChange={onChange('minute')}
-                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
+                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
                                  rounded-lg p-2 text-2xl text-center text-black focus:outline-none
                                  drop-shadow-lg"
                     />
@@ -80,9 +77,7 @@ const TimePicker: FC<TimePickerProps> = ({
                 </div>
             </div>
 
-            {/* Clock icon and buttons */}
             <div className="mt-[69px] flex items-center justify-between" style={{ marginTop: '32px' }}>
-                {/* Sustitución del ícono */}
                 <Icon variant="clock" size="medium" colorClass="w-6 h-6 text-primary-900" />
                 <div className="flex gap-4">
                     <button
