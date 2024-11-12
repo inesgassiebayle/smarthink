@@ -1,6 +1,6 @@
-import type { FC, ChangeEvent } from 'react';
-// Importa el ícono personalizado
+import { FC, ChangeEvent, useRef } from 'react';
 import Icon from "../Icon/Icon";
+import Button from "../Button/Button";
 
 interface TimeValue {
     hour: string;
@@ -24,6 +24,13 @@ const TimePicker: FC<TimePickerProps> = ({
                                              onCancel,
                                              onAccept
                                          }) => {
+
+    // Referencias para los inputs
+    const fromHourRef = useRef<HTMLInputElement>(null);
+    const fromMinuteRef = useRef<HTMLInputElement>(null);
+    const toHourRef = useRef<HTMLInputElement>(null);
+    const toMinuteRef = useRef<HTMLInputElement>(null);
+
     const handleFromChange = (field: keyof TimeValue) => (event: ChangeEvent<HTMLInputElement>) => {
         onChangeFrom({
             ...fromTime,
@@ -38,81 +45,122 @@ const TimePicker: FC<TimePickerProps> = ({
         });
     };
 
-    const TimeSection = ({ label, time, onChange }: {
+    const handleFromOk = () => {
+        // Si ya se ha configurado la hora de FROM, mover el foco a los minutos de FROM
+        if (fromHourRef.current?.value) {
+            fromMinuteRef.current?.focus(); // Mover foco a los minutos de FROM
+        }
+    };
+
+    const handleToOk = () => {
+        // Mover el foco de 'TO' a los minutos si la hora ya está seleccionada
+        if (toHourRef.current?.value) {
+            toMinuteRef.current?.focus();
+        }
+    };
+
+    const handleAccept = (type: 'from' | 'to') => {
+        if (type === 'from') {
+            handleFromOk();
+        } else if (type === 'to') {
+            handleToOk();
+        }
+        if (onAccept) onAccept();
+    };
+
+    const TimeSection = ({
+                             label,
+                             time,
+                             onChange,
+                             hourRef,
+                             minuteRef,
+                             onOk
+                         }: {
         label: string;
         time: TimeValue;
         onChange: (field: keyof TimeValue) => (e: ChangeEvent<HTMLInputElement>) => void;
+        hourRef: React.RefObject<HTMLInputElement>;
+        minuteRef: React.RefObject<HTMLInputElement>;
+        onOk: () => void;
     }) => (
-        <div className="w-[328px] h-[243px] bg-[#DDE4E4] p-4 rounded-lg">
-            <p className="text-black mb-4">{label}</p>
-            <div className="flex items-center gap-2">
-                {/* Hour input */}
-                <div className="flex flex-col items-center gap-1">
-                    <input
-                        type="number"
-                        min="0"
-                        max="23"
-                        value={time.hour}
-                        onChange={onChange('hour')}
-                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
-                                 rounded-lg p-2 text-2xl text-center text-black focus:outline-none
-                                 drop-shadow-lg"
-                    />
-                    <span className="text-black text-sm">Hour</span>
+        <div className="w-full max-w-[328px] h-auto sm:h-[243px] bg-[#DDE4E4] p-4 rounded-lg">
+            <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
+            <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
+                {/* Contenedor para mantener el espacio y alineación */}
+                <div className="flex gap-4 sm:gap-8 justify-between">
+                    {/* Hour input y label */}
+                    <div className="flex flex-col items-center">
+                        <input
+                            type="number"
+                            min="0"
+                            max="23"
+                            value={time.hour}
+                            onChange={onChange('hour')}
+                            ref={hourRef}
+                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
+                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
+                        />
+                        <span className="text-black text-xs sm:text-sm mt-1">Hour</span>
+                    </div>
+
+                    {/* Minute input y label */}
+                    <div className="flex flex-col items-center">
+                        <input
+                            type="number"
+                            min="0"
+                            max="59"
+                            value={time.minute}
+                            onChange={onChange('minute')}
+                            ref={minuteRef}
+                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
+                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
+                        />
+                        <span className="text-black text-xs sm:text-sm mt-1">Minute</span>
+                    </div>
                 </div>
 
-                {/* Dos puntos alineados */}
-                <span className="text-2xl font-bold">:</span>
-
-                {/* Minute input */}
-                <div className="flex flex-col items-center gap-1">
-                    <input
-                        type="number"
-                        min="0"
-                        max="59"
-                        value={time.minute}
-                        onChange={onChange('minute')}
-                        className="w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
-                                 rounded-lg p-2 text-2xl text-center text-black focus:outline-none
-                                 drop-shadow-lg"
-                    />
-                    <span className="text-black text-sm">Minute</span>
+                {/* Dos puntos con margen inferior */}
+                <div className="absolute left-1/2 top-4 -translate-x-1/2 mb-16 sm:mb-0">
+                    <span className="text-h1 font-bold text-black">:</span>
                 </div>
             </div>
 
-            {/* Clock icon and buttons */}
-            <div className="mt-[69px] flex items-center justify-between" style={{ marginTop: '32px' }}>
-                {/* Sustitución del ícono */}
+            {/* Icono y botones */}
+            <div className="mt-8 flex items-center justify-between w-full">
                 <Icon variant="clock" size="medium" colorClass="w-6 h-6 text-primary-900" />
                 <div className="flex gap-4">
-                    <button
-                        onClick={onCancel}
-                        className="text-primary-900"
-                    >
+                    <Button variant="textButton" onClick={onCancel} className="text-primary-900 text-sm sm:text-base">
                         Cancel
-                    </button>
-                    <button
-                        onClick={onAccept}
-                        className="text-primary-900"
+                    </Button>
+                    <Button
+                        variant="textButton"
+                        onClick={onOk}
+                        className="text-primary-900 text-sm sm:text-base"
                     >
                         OK
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
     );
 
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 w-full px-4 sm:px-0">
             <TimeSection
                 label="From"
                 time={fromTime}
                 onChange={handleFromChange}
+                hourRef={fromHourRef}
+                minuteRef={fromMinuteRef}
+                onOk={() => handleAccept('from')}
             />
             <TimeSection
                 label="To"
                 time={toTime}
                 onChange={handleToChange}
+                hourRef={toHourRef}
+                minuteRef={toMinuteRef}
+                onOk={() => handleAccept('to')}
             />
         </div>
     );
