@@ -1,19 +1,18 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import WeekSelector, { WeekSelectorProps } from './WeekSelector';
+import type { Meta, StoryObj } from '@storybook/react';
+import WeekSelector from './WeekSelector';
 
-export default {
+const meta: Meta<typeof WeekSelector> = {
     title: 'Design System/Atoms/WeekSelector',
     component: WeekSelector,
-} as Meta;
+    tags: ['autodocs'],
+};
 
-const Template: StoryFn<WeekSelectorProps> = (args) => (
-    <div className="p-4">
-        <WeekSelector {...args} />
-    </div>
-);
+export default meta;
 
-export const Default = Template.bind({});
-Default.args = {
-    onChange: (days) => console.log('Selected days:', days),
+type Story = StoryObj<typeof WeekSelector>;
+
+export const Default: Story = {
+    args: {
+        onChange: (days) => console.log('Selected days:', days),
+    },
 };
