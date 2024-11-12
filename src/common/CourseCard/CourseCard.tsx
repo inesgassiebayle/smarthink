@@ -22,8 +22,8 @@ const courseCardVariant = cva(
     {
         variants: {
             variant: {
-                horizontal: ["w-full h-[80px] flex-shrink-0 overflow-hidden"], // Agregado overflow-hidden
-                vertical: ["w-[150px] h-[150px] flex-col pb-2 overflow-hidden"], // Agregado overflow-hidden
+                horizontal: ["w-full h-[80px] flex-shrink-0 overflow-hidden"],
+                vertical: ["w-[150px] h-[150px] flex-col pb-2 overflow-hidden"],
             },
         },
     }

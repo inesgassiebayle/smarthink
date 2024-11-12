@@ -9,25 +9,13 @@ export default {
     component: ModuleCard,
     argTypes: {
         variant: {
-            options: ["horizontal", "iconTick", "circularProgress"], // Variantes posibles
-            control: { type: "radio" }, // Control para elegir la variante
+            options: ["horizontal", "iconTick", "circularProgress"],
+            control: { type: "radio" },
             description: "The variant of the Module Card to display",
-        },
-        teacher: {
-            control: { type: "text" },
-            description: "The name of the teacher",
         },
         title: {
             control: { type: "text" },
             description: "The title of the course",
-        },
-        subject: {
-            control: { type: "text" },
-            description: "The subject name",
-        },
-        avatarSource: {
-            control: { type: "text" },
-            description: "URL for the teacher's avatar image",
         },
         courseSource: {
             control: { type: "text" },
@@ -36,7 +24,7 @@ export default {
         progress: {
             control: { type: "number", min: 0, max: 100, step: 1 },
             description: "Progress value for the Circular Progress Bar (0-100)",
-            if: { arg: "variant", eq: "circularProgress" }, // Aparece solo cuando la variante es 'circularProgress'
+            if: { arg: "variant", eq: "circularProgress" },
         },
         onClick: {
             action: "clicked",
@@ -44,19 +32,19 @@ export default {
         },
     },
     args: {
-        variant: "horizontal", // Valor por defecto
+        variant: "horizontal",
         teacher: "Jane Doe",
         title: "Introduction to Mathematics",
         subject: "Mathematics",
         avatarSource: avatarImage,
         courseSource: courseImage,
-        progress: 80, // Valor de progreso por defecto para circularProgress
+        progress: 80,
     },
 } as Meta<ModuleCardProps>;
 
 const Template: StoryFn<ModuleCardProps> = (args) => (
     <div>
-        <ModuleCard {...args} />
+        <ModuleCard {...args} onClick={() => alert("Open module card")} />
     </div>
 );
 

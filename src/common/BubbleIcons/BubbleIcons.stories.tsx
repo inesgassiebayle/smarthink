@@ -5,7 +5,6 @@ import {BubbleIcon} from "./BubbleIcons";
 const meta: Meta<typeof BubbleIcon> = {
     title: 'Design System/Atoms/BubbleIcon',
     component: BubbleIcon,
-    tags: ['autodocs'],
     argTypes: {
         variant: {
             options: [

@@ -9,7 +9,7 @@ export interface ModuleCardProps extends VariantProps<typeof ModuleCardVariant> 
     title: string;
     avatarSource: string;
     courseSource: string;
-    progress?: number;  // Se agrega para pasar el progreso a CircularProgressBar
+    progress?: number;
     onClick?: () => void;
 }
 
@@ -21,9 +21,9 @@ const ModuleCardVariant = cva(
     {
         variants: {
             variant: {
-                horizontal: ["w-full h-[80px] flex-shrink-0 overflow-hidden"], // Horizontal
-                iconTick: ["w-full h-[80px] flex-shrink-0 overflow-hidden"], // Icono
-                circularProgress: ["w-full h-[80px] flex-shrink-0 overflow-hidden"], // CircularProgressBar
+                horizontal: ["w-full h-[80px] flex-shrink-0 overflow-hidden"],
+                iconTick: ["w-full h-[80px] flex-shrink-0 overflow-hidden"],
+                circularProgress: ["w-full h-[80px] flex-shrink-0 overflow-hidden"],
             },
         },
     }
@@ -34,61 +34,33 @@ export default function ModuleCard({
                                        title,
                                        avatarSource,
                                        courseSource,
-                                       progress,
+                                       progress = 0,
                                        onClick,
                                        ...props
                                    }: ModuleCardProps) {
     return (
         <div className={ModuleCardVariant({ variant })} onClick={onClick} {...props}>
-            {variant === "horizontal" ? (
-                <>
-                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)] overflow-hidden">
-                        <span className="text-text-black font-inter text-base font-regular leading-[120%] w-full overflow-hidden text-ellipsis">
-                            {title}
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-8">
-                        <Icon variant="tick" size="medium" colorClass="text-primary-500 w-5 h-5" />
-                        <img
-                            src={courseSource}
-                            alt="Course Image"
-                            className="w-[80px] h-[80px] object-cover rounded-r-lg overflow-hidden"
-                        />
-                    </div>
-                </>
-            ) : variant === "iconTick" ? (
-                <>
-                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)] overflow-hidden">
-                        <span className="text-text-black font-inter text-base font-regular leading-[120%] w-full overflow-hidden text-ellipsis">
-                            {title}
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-8">
-                        <Icon variant="tick" size="medium" colorClass="text-primary-500 w-5 h-5" />
-                        <img
-                            src={courseSource}
-                            alt="Course Image"
-                            className="w-[80px] h-[80px] object-cover rounded-r-lg overflow-hidden"
-                        />
-                    </div>
-                </>
-            ) : variant === "circularProgress" ? (
-                <>
-                    <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-400,16px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)] overflow-hidden">
-                        <span className="text-text-black font-inter text-base font-regular leading-[120%] w-full overflow-hidden text-ellipsis">
-                            {title}
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-8">
-                        <CircularProgressBar progress={progress || 0} size={40} />
-                        <img
-                            src={courseSource}
-                            alt="Course Image"
-                            className="w-[80px] h-[80px] object-cover rounded-r-lg overflow-hidden"
-                        />
-                    </div>
-                </>
-            ) : null}
+            <div className="flex p-[var(--Space-200,8px)] px-[var(--Icon-Small,24px)] items-center gap-[var(--Space-200,8px)] flex-[1_0_0%] self-stretch w-[calc(100%-88px)] overflow-hidden">
+                <span className="text-text-black font-inter text-base font-regular leading-[120%] w-full overflow-hidden text-ellipsis truncate">
+                    {title}
+                </span>
+            </div>
+            <div className="flex items-center gap-4">
+                {variant === "circularProgress" && (
+                    <CircularProgressBar
+                        progress={progress}
+                        size={32}
+                    />
+                )}
+                {variant === "iconTick" && (
+                    <Icon variant="tick" size="medium" colorClass="text-primary-500 w-5 h-5" />
+                )}
+                <img
+                    src={courseSource}
+                    alt="Course Image"
+                    className="w-[80px] h-[80px] object-cover rounded-r-lg overflow-hidden"
+                />
+            </div>
         </div>
     );
 }

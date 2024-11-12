@@ -4,7 +4,6 @@ import WeekSelector from './WeekSelector';
 const meta: Meta<typeof WeekSelector> = {
     title: 'Design System/Atoms/WeekSelector',
     component: WeekSelector,
-    tags: ['autodocs'],
 };
 
 export default meta;
