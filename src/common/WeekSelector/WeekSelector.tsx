@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-import DaySelector, {DayConfig} from "../DaySelector/DaySelector";
+import DaySelector, { DayType } from "../DaySelector/DaySelector";
 
 export interface WeekSelectorProps {
-    onChange?: (selectedDays: string[]) => void;
+    onChange?: (selectedDays: DayType[]) => void;
 }
 
-const DAYS_CONFIG: DayConfig[] = [
-    { id: 'sunday', display: 'S' },
-    { id: 'monday', display: 'M' },
-    { id: 'tuesday', display: 'T' },
-    { id: 'wednesday', display: 'W' },
-    { id: 'thursday', display: 'T' },
-    { id: 'friday', display: 'F' },
-    { id: 'saturday', display: 'S' }
+const DAYS: DayType[] = [
+    'sunday',
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday'
 ];
 
 const WeekSelector: React.FC<WeekSelectorProps> = ({ onChange }) => {
-    const [selectedDays, setSelectedDays] = useState<Set<string>>(new Set());
+    const [selectedDays, setSelectedDays] = useState<Set<DayType>>(new Set());
 
-    const toggleDay = (dayId: string) => {
+    const toggleDay = (day: DayType) => {
         const newSelectedDays = new Set(selectedDays);
-        if (selectedDays.has(dayId)) {
-            newSelectedDays.delete(dayId);
+        if (selectedDays.has(day)) {
+            newSelectedDays.delete(day);
         } else {
-            newSelectedDays.add(dayId);
+            newSelectedDays.add(day);
         }
         setSelectedDays(newSelectedDays);
         onChange?.(Array.from(newSelectedDays));
@@ -31,12 +31,10 @@ const WeekSelector: React.FC<WeekSelectorProps> = ({ onChange }) => {
 
     return (
         <div className="flex space-x-2">
-            {DAYS_CONFIG.map((dayConfig) => (
+            {DAYS.map((day) => (
                 <DaySelector
-                    key={dayConfig.id}
-                    dayConfig={dayConfig}
-                    selected={selectedDays.has(dayConfig.id)}
-                    onClick={() => toggleDay(dayConfig.id)}
+                    key={day}
+                    day={day}
                 />
             ))}
         </div>
