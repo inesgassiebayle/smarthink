@@ -78,8 +78,10 @@ const TimePicker: FC<TimePickerProps> = ({
         hourRef: React.RefObject<HTMLInputElement>;
         minuteRef: React.RefObject<HTMLInputElement>;
         onOk: () => void;
+
+
     }) => (
-        <div className="w-full bg-grayscale-100 p-4 rounded-lg self-stretch">
+        <div className="w-full bg-grayscale-100 p-4 rounded-lg">
             <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
             <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
                 <div className="flex gap-4 sm:gap-8 justify-between">
