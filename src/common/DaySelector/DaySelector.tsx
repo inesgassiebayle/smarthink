@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export interface DayConfig {
-    id: string;
-    display: string;
-}
+export type DayType = 'sunday' | 'monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday';
 
 export interface DaySelectorProps {
-    dayConfig: DayConfig;
-    selected: boolean;
-    onClick: () => void;
+    day: DayType;
 }
 
-const DaySelector: React.FC<DaySelectorProps> = ({ dayConfig, selected, onClick }) => {
+const dayDisplayMap: Record<DayType, string> = {
+    sunday: 'S',
+    monday: 'M',
+    tuesday: 'T',
+    wednesday: 'W',
+    thursday: 'T',
+    friday: 'F',
+    saturday: 'S'
+};
+
+const DaySelector: React.FC<DaySelectorProps> = ({ day }) => {
+    const [isSelected, setIsSelected] = useState(false);
+
     return (
         <div
-            onClick={onClick}
+            onClick={() => setIsSelected(!isSelected)}
             className={`w-10 h-10 flex items-center justify-center rounded-full cursor-pointer transition-colors
-                ${selected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
+                ${isSelected ? 'bg-primary-500 text-white' : 'bg-gray-300 text-gray-500'}`}
         >
-            {dayConfig.display}
+            {dayDisplayMap[day]}
         </div>
     );
 };
