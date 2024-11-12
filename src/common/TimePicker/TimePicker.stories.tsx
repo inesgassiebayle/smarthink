@@ -3,7 +3,7 @@ import { useState } from 'react';
 import TimePicker from './TimePicker';
 
 const meta: Meta<typeof TimePicker> = {
-    title: 'Components/TimePicker',
+    title: 'Design System/Atoms/TimePicker',
     component: TimePicker,
     parameters: {
         layout: 'centered',

@@ -89,7 +89,7 @@ const TimePicker: FC<TimePickerProps> = ({
                 {/* Contenedor para mantener el espacio y alineación */}
                 <div className="flex gap-4 sm:gap-8 justify-between">
                     {/* Hour input y label */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <input
                             type="number"
                             min="0"
@@ -99,12 +99,16 @@ const TimePicker: FC<TimePickerProps> = ({
                             ref={hourRef}
                             className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
+                            style={{
+                                textAlign: 'center',
+                                lineHeight: '72px', // Asegura que el texto esté centrado verticalmente
+                            }}
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Hour</span>
                     </div>
 
                     {/* Minute input y label */}
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center justify-center">
                         <input
                             type="number"
                             min="0"
@@ -114,6 +118,10 @@ const TimePicker: FC<TimePickerProps> = ({
                             ref={minuteRef}
                             className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
+                            style={{
+                                textAlign: 'center',
+                                lineHeight: '72px', // Asegura que el texto esté centrado verticalmente
+                            }}
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Minute</span>
                     </div>
