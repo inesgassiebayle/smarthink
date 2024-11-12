@@ -34,8 +34,8 @@ module.exports = {
             },
             grayscale: {
                 black: '#313E3F',
-                100: '#c9dcdc',
-                200: '#a5c4c5',
+                100: '#dde4e4',
+                200: '#A5C4C5',
                 300: '#9FABAE',
                 400: '#899395',
                 500: "#6C6F6F",
