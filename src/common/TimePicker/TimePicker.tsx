@@ -109,7 +109,7 @@ const TimePicker: FC<TimePickerProps> = ({
                             value={time.minute}
                             onChange={onChange('minute')}
                             ref={minuteRef}
-                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-[#A5C4C5]
+                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
                                        rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
                             style={{
                                 textAlign: 'center',
