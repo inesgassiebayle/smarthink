@@ -12,6 +12,9 @@ import QuizzRanking, { QuizzRankingProps } from "./QuizzRanking";
 export default {
     title: 'Design System/Atoms/Quizz Ranking',
     component: QuizzRanking,
+    argTypes:{
+        people: {table: {disable: true}},
+    }
 } as Meta<typeof QuizzRanking>;
 
 const Template: StoryFn<QuizzRankingProps> = (args) => <QuizzRanking {...args} />;

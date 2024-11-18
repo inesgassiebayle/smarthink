@@ -16,16 +16,8 @@ const meta: Meta<typeof SearchBar> = {
             defaultValue: "Search...",
             description: "Placeholder text for the search bar",
         },
-        disabled: {
-            control: { type: "boolean" },
-            description: "Disables the search bar",
-            defaultValue: false,
-        },
-        value: {
-            control: { type: "text" },
-            description: "Value inside the search bar",
-            defaultValue: "",
-        }
+        disabled: {table: {disable: true}},
+        value: {table: {disable: true}},
     },
 };
 

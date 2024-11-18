@@ -17,6 +17,8 @@ const meta: Meta<typeof Tab> = {
             description: "Content of the tab",
             defaultValue: "Tab Label",
         },
+        onClick: {table: {disable: true}},
+        className: {table: {disable: true}}
     },
 };
 

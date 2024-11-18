@@ -4,6 +4,9 @@ import WeekSelector from './WeekSelector';
 const meta: Meta<typeof WeekSelector> = {
     title: 'Design System/Atoms/WeekSelector',
     component: WeekSelector,
+    argTypes: {
+        onChange: { table: { disable: true } },
+    },
 };
 
 export default meta;

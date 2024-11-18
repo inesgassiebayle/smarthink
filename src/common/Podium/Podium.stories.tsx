@@ -33,6 +33,7 @@ export default {
             control: { type: 'text' },
             description: 'Username of the third place',
         },
+        users: {table: {disable: true}},
     },
 } as Meta<typeof Podium>;
 

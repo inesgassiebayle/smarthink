@@ -18,10 +18,9 @@ export default {
             control: { type: "text" },
             description: "Title of the category",
         },
-        onClick: {
-            action: "clicked",
-            description: "Handler for the 'View All' button click",
-        },
+        courses: { table: { disable: true } },
+        onCourseClick: { table: { disable: true } },
+        onCategoryClick: { table: { disable: true } },
     },
 } as Meta<CategoryCoursesProps>;
 

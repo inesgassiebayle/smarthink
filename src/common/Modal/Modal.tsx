@@ -88,9 +88,7 @@ const Modal: FunctionComponent<ModalProps> = ({
                     <div className="flex gap-2 pb-2 justify-end border-t border-gray-400 pt-4"
                          style={{paddingTop: "16px"}}>
                         {showFav && (
-                            <button onClick={handleIconClick} className="focus:outline-none">
-                                <Icon variant={actionIconVariant} fill={isIconFilled} />
-                            </button>
+                            <ButtonIcon onClick={handleIconClick} size={"medium"} variant={actionIconVariant} filled={isIconFilled}/>
                         )}
                         {showSecondaryButton && buttons && (
                             <Button

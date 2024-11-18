@@ -12,7 +12,7 @@ export default {
             defaultValue: "menu",
             description: "Select the type of icon to display.",
         },
-        onClick: { action: "clicked" },
+        onClick: { table: { disable: true } },
     },
 } as Meta<typeof HeaderIcon>;
 

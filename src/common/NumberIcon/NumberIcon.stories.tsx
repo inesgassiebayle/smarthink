@@ -15,6 +15,7 @@ export default {
             control: { type: "select" },
             description: "Icon size",
         },
+        colorClass: {table: {disable: true}},
     },
 } as Meta<typeof NumberIcon>;
 

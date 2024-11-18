@@ -29,7 +29,7 @@ const meta: Meta<typeof Button> = {
         },
         icon: {
             options: [
-                null, // Add a null option to represent no icon
+                null,
                 "explore",
                 "bookmark",
                 "heart",
@@ -77,7 +77,8 @@ const meta: Meta<typeof Button> = {
             control: { type: "select" },
             description: "Icon variant to display",
         },
-        onClick: { action: "clicked" },
+        iconProps: { table: { disable: true } },
+        onClick: { table: { disable: true } },
     },
 };
 

@@ -5,9 +5,8 @@ export default {
     title: "Design System/Atoms/Switch",
     component: Switch,
     argTypes: {
-        onToggle: {
-            action: "toggled",
-        }
+        initialActive: {table: {disable: true}},
+        onToggle: {table: {disable: true}},
     }
 } as Meta<typeof Switch>;
 

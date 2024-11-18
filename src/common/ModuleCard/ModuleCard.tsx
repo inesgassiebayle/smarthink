@@ -7,7 +7,6 @@ export interface ModuleCardProps extends VariantProps<typeof ModuleCardVariant> 
     id: string;
     variant: "horizontal" | "iconTick" | "circularProgress";
     title: string;
-    avatarSource: string;
     courseSource: string;
     progress?: number;
     onClick?: () => void;
@@ -32,7 +31,6 @@ const ModuleCardVariant = cva(
 export default function ModuleCard({
                                        variant,
                                        title,
-                                       avatarSource,
                                        courseSource,
                                        progress = 0,
                                        onClick,

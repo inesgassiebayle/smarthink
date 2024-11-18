@@ -72,6 +72,9 @@ const meta: Meta<typeof InputField> = {
             description: "Disable the input field",
             defaultValue: false,
         },
+        onClick: { table: { disable: true } },
+        iconProps: { table: { disable: true } },
+        value: { table: { disable: true } },
     },
 };
 

@@ -23,11 +23,8 @@ const meta: Meta<typeof AnswerIcon> = {
                 type: 'boolean',
             },
         },
-        clickable: {
-            control: {
-                type: 'boolean',
-            },
-        },
+        color: { table: { disable: true } },
+        clickable: { table: { disable: true } },
     },
 };
 export default meta;

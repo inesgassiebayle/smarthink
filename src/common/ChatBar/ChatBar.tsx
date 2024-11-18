@@ -41,9 +41,9 @@ const ChatBar: FunctionComponent<ChatBarProps> = ({ onClickEmoji, onClickMic, on
                     value={text}
                     onChange={handleChange}
                     placeholder=""
-                    className="flex-1 w-full bg-transparent border-none outline-none text-base text-primary-900"
+                    className="flex-1 w-full bg-transparent border-none outline-none text-base font-inter text-text-black"
                 />
-                <ButtonIcon onClick={handleSend} size="medium" variant="send" colorClass="text-primary-500" />
+                <ButtonIcon onClick={handleSend} size="medium" variant="send" colorClass="text-primary-500"/>
             </div>
             <ButtonIcon onClick={onClickMic} variant="mic" size="medium" colorClass="text-primary-900" />
         </div>

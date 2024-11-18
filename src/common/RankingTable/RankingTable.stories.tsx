@@ -7,7 +7,7 @@ export default {
     title: 'Design System/Atoms/RankingTable',
     component: RankingTable,
     argTypes: {
-        control: { type: 'object' },
+        rankings: { table: { disable: true } },
     },
 } as Meta<RankingTableProps>;
 

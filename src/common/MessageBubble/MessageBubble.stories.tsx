@@ -49,15 +49,6 @@ export const Default: Story = {
         isLastMessage: true,
         text: '¡Hola profe! Tenía una duda sobre la entrega del proyecto final.',
         time: '12:45 PM',
-    },
-};
-
-export const WithLinkAndImage: Story = {
-    args: {
-        variant: 'outgoing',
-        isLastMessage: false,
-        text: 'Aquí tienes el enlace al documento de referencia.',
-        time: '1:00 PM',
         link: 'https://example.com',
         subject: 'Documento de referencia',
         imageSrc: finance

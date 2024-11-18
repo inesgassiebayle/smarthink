@@ -4,7 +4,6 @@ import ModuleDescription from './ModuleDescription';
 const meta: Meta<typeof ModuleDescription> = {
     title: 'Design System/Atoms/ModuleDescription',
     component: ModuleDescription,
-    tags: ['autodocs'],
     argTypes: {
         description: {
             control: 'text',

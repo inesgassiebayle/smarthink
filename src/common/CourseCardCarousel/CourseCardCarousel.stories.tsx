@@ -19,6 +19,8 @@ export default {
             options: ["horizontal", "vertical"],
             description: "Controls the layout of the carousel",
         },
+        courses: { table: { disable: true } },
+        onCourseClick: { table: { disable: true } },
     },
 } as Meta<typeof CourseCardCarousel>;
 

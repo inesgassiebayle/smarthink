@@ -12,7 +12,7 @@ const subjectVariant = cva(
 const SubjectTag = ({ subject }: SubjectTagProps) => {
     return (
         <div className={subjectVariant()}>
-            <span className="text-grayscale-black font-inter text-[7.5px] font-regular leading-[9px]">
+            <span className="text-grayscale-black font-inter text-xs">
                 {subject}
             </span>
         </div>

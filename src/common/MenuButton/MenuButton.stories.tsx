@@ -9,7 +9,7 @@ const meta: Meta<MenuButtonProps> = {
             control: "select",
             options: ["logout", "courses", "membership", "profile", "certificates", "notifications"],
         },
-        onClick: { action: "clicked" },
+        onClick: { table: { disable: true } },
     },
 };
 
@@ -20,6 +20,7 @@ type Story = StoryObj<MenuButtonProps>;
 export const Default: Story = {
     args: {
         variant: "logout",
+        onClick: () => alert("Button clicked"),
 
     },
 };

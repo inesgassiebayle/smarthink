@@ -18,7 +18,7 @@ const meta: Meta<ProgressMapModuleProps> = {
         },
         icon: {
             options: [
-                null, // Allow null as an option
+                null,
                 "explore", "bookmark", "heart", "people", "switch_left", "switch_right", "tick", "clock",
                 "correct_circle", "correct_square", "incorrect_circle", "incorrect_square", "star", "close",
                 "add", "paper_clip", "download", "chat", "chat_multiple", "calendar", "search", "pencil",
@@ -28,6 +28,7 @@ const meta: Meta<ProgressMapModuleProps> = {
             control: { type: 'select' },
             description: 'Icon variant to be displayed, or null for no icon',
         },
+        onClick: { table: { disable: true } },
     },
     args: {
         title: 'Default - End',

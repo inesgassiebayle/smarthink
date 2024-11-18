@@ -4,7 +4,15 @@ import NavBar from "./NavBar";
 const meta: Meta<typeof NavBar> = {
     title: "Design System/Atoms/NavBar",
     component: NavBar,
-    argTypes: {},
+    argTypes: {
+        onClick1: { table: { disable: true } },
+        onClick2: { table: { disable: true } },
+        onClick3: { table: { disable: true } },
+        index: {
+            options: [0,1,2],
+            control: { type: "select" },
+        },
+    },
 };
 
 export default meta;

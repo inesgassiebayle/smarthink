@@ -15,6 +15,9 @@ const meta: Meta<typeof ProgressMap> = {
             control: { type: 'number' },
             description: 'Index of the currently reached module',
         },
+        modules: {table: {disable: true}},
+        onModuleClick: {table: {disable: true}},
+
     },
     args: {
         moduleState: 'in-progress',

@@ -33,10 +33,9 @@ export default {
             control: { type: "text" },
             description: "URL for the course image",
         },
-        onClick: {
-            action: "clicked",
-            description: "Function to handle card click",
-        },
+        id: { table: { disable: true } },
+        onClick: { table: { disable: true } },
+
     },
     args: {
         variant: "horizontal",

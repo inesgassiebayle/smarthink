@@ -13,7 +13,8 @@ const meta: Meta<typeof NavItem> = {
         active: {
             control: {type: "boolean"},
             description: 'Nav Item Active',
-        }
+        },
+        onClick: {table: {disable: true}},
     }
 };
 

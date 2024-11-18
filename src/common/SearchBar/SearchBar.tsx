@@ -27,7 +27,6 @@ const inputVariant = cva(
                     "bg-grayscale-white",
                     "border-primary-500",
                     "placeholder:text-primary-500",
-                    "border-[1.5px]",
                     "border-solid",
                     "box-border",
                     "text-grayscale-black",
@@ -36,7 +35,7 @@ const inputVariant = cva(
                     "bg-grayscale-white",
                     "border-primary-100",
                     "placeholder:text-primary-100",
-                    "text-primary-100", // Aseguramos que el texto en "disabled" sea de color primary-100
+                    "text-primary-100",
                     "cursor-not-allowed",
                 ],
             },
@@ -76,16 +75,14 @@ export default function SearchBar({ state: initialState = "default", value = "",
 
     return (
         <div className={`${inputVariant({ state })} flex items-center relative w-full`}>
-            <div className="flex-1 relative leading-[120%] overflow-hidden text-ellipsis whitespace-nowrap">
-                <input
-                    value={valueLocal}
-                    onChange={handleInputChange}
-                    disabled={state === "disabled"}
-                    className="flex-grow border-none focus:outline-none px-2 text-primary-500"
-                    {...props}
-                />
-            </div>
-            <div className="w-6 h-6 overflow-hidden shrink-0 flex flex-row items-center justify-center p-2 box-border">
+            <input
+                value={valueLocal}
+                onChange={handleInputChange}
+                disabled={state === "disabled"}
+                className="flex-1 border-none focus:outline-none px-2 text-text-black placeholder:text-grayscale-500"
+                {...props}
+            />
+            <div className="flex items-center justify-center p-2">
                 {state === "disabled" ? (
                     <Icon variant="search" size="medium" colorClass="text-primary-100" />
                 ) : state === "default" ? (

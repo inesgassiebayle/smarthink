@@ -16,6 +16,10 @@ import teacher from '../../assets/avatar-boy1.jpg';
 export default {
     title: "Design System/Atoms/ModuleDetailsPopUp",
     component: ModuleDetailsPopUp,
+    argTypes: {
+        modules: { table: { disable: true } },
+
+    }
 } as Meta<typeof ModuleDetailsPopUp>;
 
 const modulesData = [

@@ -43,18 +43,10 @@ export default {
             description: 'Fourth icon variant',
             defaultValue: 'empty',
         },
-        onIconClick1: {
-            action: 'icon1 clicked',
-        },
-        onIconClick2: {
-            action: 'icon2 clicked',
-        },
-        onIconClick3: {
-            action: 'icon3 clicked',
-        },
-        onIconClick4: {
-            action: 'icon4 clicked',
-        },
+        onIconClick1: { table: { disable: true } },
+        onIconClick2: { table: { disable: true } },
+        onIconClick3: { table: { disable: true } },
+        onIconClick4: { table: { disable: true } },
     },
 } as Meta<typeof Header>;
 

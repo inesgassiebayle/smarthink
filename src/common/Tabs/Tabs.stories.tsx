@@ -15,6 +15,7 @@ export default {
             defaultValue: "Tab 2",
             description: "Label for the second tab",
         },
+        onTabChange: { table: { disable: true } },
     },
 } as Meta<typeof Tabs>;
 
