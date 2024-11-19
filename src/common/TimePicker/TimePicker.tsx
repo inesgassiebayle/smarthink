@@ -43,25 +43,13 @@ const TimePicker: FC<TimePickerProps> = ({
         });
     };
 
-    const handleFromOk = () => {
-        if (fromHourRef.current?.value) {
-            fromMinuteRef.current?.focus();
-        }
-    };
-
-    const handleToOk = () => {
-        if (toHourRef.current?.value) {
-            toMinuteRef.current?.focus();
-        }
-    };
-
     const handleAccept = (type: 'from' | 'to') => {
         if (type === 'from') {
-            handleFromOk();
+            fromMinuteRef.current?.focus();
         } else if (type === 'to') {
-            handleToOk();
+            toMinuteRef.current?.focus();
         }
-        if (onAccept) onAccept();
+        onAccept?.();
     };
 
     const TimeSection = ({
@@ -78,14 +66,12 @@ const TimePicker: FC<TimePickerProps> = ({
         hourRef: React.RefObject<HTMLInputElement>;
         minuteRef: React.RefObject<HTMLInputElement>;
         onOk: () => void;
-
-
     }) => (
-        <div className="w-full bg-grayscale-100 p-4 rounded-lg">
+        <div className="w-full max-w-lg bg-white border border-black p-4 md:p-6 lg:p-8 rounded-lg flex flex-col items-center">
             <p className="text-black mb-4 text-base sm:text-lg">{label}</p>
-            <div className="relative flex flex-col sm:flex-row justify-start sm:gap-8">
-                <div className="flex gap-4 sm:gap-8 justify-between">
-                    <div className="flex flex-col items-center justify-center">
+            <div className="relative flex flex-col sm:flex-row justify-start gap-4 sm:gap-8 w-full">
+                <div className="flex w-full gap-4 justify-between">
+                    <div className="flex flex-col items-center w-1/2 sm:w-[128px]">
                         <input
                             type="number"
                             min="0"
@@ -93,17 +79,13 @@ const TimePicker: FC<TimePickerProps> = ({
                             value={time.hour}
                             onChange={onChange('hour')}
                             ref={hourRef}
-                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
-                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
-                            style={{
-                                textAlign: 'center',
-                                lineHeight: '72px',
-                            }}
+                            className="w-full h-[60px] sm:h-[72px] bg-primary-100 border-2 border-grayscale-200
+                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none"
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Hour</span>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center w-1/2 sm:w-[128px]">
                         <input
                             type="number"
                             min="0"
@@ -111,19 +93,15 @@ const TimePicker: FC<TimePickerProps> = ({
                             value={time.minute}
                             onChange={onChange('minute')}
                             ref={minuteRef}
-                            className="w-full sm:w-[128px] h-[72px] bg-primary-100 border-2 border-grayscale-200
-                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none drop-shadow-lg"
-                            style={{
-                                textAlign: 'center',
-                                lineHeight: '72px',
-                            }}
+                            className="w-full h-[60px] sm:h-[72px] bg-primary-100 border-2 border-grayscale-200
+                                       rounded-lg p-2 text-xl sm:text-2xl text-center text-black focus:outline-none"
                         />
                         <span className="text-black text-xs sm:text-sm mt-1">Minute</span>
                     </div>
                 </div>
 
-                <div className="absolute left-1/2 top-4 -translate-x-1/2 mb-16 sm:mb-0">
-                    <span className="text-h1 font-bold text-black">:</span>
+                <div className="absolute left-1/2 top-8 sm:top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <span className="text-2xl sm:text-3xl font-bold text-black">:</span>
                 </div>
             </div>
 
@@ -146,7 +124,7 @@ const TimePicker: FC<TimePickerProps> = ({
     );
 
     return (
-        <div className="flex flex-col gap-8 w-full px-4 sm:px-0">
+        <div className="flex flex-col gap-8 w-full px-4 sm:px-8 lg:px-16">
             <TimeSection
                 label="From"
                 time={fromTime}
