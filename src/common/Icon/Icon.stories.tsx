@@ -52,6 +52,7 @@ const meta: Meta<typeof Icon> = {
                 "empty",
                 "switch",
                 "volumeOff",
+                "rotate"
             ],
             control: { type: "select" },
             description: "Icon variant to display",
