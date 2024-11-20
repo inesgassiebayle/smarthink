@@ -55,7 +55,8 @@ interface ButtonIconProps {
         | "config"
         | "information"
         | "send"
-        | "switch";
+        | "switch"
+        | "volumeOff";
 }
 
 const ButtonIcon: FunctionComponent<ButtonIconProps> = ({onClick, variant, disabled , size, colorClass, filled=false}) => {
