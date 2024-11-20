@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Value } from "react-calendar/dist/cjs/shared/types";
@@ -13,9 +13,13 @@ export interface CalendarComponentProps {
 const CalendarComponent: React.FC<CalendarComponentProps> = ({
                                                                  onDateChange,
                                                                  initialDate = new Date(),
-                                                                 className = '',
+                                                                 className = "",
                                                              }) => {
     const [date, setDate] = useState<Value>(initialDate);
+
+    useEffect(() => {
+        setDate(initialDate);
+    }, [initialDate]);
 
     const handleDateChange = (newDate: Value) => {
         setDate(newDate);
@@ -25,13 +29,14 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     };
 
     const getTileClassName = ({ date: tileDate, view }: { date: Date; view: string }) => {
-        if (view === 'month') {
+        if (view === "month") {
             if (date instanceof Date && tileDate.toDateString() === date.toDateString()) {
-                return 'selected-date';
+                return "selected-date";
             }
         }
-        return '';
+        return "";
     };
+
 
     const customStyles = `
     .react-calendar {
@@ -42,7 +47,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     .react-calendar__tile {
         padding: 0.75em 0.5em;
         height: auto;
-        border-radius: 50%;  /* Hace que la celda sea redonda */
+        border-radius: 50%; /* Hace que la celda sea redonda */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -59,10 +64,10 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
     }
 
     /* Estilos específicos para la fecha seleccionada */
-    .selected-date {
-        background-color: #29B1B5 !important;
-        color: white !important;
-        border-radius: 60% !important; 
+   .selected-date {
+        background-color: #29B1B5 !important; /* Fondo del día seleccionado */
+        color: white !important;             /* Color del texto del día */
+        border-radius: 50% !important;       /* Asegúrate de que el borde sea circular */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -70,8 +75,8 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 
     /* Línea divisoria encima de los nombres de los días */
     .react-calendar__month-view__weekdays {
-        border-top: 0.5px solid #000000; /* Línea arriba de los nombres de los días */
-        border-bottom: 0.5px solid #000000; /* Línea debajo de los nombres de los días */
+        border-top: 0.5px solid #000000;
+        border-bottom: 0.5px solid #000000;
     }
 
     /* Estilo para los botones de navegación */
@@ -84,28 +89,28 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
         outline: none !important;
         text-decoration: none !important;
     }
-    
+
     /* Estilos para las flechas y el nombre del mes */
     .react-calendar__navigation {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0.5em 1em;
-        margin-bottom: 0.5em; /* Este margen ajusta la distancia entre el mes y el calendario */
-        width: 100%;  /* Asegura que ocupe todo el ancho del calendario */
+        margin-bottom: 0.5em;
+        width: 100%;
     }
-    
+
     .react-calendar__navigation .react-calendar__navigation__label {
-        font-size: 1.2em; /* Tamaño del texto del mes */
-        margin-top: 0.25em;  /* Ajusta la posición vertical del nombre del mes */
+        font-size: 1.2em;
+        margin-top: 0.25em;
         text-align: center;
-        flex-grow: 1;  /* Permite que el nombre del mes ocupe el espacio disponible */
+        flex-grow: 1;
     }
-    
+
     .react-calendar__navigation button {
         background: none;
         border: none;
-        padding: 0.5em;  /* Ajusta el padding de las flechas */
+        padding: 0.5em;
     }
 
     /* Eliminar el hover de las flechas de navegación */
