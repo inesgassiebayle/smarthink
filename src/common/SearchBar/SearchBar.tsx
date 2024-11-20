@@ -79,7 +79,7 @@ export default function SearchBar({ state: initialState = "default", value = "",
                 value={valueLocal}
                 onChange={handleInputChange}
                 disabled={state === "disabled"}
-                className="flex-1 border-none focus:outline-none px-2 text-text-black placeholder:text-grayscale-500"
+                className="flex-1 border-none focus:outline-none px-2 placeholder:text-grayscale-500"
                 {...props}
             />
             <div className="flex items-center justify-center p-2">
