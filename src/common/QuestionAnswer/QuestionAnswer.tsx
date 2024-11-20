@@ -41,7 +41,7 @@ const QuestionAnswer: React.FC<QuestionAnswerProps> = ({text, state, iconShape =
         shape: "circle" | "square";
         color: string;
         filled: boolean;
-        state: "correct" | "incorrect" | "default"
+        state: "correct" | "incorrect" | "default" | "disabled";
         clickable?: boolean;
     } => {
         let colorClass = "";
@@ -54,7 +54,7 @@ const QuestionAnswer: React.FC<QuestionAnswerProps> = ({text, state, iconShape =
                 return {state: 'incorrect', shape: iconShape, filled: true, color: colorClass};
             case 'disabled':
                 colorClass = "text-primary-100";
-                return {state: 'default', shape: iconShape, filled: filled, color: colorClass, clickable: false};
+                return {state: 'disabled', shape: iconShape, filled: filled, color: colorClass, clickable: false};
             default:
                 colorClass = "text-primary-500";
                 return {state: 'default', shape: iconShape, filled: filled, color: colorClass};

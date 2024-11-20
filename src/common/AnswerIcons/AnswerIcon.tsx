@@ -3,7 +3,7 @@ import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
 interface AnswerIconProps {
     shape: 'circle' | 'square';
-    state: 'incorrect' | 'correct' | 'default';
+    state: 'incorrect' | 'correct' | 'default' | 'disabled';
     filled: boolean;
     color?: string;
     clickable?: boolean;
@@ -41,7 +41,10 @@ const AnswerIcon: React.FC<AnswerIconProps> = ({ state, shape, filled, clickable
             return 'text-state-error';
         } else if (state === 'correct') {
             return 'text-state-succes';
-        } else {
+        } else if (state === 'disabled') {
+            return 'text-primary-100';
+        }
+        else {
             return 'text-primary-500';
         }
     };
