@@ -63,7 +63,7 @@ import {
     Tune,
     InfoOutlined,
     ArrowBack,
-    SendOutlined, VolumeOff,
+    SendOutlined, VolumeOff, Repeat,
 } from "@mui/icons-material";
 import { cva, VariantProps } from "class-variance-authority";
 
@@ -181,6 +181,7 @@ export default function Icon({ size = "medium", variant = "empty", fill = false,
         send: SendOutlined,
         information: InfoOutlined,
         volumeOff: VolumeOff,
+        rotate: Repeat,
     };
 
     const SelectedIcon = icons[variant] ?? null;

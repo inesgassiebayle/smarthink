@@ -31,7 +31,7 @@ const inputVariant = cva(
                 disabled: [
                     "bg-white",
                     "border-primary-100",
-                    "text-primary-100",
+                    "text-grayscale-300",
                     "cursor-not-allowed",
                     "placeholder:text-disabled",
                 ],

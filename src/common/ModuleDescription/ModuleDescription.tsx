@@ -6,8 +6,8 @@ interface ModuleDescriptionProps {
 
 const ModuleDescription: React.FC<ModuleDescriptionProps> = ({ description }) => {
     return (
-        <div className="bg-white rounded-lg shadow-md p-4 flex flex-col gap-4 min-h-[64px] border-[4px] border-primary-500">
-            <p className="text-gray-600">{description}</p>
+        <div className="bg-white flex w-full h-[96px] py-4 px-2 border-primary-500 flex-col justify-center border rounded-3xl truncate">
+            <p className="text-black font-inter">{description}</p>
         </div>
     );
 };
