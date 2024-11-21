@@ -15,7 +15,7 @@ export interface MessageBubbleProps {
 
 const MessageBubble: FunctionComponent<MessageBubbleProps> = ({ variant, isLastMessage = true, text, time, imageSrc, link, subject }) => {
     const isOutgoing = variant === 'outgoing';
-    const bgColor = isOutgoing ? 'bg-primary-100' : 'bg-gray-300';
+    const bgColor = isOutgoing ? 'bg-primary-100' : "bg-grayscale-100";
     const tailImage = isOutgoing ? UnionOut : UnionIn;
 
     return (
@@ -59,7 +59,7 @@ const MessageBubble: FunctionComponent<MessageBubbleProps> = ({ variant, isLastM
                             alt="tail"
                             className="w-full h-full"
                             style={{
-                                filter: !isOutgoing ? 'brightness(0) saturate(100%) invert(93%) sepia(9%) saturate(25%) hue-rotate(168deg) brightness(94%) contrast(86%)' : 'none'
+                                filter: !isOutgoing ? 'brightness(0) saturate(100%) invert(90%) sepia(11%) saturate(36%) hue-rotate(168deg) brightness(98%) contrast(96%)' : 'none'
                             }}
                         />
                     </div>
