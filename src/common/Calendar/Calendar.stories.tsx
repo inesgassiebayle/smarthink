@@ -1,37 +1,34 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import CalendarComponent, { CalendarComponentProps } from './Calendar';
+import React from "react";
+import { Meta, StoryFn } from "@storybook/react";
+import CalendarComponent, { CalendarComponentProps } from "./Calendar";
 
 export default {
-    title: 'Design System/Atoms/CalendarComponent',
+    title: "Design System/Atoms/CalendarComponent",
     component: CalendarComponent,
     parameters: {
         viewport: {
-            defaultViewport: 'mobile1',
+            defaultViewport: "mobile1",
         },
         docs: {
             description: {
-                component: 'Mobile-optimized calendar with touch-friendly interface and no hover effects.'
-            }
-        }
+                component: "A customizable calendar component.",
+            },
+        },
     },
     argTypes: {
         initialDate: {
-            control: { type: 'date' },
-            description: 'Initial selected date on the calendar',
-            defaultValue: new Date(),
-        },
-        className: {
-            control: { type: 'text' },
-            description: 'Additional CSS classes for custom styling',
+            control: { type: "date" },
+            description: "The initial selected date on the calendar.",
+            defaultValue: new Date(2024, 10, 5),
         },
     },
 } as Meta<typeof CalendarComponent>;
 
-const Template: StoryFn<CalendarComponentProps> = (args) => <CalendarComponent onDateChange={(newDate: Date) => console.log("Selected date:", newDate)} {...args} />;
+const Template: StoryFn<CalendarComponentProps> = (args) => (
+    <CalendarComponent {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
-    initialDate: new Date(),
-    className: '',
+    initialDate: new Date(2024, 10, 5),
 };

@@ -6,19 +6,22 @@ import Icon from "../Icon/Icon";
 
 export interface CalendarComponentProps {
     onDateChange?: (newDate: Date) => void;
-    initialDate?: Date;
-    className?: string;
+    initialDate?: Date | number;
 }
 
 const CalendarComponent: React.FC<CalendarComponentProps> = ({
                                                                  onDateChange,
-                                                                 initialDate = new Date(),
-                                                                 className = "",
+                                                                 initialDate = new Date(2024, 10, 5),
                                                              }) => {
-    const [date, setDate] = useState<Value>(initialDate);
+    const [date, setDate] = useState<Value>(
+        typeof initialDate === "number" ? new Date(initialDate) : initialDate
+    );
 
     useEffect(() => {
-        setDate(initialDate);
+        const validDate =
+            typeof initialDate === "number" ? new Date(initialDate) : initialDate;
+        setDate(validDate);
+        console.log("Initial date set to:", validDate);
     }, [initialDate]);
 
     const handleDateChange = (newDate: Value) => {
@@ -63,23 +66,20 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
         background: none !important;
     }
 
-    /* Estilos específicos para la fecha seleccionada */
    .selected-date {
-        background-color: #29B1B5 !important; /* Fondo del día seleccionado */
-        color: white !important;             /* Color del texto del día */
-        border-radius: 50% !important;       /* Asegúrate de que el borde sea circular */
+        background-color: #29B1B5 !important;
+        color: white !important;          
+        border-radius: 50% !important;     
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    /* Línea divisoria encima de los nombres de los días */
     .react-calendar__month-view__weekdays {
         border-top: 0.5px solid #000000;
         border-bottom: 0.5px solid #000000;
     }
 
-    /* Estilo para los botones de navegación */
     .react-calendar__navigation button {
         background: none;
         border: none;
@@ -90,7 +90,6 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
         text-decoration: none !important;
     }
 
-    /* Estilos para las flechas y el nombre del mes */
     .react-calendar__navigation {
         display: flex;
         justify-content: space-between;
@@ -113,7 +112,6 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
         padding: 0.5em;
     }
 
-    /* Eliminar el hover de las flechas de navegación */
     .react-calendar__navigation button:hover {
         background: none !important;
         color: #000 !important;
@@ -121,7 +119,7 @@ const CalendarComponent: React.FC<CalendarComponentProps> = ({
 `;
 
     return (
-        <div className={`p-4 bg-white rounded-lg shadow-md ${className}`}>
+        <div className={`p-4 bg-white rounded-lg shadow-md`}>
             <style>{customStyles}</style>
             <Calendar
                 value={date}
