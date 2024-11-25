@@ -43,10 +43,10 @@ const Home: FunctionComponent<HomeProps> = ({ categories, onCategoryClick }) => 
     };
 
     return (
-        <div className="flex flex-col items-center gap-[var(--Space-400,16px)]">
+        <div className="flex flex-col items-center gap-2">
             <Header title="Home" icon1="menu" onIconClick1={openMenu}/>
             <div
-                className="mt-[88px] mb-[80px] flex flex-col w-full overflow-y-auto flex-grow gap-[var(--Space-400,16px)] overflow-x-hidden flex-1">
+                className="mt-[88px] mb-[80px] flex flex-col w-full overflow-y-auto flex-grow p-x-4 p-y-2 overflow-x-hidden flex-1">
                 <SearchBar placeholder="Insert a class code or name"/>
                 {Array.from(categories.entries()).map(([key, categoryProps]) => (
                     <CategoryCourses

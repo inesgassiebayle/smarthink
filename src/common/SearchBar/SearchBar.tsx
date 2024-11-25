@@ -74,23 +74,31 @@ export default function SearchBar({ state: initialState = "default", value = "",
     };
 
     return (
-        <div className={`${inputVariant({ state })} flex items-center relative w-full`}>
+        <div
+            className={`${inputVariant({ state })} flex items-center relative w-full h-[40px]`}
+        >
             <input
                 value={valueLocal}
                 onChange={handleInputChange}
                 disabled={state === "disabled"}
-                className="flex-1 border-none focus:outline-none px-2 placeholder:text-grayscale-500"
+                className="flex-1 border-none focus:outline-none px-2 placeholder:text-grayscale-500 h-full"
                 {...props}
             />
-            <div className="flex items-center justify-center p-2">
+            <div className="flex items-center justify-center p-2 h-full">
                 {state === "disabled" ? (
                     <Icon variant="search" size="medium" colorClass="text-primary-100" />
                 ) : state === "default" ? (
                     <Icon variant="search" size="medium" colorClass="text-grayscale-500" />
                 ) : (
-                    <ButtonIcon onClick={handleClear} size="medium" variant="close" colorClass="text-primary-500" />
+                    <ButtonIcon
+                        onClick={handleClear}
+                        size="medium"
+                        variant="close"
+                        colorClass="text-primary-500"
+                    />
                 )}
             </div>
         </div>
     );
+
 }

@@ -25,16 +25,20 @@ const Header: FunctionComponent<HeaderProps> = ({
                                                     onIconClick4 = () => {},
                                                 }) => {
     return (
-        <div className="fixed z-10 top-0 flex w-full h-[88px] p-6 justify-center items-center gap-4 bg-white border-b-2 border-primary-500">
-            <HeaderIcon variant={icon1} onClick={onIconClick1} />
-            <HeaderIcon variant={icon2} onClick={onIconClick2} />
+        <div className="fixed z-10 top-0 flex w-full h-[88px] p-6 justify-between items-center gap-4 bg-white border-b-2 border-primary-500">
+            <div className="flex gap-4 p-2">
+                <HeaderIcon variant={icon1} onClick={onIconClick1} />
+                <HeaderIcon variant={icon2} onClick={onIconClick2} />
+            </div>
             <span className="text-primary-500 text-center font-inter text-xl font-regular leading-[120%] flex-1 line-clamp-2">
-                {title}
-            </span>
-            <HeaderIcon variant={icon3} onClick={onIconClick3} />
-            <HeaderIcon variant={icon4} onClick={onIconClick4} />
+            {title}
+        </span>
+            <div className="flex gap-4 p-2">
+                <HeaderIcon variant={icon3} onClick={onIconClick3} />
+                <HeaderIcon variant={icon4} onClick={onIconClick4} />
+            </div>
         </div>
-    );
+);
 };
 
 export default Header;

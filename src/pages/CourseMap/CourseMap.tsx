@@ -39,9 +39,9 @@ const CourseMap: FunctionComponent<CourseMapProps> = ({modules, onModuleClick, m
     }, [modalOpen]);
 
     return (
-        <div className="flex flex-col justify-between items-center w-full h-full mx-auto">
+        <div className="flex flex-col justify-between items-center w-full gap-4 h-full mx-auto">
             <Header title={title} icon4={"information"} onIconClick4={() => setModalOpen(true)}/>
-            <div className={"my-[25%] space-y-2 pt-2 pb-2 w-full"}>
+            <div className={"my-[28%] space-y-2 gap-4 p-x-4 w-full"}>
                 <CourseLevelCard variant={"leveled"} courseSource={courseSrc} level={level} points={points} progress={progress}/>
                 <ProgressMap onModuleClick={onModuleClick} modules={modules} moduleReached={moduleReached} moduleState={moduleState}/>
             </div>
