@@ -5,7 +5,18 @@ import environment from '../../assets/environment.png'
 
 const meta: Meta<typeof CourseMap> = {
     title: 'Design System/Pages/CourseMap',
-    component: CourseMap
+    component: CourseMap,
+    argTypes: {
+        progress: {table: {disable: true}},
+        title: {table: {disable: true}},
+        modules: {table: {disable: true}},
+        moduleReached: {table: {disable: true}},
+        onModuleClick: {table: {disable: true}},
+        moduleState: {table: {disable: true}},
+        courseSrc: {table: {disable: true}},
+        level: {table: {disable: true}},
+        points: {table: {disable: true}},
+    }
 };
 
 export default meta;

@@ -30,7 +30,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 <HeaderIcon variant={icon1} onClick={onIconClick1} />
                 <HeaderIcon variant={icon2} onClick={onIconClick2} />
             </div>
-            <span className="text-primary-500 text-center font-inter text-xl font-regular leading-[120%] flex-1 line-clamp-2">
+            <span className="text-primary-500 text-center font-inter text-h5 font-regular leading-[120%] flex-1 line-clamp-2">
             {title}
         </span>
             <div className="flex gap-4 p-2">

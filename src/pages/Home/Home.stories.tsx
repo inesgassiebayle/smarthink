@@ -18,6 +18,10 @@ import physics from "../../assets/physics.jpg";
 export default {
     title: "Design System/Pages/Home",
     component: Home,
+    argTypes: {
+        categories: { table: { disable: true } },
+        onCategoryClick: { table: { disable: true } },
+    },
 } as Meta<typeof Home>;
 
 const Template: StoryFn<HomeProps> = (args) => <Home {...args} />;
